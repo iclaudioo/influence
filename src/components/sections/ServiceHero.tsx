@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
+import { BackgroundCircles } from "@/components/ui/BackgroundCircles";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 
 type Props = {
@@ -13,9 +14,10 @@ type Props = {
   networkNodes?: boolean;
   gradientMesh?: boolean;
   layeredBlocks?: boolean;
+  animatedCircles?: "labs" | "circle" | "studio" | "academy" | "gold" | "orange";
 };
 
-export function ServiceHero({ namespace, accentColor, featured, networkNodes, gradientMesh, layeredBlocks }: Props) {
+export function ServiceHero({ namespace, accentColor, featured, networkNodes, gradientMesh, layeredBlocks, animatedCircles }: Props) {
   const t = useTranslations(namespace);
 
   return (
@@ -102,6 +104,11 @@ export function ServiceHero({ namespace, accentColor, featured, networkNodes, gr
             />
           ))}
         </div>
+      )}
+
+      {/* Animated circles visual */}
+      {animatedCircles && (
+        <BackgroundCircles variant={animatedCircles} />
       )}
 
       <Container className="relative z-10">
