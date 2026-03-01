@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "title": "Influence Circle | Reputation Architects",
+    "description": "From invisible to indispensable. Influence Circle helps European C-level leaders strategically build their reputation."
+  },
+  "nav": {
+    "services": "Services",
+    "labs": "Influence Labs",
+    "labsDesc": "Strategic consulting for business growth",
+    "circle": "Influence Circle",
+    "circleDesc": "CEO personal branding & thought leadership",
+    "studio": "Influence Studio",
+    "studioDesc": "Premium content creation & distribution",
+    "academy": "Influence Academy",
+    "academyDesc": "Training & certification for teams",
+    "about": "About us",
+    "contact": "Contact",
+    "cta": "Book a call",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "hero": {
+    "eyebrow": "Reputation Architects",
+    "title": "From invisible to indispensable",
+    "subtitle": "We build the reputation of European C-level leaders. Strategically, systematically and measurably — so you become the obvious choice.",
+    "cta": "Book a call",
+    "ctaSecondary": "Discover our approach"
+  },
+  "clients": {
+    "label": "Trusted by"
+  },
+  "painPoints": {
+    "eyebrow": "Sound familiar?",
+    "items": [
+      {
+        "title": "Your expertise is invisible",
+        "description": "You're the best in your field, but your competitors are winning the contracts. They're not better — they're more visible."
+      },
+      {
+        "title": "No time for thought leadership",
+        "description": "Thought leadership feels like a second full-time job. LinkedIn posts, podcasts, keynotes — when are you supposed to run your company?"
+      },
+      {
+        "title": "No system, no strategy",
+        "description": "Sporadic posts, an outdated bio, no content calendar. Without a system, your reputation remains a matter of chance."
+      }
+    ],
+    "solution": "Influence Circle makes you the obvious choice."
+  },
+  "stats": {
+    "items": [
+      { "value": 150, "suffix": "+", "label": "CEOs guided" },
+      { "value": 43, "suffix": "%", "label": "Average visibility growth" },
+      { "value": 12, "suffix": "", "label": "European markets" },
+      { "value": 96, "suffix": "%", "label": "Client satisfaction" }
+    ]
+  },
+  "pillars": {
+    "eyebrow": "Our ecosystem",
+    "title": "Four pillars. One mission.",
+    "items": [
+      {
+        "name": "Influence Labs",
+        "description": "Strategic consulting and data-driven growth plans for businesses ready to scale.",
+        "link": "Learn more"
+      },
+      {
+        "name": "Influence Circle",
+        "description": "Personal branding and thought leadership for CEOs and C-level executives.",
+        "link": "Learn more"
+      },
+      {
+        "name": "Influence Studio",
+        "description": "Premium content creation — from strategy to production and distribution.",
+        "link": "Learn more"
+      },
+      {
+        "name": "Influence Academy",
+        "description": "Training and certification for teams looking to amplify their influence.",
+        "link": "Learn more"
+      }
+    ]
+  },
+  "mirror": {
+    "eyebrow": "Our method",
+    "title": "The Mirror Exposure Effect",
+    "description": "The more people see you, the more they trust you. We make that systematic.",
+    "steps": [
+      { "title": "Visibility", "description": "Being present where your audience looks" },
+      { "title": "Recognition", "description": "Being recognized as an expert in your domain" },
+      { "title": "Trust", "description": "Building trust through consistent value" },
+      { "title": "Being chosen", "description": "Becoming the obvious choice" }
+    ],
+    "cta": "Discover your path"
+  },
+  "testimonial": {
+    "quote": "Influence Circle completely transformed our visibility. In six months, we went from unknown to the reference in our sector.",
+    "name": "Jan De Smedt",
+    "title": "CEO",
+    "company": "TechVentures Belgium"
+  },
+  "ctaBanner": {
+    "title": "Ready to become indispensable?",
+    "cta": "Plan your strategy session",
+    "phone": "+32 (0)3 123 45 67"
+  },
+  "footer": {
+    "tagline": "Reputation Architects for European C-level leaders.",
+    "services": "Services",
+    "company": "Company",
+    "about": "About us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "connect": "Connect",
+    "copyright": "© {year} Influence Circle. All rights reserved."
+  },
+  "labs": {
+    "hero": {
+      "eyebrow": "Influence Labs",
+      "title": "Strategic growth, scientifically proven",
+      "subtitle": "Data-driven strategies that position your company for sustainable growth in the European market."
+    },
+    "challenge": {
+      "eyebrow": "The challenge",
+      "title": "Growth without direction is waste",
+      "items": [
+        { "title": "No clear positioning story", "description": "Your company does great work, but the market doesn't understand what makes you unique." },
+        { "title": "Growth has stalled", "description": "You've hit a ceiling and don't know how to break through to the next level." },
+        { "title": "No measurable strategy", "description": "Marketing feels like gambling — without a data-driven approach, ROI remains unclear." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Our approach",
+      "title": "From insight to impact",
+      "steps": [
+        { "title": "Audit", "description": "In-depth analysis of your current position, market and competition." },
+        { "title": "Strategy", "description": "A tailored growth plan with clear KPIs and milestones." },
+        { "title": "Execution", "description": "Hands-on implementation with our team of specialists." },
+        { "title": "Growth", "description": "Continuous optimization and scaling based on results." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "What you get",
+      "title": "Concrete results",
+      "items": [
+        { "title": "Positioning Report", "description": "Comprehensive market analysis and competitive landscape." },
+        { "title": "Growth Strategy", "description": "Detailed action plan with timeline and responsibilities." },
+        { "title": "KPI Dashboard", "description": "Real-time insight into your progress and results." },
+        { "title": "Monthly Reporting", "description": "Transparent updates and strategic recommendations." }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "Who is Influence Labs for?", "a": "Influence Labs is designed for ambitious companies looking to grow in the European market — from scale-ups to established enterprises entering a new growth phase." },
+        { "q": "How long does a typical engagement last?", "a": "A full engagement averages 6-12 months, depending on complexity and ambitions. Initial results are typically visible within 3 months." },
+        { "q": "What sets you apart from other consultancies?", "a": "We combine strategic advice with hands-on execution. We don't just make plans — we execute them and measure results." },
+        { "q": "How do you measure success?", "a": "We define clear KPIs together at the start. Think market share, lead generation, brand awareness and revenue growth." }
+      ]
+    },
+    "cta": {
+      "title": "Ready for strategic growth?",
+      "button": "Plan your growth session"
+    }
+  },
+  "circle": {
+    "hero": {
+      "eyebrow": "Influence Circle",
+      "title": "Your reputation is your most powerful asset",
+      "subtitle": "Personal branding and thought leadership for CEOs who want to become the reference in their sector."
+    },
+    "challenge": {
+      "eyebrow": "The challenge",
+      "title": "Talent alone isn't enough",
+      "items": [
+        { "title": "Invisible despite expertise", "description": "You're an expert, but nobody outside your direct network knows it." },
+        { "title": "No personal brand", "description": "Your company has a brand, but you personally? That's a missed opportunity." },
+        { "title": "Competitors on stage", "description": "Less qualified peers are getting the keynotes, the media attention, the board seats." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Our approach",
+      "title": "The Mirror Exposure journey",
+      "steps": [
+        { "title": "Mirror", "description": "We analyze who you are, what you stand for and how you want to be seen." },
+        { "title": "Position", "description": "We define your unique position and thought leadership domains." },
+        { "title": "Amplify", "description": "We amplify your visibility through the right channels and platforms." },
+        { "title": "Sustain", "description": "We build a sustainable system that continuously strengthens your reputation." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "What you get",
+      "title": "Your personal toolkit",
+      "items": [
+        { "title": "Personal Brand Strategy", "description": "Your unique story, positioning and content pillars." },
+        { "title": "LinkedIn Optimization", "description": "Profile, content strategy and engagement plan." },
+        { "title": "Media Training", "description": "Preparation for interviews, keynotes and panel discussions." },
+        { "title": "Content Calendar", "description": "12 months of planned thought leadership content." }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "How much time does this require from me?", "a": "On average 2-3 hours per week. We do the heavy lifting — you provide the expertise and authentic voice." },
+        { "q": "Isn't this just LinkedIn marketing?", "a": "No. Personal branding goes far beyond social media. It encompasses your entire professional presence — from speaking engagements to media appearances and strategic relationships." },
+        { "q": "When will I see results?", "a": "Initial measurable results are typically visible within 8-12 weeks. True reputation building is a marathon, not a sprint — we ensure consistent progress." },
+        { "q": "Do you work with competitors in the same sector?", "a": "No, we maintain strict exclusivity per sector and region to avoid conflicts." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to become the reference?",
+      "button": "Start your transformation"
+    }
+  },
+  "studio": {
+    "hero": {
+      "eyebrow": "Influence Studio",
+      "title": "Content that converts and convinces",
+      "subtitle": "Premium content creation for companies that want to tell their story strategically."
+    },
+    "challenge": {
+      "eyebrow": "The challenge",
+      "title": "Content without strategy is noise",
+      "items": [
+        { "title": "No consistent narrative", "description": "Your content says everything, but tells no coherent story." },
+        { "title": "Internal overload", "description": "Your team lacks the time or expertise for quality content production." },
+        { "title": "No measurable results", "description": "You invest in content, but don't know what it delivers." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Our approach",
+      "title": "From briefing to impact",
+      "steps": [
+        { "title": "Brief", "description": "We understand your goals, audience and brand identity." },
+        { "title": "Create", "description": "Our team produces high-quality content: video, text, design." },
+        { "title": "Distribute", "description": "Strategic distribution through the channels that matter." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "What you get",
+      "title": "Premium content, delivered",
+      "items": [
+        { "title": "Video Production", "description": "Thought leadership videos, company stories and event coverage." },
+        { "title": "Written Content", "description": "Articles, whitepapers, case studies and social media content." },
+        { "title": "Visual Design", "description": "Infographics, presentations and branded templates." },
+        { "title": "Distribution Strategy", "description": "Channel strategy, planning and performance tracking." }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "What type of content do you produce?", "a": "From short social media videos to comprehensive whitepapers. We cover the full spectrum: video, text, design and interactive content." },
+        { "q": "How do you ensure our brand identity?", "a": "Every engagement starts with an extensive brand briefing. We work with fixed brand guidelines and an approval process that guarantees quality and consistency." },
+        { "q": "Can you also optimize existing content?", "a": "Absolutely. Content repurposing and optimization is one of our core competencies. We extract more value from what you already have." },
+        { "q": "What is the typical turnaround time?", "a": "Depending on content type: social media posts within 3-5 business days, videos within 2-3 weeks, whitepapers within 4-6 weeks." }
+      ]
+    },
+    "cta": {
+      "title": "Ready for content that makes impact?",
+      "button": "Discuss your content"
+    }
+  },
+  "academy": {
+    "hero": {
+      "eyebrow": "Influence Academy",
+      "title": "Turn your team into your strongest ambassadors",
+      "subtitle": "Training and certification that transforms your employees into thought leaders and brand ambassadors."
+    },
+    "challenge": {
+      "eyebrow": "The challenge",
+      "title": "Untapped potential in your team",
+      "items": [
+        { "title": "Employees are invisible", "description": "Your team has expertise but doesn't share it — a massive missed reach." },
+        { "title": "No employee advocacy", "description": "Employees are your most credible ambassadors, but they're not activated." },
+        { "title": "Knowledge stays internal", "description": "Valuable insights never reach your market or potential clients." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Our approach",
+      "title": "From assess to certify",
+      "steps": [
+        { "title": "Assess", "description": "We map the current level and potential of your team." },
+        { "title": "Train", "description": "Interactive workshops and tailored coaching sessions." },
+        { "title": "Certify", "description": "Participants receive an Influence certification upon completion." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "What you get",
+      "title": "A complete training program",
+      "items": [
+        { "title": "LinkedIn Masterclass", "description": "Profile optimization and content strategy for professionals." },
+        { "title": "Storytelling Workshop", "description": "Learn to tell your story in a way that resonates." },
+        { "title": "Media Training", "description": "Preparation for interviews and public appearances." },
+        { "title": "Certification", "description": "Official Influence certification for participants." }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "How many participants can the training accommodate?", "a": "Our programs are flexible: from individual coaching to groups of 50+ employees. We adapt the format to your needs." },
+        { "q": "Are trainings available online?", "a": "Yes, we offer both on-site and online programs. Hybrid formats are also possible." },
+        { "q": "How long does a training program last?", "a": "From a one-day masterclass to a 3-month program. Duration depends on depth and the number of modules you choose." },
+        { "q": "Do you measure training impact?", "a": "Absolutely. We measure before, during and after the program — think LinkedIn engagement, content output and individual participant brand awareness." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to activate your team?",
+      "button": "Discover our programs"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About us",
+      "title": "We believe in the power of reputation",
+      "subtitle": "Influence Circle was founded from one conviction: the best professionals deserve to be seen."
+    },
+    "mission": {
+      "eyebrow": "Our mission",
+      "title": "Building reputations that open doors",
+      "description": "We help European C-level leaders and their organizations become strategically visible. Not by shouting, but by delivering the right message at the right time to the right people."
+    },
+    "values": {
+      "eyebrow": "Our values",
+      "title": "What we stand for",
+      "items": [
+        { "title": "Strategic", "description": "Every action is deliberate and data-driven. No guesswork." },
+        { "title": "Authentic", "description": "We build on who you truly are. No mask, no façade." },
+        { "title": "Results-driven", "description": "We measure everything. If it doesn't work, we adapt." },
+        { "title": "Exclusive", "description": "We work with a select number of clients per sector." }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's get acquainted",
+      "subtitle": "Ready to strategically build your reputation? Schedule a no-obligation call."
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email address",
+      "company": "Company",
+      "service": "Interested in",
+      "servicePlaceholder": "Select a service",
+      "message": "Your message",
+      "submit": "Send message",
+      "success": "Thank you for your message. We'll get back to you within 24 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Contact details",
+      "email": "hello@influence.be",
+      "phone": "+32 (0)3 123 45 67",
+      "address": "Antwerp, Belgium"
+    }
+  }
+}

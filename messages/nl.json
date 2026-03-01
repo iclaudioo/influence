@@ -1,0 +1,358 @@
+{
+  "meta": {
+    "title": "Influence Circle | Reputation Architects",
+    "description": "Van onzichtbaar naar onmisbaar. Influence Circle helpt Europese C-level leiders hun reputatie strategisch op te bouwen."
+  },
+  "nav": {
+    "services": "Diensten",
+    "labs": "Influence Labs",
+    "labsDesc": "Strategisch advies voor bedrijfsgroei",
+    "circle": "Influence Circle",
+    "circleDesc": "CEO personal branding & thought leadership",
+    "studio": "Influence Studio",
+    "studioDesc": "Premium content creatie & distributie",
+    "academy": "Influence Academy",
+    "academyDesc": "Training & certificering voor teams",
+    "about": "Over ons",
+    "contact": "Contact",
+    "cta": "Boek een gesprek",
+    "menu": "Menu",
+    "close": "Sluiten"
+  },
+  "hero": {
+    "eyebrow": "Reputation Architects",
+    "title": "Van onzichtbaar naar onmisbaar",
+    "subtitle": "Wij bouwen de reputatie van Europese C-level leiders. Strategisch, systematisch en meetbaar — zodat u de voor de hand liggende keuze wordt.",
+    "cta": "Boek een gesprek",
+    "ctaSecondary": "Ontdek onze aanpak"
+  },
+  "clients": {
+    "label": "Vertrouwd door"
+  },
+  "painPoints": {
+    "eyebrow": "Herkenbaar?",
+    "items": [
+      {
+        "title": "Uw expertise is onzichtbaar",
+        "description": "U bent de beste in uw vakgebied, maar uw concurrenten pakken de contracten. Ze zijn niet beter — ze zijn zichtbaarder."
+      },
+      {
+        "title": "Geen tijd voor thought leadership",
+        "description": "Thought leadership voelt als een tweede fulltime job. LinkedIn posts, podcasts, keynotes — wanneer moet u nog uw bedrijf leiden?"
+      },
+      {
+        "title": "Geen systeem, geen strategie",
+        "description": "Sporadische posts, een verouderde bio, geen content kalender. Zonder systeem blijft uw reputatie toeval."
+      }
+    ],
+    "solution": "Influence Circle maakt u de voor de hand liggende keuze."
+  },
+  "stats": {
+    "items": [
+      { "value": 150, "suffix": "+", "label": "CEO's begeleid" },
+      { "value": 43, "suffix": "%", "label": "Gemiddelde groei in zichtbaarheid" },
+      { "value": 12, "suffix": "", "label": "Europese markten" },
+      { "value": 96, "suffix": "%", "label": "Klanttevredenheid" }
+    ]
+  },
+  "pillars": {
+    "eyebrow": "Ons ecosysteem",
+    "title": "Vier pijlers. Eén missie.",
+    "items": [
+      {
+        "name": "Influence Labs",
+        "description": "Strategisch advies en data-gedreven groeiplannen voor bedrijven die willen opschalen.",
+        "link": "Ontdek meer"
+      },
+      {
+        "name": "Influence Circle",
+        "description": "Personal branding en thought leadership voor CEO's en C-level executives.",
+        "link": "Ontdek meer"
+      },
+      {
+        "name": "Influence Studio",
+        "description": "Premium content creatie — van strategie tot productie en distributie.",
+        "link": "Ontdek meer"
+      },
+      {
+        "name": "Influence Academy",
+        "description": "Training en certificering voor teams die hun eigen invloed willen vergroten.",
+        "link": "Ontdek meer"
+      }
+    ]
+  },
+  "mirror": {
+    "eyebrow": "Onze methode",
+    "title": "Het Mirror Exposure Effect",
+    "description": "Hoe vaker mensen u zien, hoe meer ze u vertrouwen. Wij maken dat systematisch.",
+    "steps": [
+      { "title": "Zichtbaarheid", "description": "Aanwezig zijn waar uw doelgroep kijkt" },
+      { "title": "Herkenning", "description": "Herkend worden als expert in uw domein" },
+      { "title": "Vertrouwen", "description": "Vertrouwen opbouwen door consistente waarde" },
+      { "title": "Gekozen worden", "description": "De voor de hand liggende keuze worden" }
+    ],
+    "cta": "Ontdek uw pad"
+  },
+  "testimonial": {
+    "quote": "Influence Circle heeft onze zichtbaarheid volledig getransformeerd. In zes maanden zijn we van onbekend naar de referentie in onze sector gegaan.",
+    "name": "Jan De Smedt",
+    "title": "CEO",
+    "company": "TechVentures Belgium"
+  },
+  "ctaBanner": {
+    "title": "Klaar om onmisbaar te worden?",
+    "cta": "Plan uw strategiegesprek",
+    "phone": "+32 (0)3 123 45 67"
+  },
+  "footer": {
+    "tagline": "Reputation Architects voor Europese C-level leiders.",
+    "services": "Diensten",
+    "company": "Bedrijf",
+    "about": "Over ons",
+    "contact": "Contact",
+    "privacy": "Privacybeleid",
+    "terms": "Algemene voorwaarden",
+    "connect": "Verbinden",
+    "copyright": "© {year} Influence Circle. Alle rechten voorbehouden."
+  },
+  "labs": {
+    "hero": {
+      "eyebrow": "Influence Labs",
+      "title": "Strategische groei, wetenschappelijk onderbouwd",
+      "subtitle": "Data-gedreven strategieën die uw bedrijf positioneren voor duurzame groei in de Europese markt."
+    },
+    "challenge": {
+      "eyebrow": "De uitdaging",
+      "title": "Groei zonder richting is verspilling",
+      "items": [
+        { "title": "Geen helder positioneringsverhaal", "description": "Uw bedrijf doet geweldig werk, maar de markt begrijpt niet wat u uniek maakt." },
+        { "title": "Groei stagneert", "description": "U heeft een plafond bereikt en weet niet hoe u naar het volgende niveau doorbreekt." },
+        { "title": "Geen meetbare strategie", "description": "Marketing voelt als gokken — zonder data-gedreven aanpak blijft ROI onduidelijk." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Onze aanpak",
+      "title": "Van inzicht naar impact",
+      "steps": [
+        { "title": "Audit", "description": "Diepgaande analyse van uw huidige positie, markt en concurrentie." },
+        { "title": "Strategie", "description": "Een op maat gemaakt groeiplan met duidelijke KPI's en milestones." },
+        { "title": "Executie", "description": "Hands-on implementatie met ons team van specialisten." },
+        { "title": "Groei", "description": "Continue optimalisatie en schaalvergroting op basis van resultaten." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "Wat u krijgt",
+      "title": "Concrete resultaten",
+      "items": [
+        { "title": "Positioneringsrapport", "description": "Uitgebreide marktanalyse en competitief landschap." },
+        { "title": "Groeistrategie", "description": "Gedetailleerd actieplan met tijdlijn en verantwoordelijkheden." },
+        { "title": "KPI Dashboard", "description": "Real-time inzicht in uw voortgang en resultaten." },
+        { "title": "Maandelijkse rapportage", "description": "Transparante updates en strategische aanbevelingen." }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": [
+        { "q": "Voor wie is Influence Labs geschikt?", "a": "Influence Labs is ontworpen voor ambitieuze bedrijven die willen groeien in de Europese markt — van scale-ups tot gevestigde ondernemingen die een nieuwe groeifase willen ingaan." },
+        { "q": "Hoe lang duurt een typisch traject?", "a": "Een volledig traject duurt gemiddeld 6-12 maanden, afhankelijk van de complexiteit en ambities. De eerste resultaten zijn doorgaans binnen 3 maanden zichtbaar." },
+        { "q": "Wat onderscheidt jullie van andere consultancies?", "a": "Wij combineren strategisch advies met hands-on executie. We maken niet alleen plannen — we voeren ze ook uit en meten de resultaten." },
+        { "q": "Hoe meten jullie succes?", "a": "We definiëren samen duidelijke KPI's bij de start. Denk aan marktaandeel, lead generatie, merkbekendheid en omzetgroei." }
+      ]
+    },
+    "cta": {
+      "title": "Klaar voor strategische groei?",
+      "button": "Plan uw groeigesprek"
+    }
+  },
+  "circle": {
+    "hero": {
+      "eyebrow": "Influence Circle",
+      "title": "Uw reputatie is uw krachtigste asset",
+      "subtitle": "Personal branding en thought leadership voor CEO's die de referentie willen worden in hun sector."
+    },
+    "challenge": {
+      "eyebrow": "De uitdaging",
+      "title": "Talent alleen volstaat niet",
+      "items": [
+        { "title": "Onzichtbaar ondanks expertise", "description": "U bent een expert, maar niemand buiten uw directe netwerk weet het." },
+        { "title": "Geen persoonlijk merk", "description": "Uw bedrijf heeft een merk, maar uzelf? Dat is een gemiste kans." },
+        { "title": "Concurrenten op het podium", "description": "Minder gekwalificeerde peers krijgen de keynotes, de media-aandacht, de board seats." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Onze aanpak",
+      "title": "Het Mirror Exposure traject",
+      "steps": [
+        { "title": "Mirror", "description": "We analyseren wie u bent, waar u voor staat en hoe u gezien wilt worden." },
+        { "title": "Positie", "description": "We definiëren uw unieke positie en thought leadership domeinen." },
+        { "title": "Amplify", "description": "We versterken uw zichtbaarheid via de juiste kanalen en platforms." },
+        { "title": "Sustain", "description": "We bouwen een duurzaam systeem dat uw reputatie continu versterkt." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "Wat u krijgt",
+      "title": "Uw persoonlijke toolkit",
+      "items": [
+        { "title": "Personal Brand Strategie", "description": "Uw unieke verhaal, positionering en contentpijlers." },
+        { "title": "LinkedIn Optimalisatie", "description": "Profiel, contentstrategie en engagement plan." },
+        { "title": "Media Training", "description": "Voorbereiding op interviews, keynotes en paneldiscussies." },
+        { "title": "Content Kalender", "description": "12 maanden aan geplande thought leadership content." }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": [
+        { "q": "Hoeveel tijd kost dit mij persoonlijk?", "a": "Gemiddeld 2-3 uur per week. Wij doen het zware werk — u levert de expertise en authentieke stem." },
+        { "q": "Is dit niet gewoon LinkedIn marketing?", "a": "Nee. Personal branding gaat veel verder dan social media. Het omvat uw gehele professionele presence — van speaking engagements tot media-optredens en strategische relaties." },
+        { "q": "Wanneer zie ik resultaten?", "a": "De eerste meetbare resultaten zijn doorgaans binnen 8-12 weken zichtbaar. Echte reputatieopbouw is een marathon, geen sprint — wij zorgen voor consistente progressie." },
+        { "q": "Werken jullie met concurrenten in dezelfde sector?", "a": "Nee, wij hanteren strikte exclusiviteit per sector en regio om conflicten te vermijden." }
+      ]
+    },
+    "cta": {
+      "title": "Klaar om de referentie te worden?",
+      "button": "Start uw transformatie"
+    }
+  },
+  "studio": {
+    "hero": {
+      "eyebrow": "Influence Studio",
+      "title": "Content die converteert en overtuigt",
+      "subtitle": "Premium content creatie voor bedrijven die hun verhaal strategisch willen vertellen."
+    },
+    "challenge": {
+      "eyebrow": "De uitdaging",
+      "title": "Content zonder strategie is ruis",
+      "items": [
+        { "title": "Geen consistent verhaal", "description": "Uw content zegt van alles, maar vertelt geen coherent verhaal." },
+        { "title": "Intern overbelast", "description": "Uw team heeft geen tijd of expertise voor kwalitatieve content productie." },
+        { "title": "Geen meetbaar resultaat", "description": "U investeert in content, maar weet niet wat het oplevert." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Onze aanpak",
+      "title": "Van briefing tot impact",
+      "steps": [
+        { "title": "Brief", "description": "We begrijpen uw doelen, doelgroep en merkidentiteit." },
+        { "title": "Create", "description": "Ons team produceert high-quality content: video, tekst, design." },
+        { "title": "Distribute", "description": "Strategische distributie via de kanalen die er toe doen." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "Wat u krijgt",
+      "title": "Premium content, geleverd",
+      "items": [
+        { "title": "Video Productie", "description": "Thought leadership video's, company stories en event coverage." },
+        { "title": "Geschreven Content", "description": "Artikelen, whitepapers, case studies en social media content." },
+        { "title": "Visueel Design", "description": "Infographics, presentaties en branded templates." },
+        { "title": "Distributie Strategie", "description": "Kanaalstrategie, planning en performance tracking." }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": [
+        { "q": "Welk type content produceren jullie?", "a": "Van korte social media video's tot uitgebreide whitepapers. Wij dekken het volledige spectrum: video, tekst, design en interactieve content." },
+        { "q": "Hoe waarborgen jullie onze merkidentiteit?", "a": "Elk traject start met een uitgebreide brand briefing. We werken met vaste merkrichtlijnen en een goedkeuringsproces dat kwaliteit en consistentie garandeert." },
+        { "q": "Kunnen jullie ook bestaande content optimaliseren?", "a": "Absoluut. Content repurposing en optimalisatie is een van onze kerncompetenties. We halen meer waarde uit wat u al heeft." },
+        { "q": "Wat is de typische doorlooptijd?", "a": "Afhankelijk van het type content: social media posts binnen 3-5 werkdagen, video's binnen 2-3 weken, whitepapers binnen 4-6 weken." }
+      ]
+    },
+    "cta": {
+      "title": "Klaar voor content die impact maakt?",
+      "button": "Bespreek uw content"
+    }
+  },
+  "academy": {
+    "hero": {
+      "eyebrow": "Influence Academy",
+      "title": "Maak van uw team uw sterkste ambassadeurs",
+      "subtitle": "Training en certificering die uw medewerkers transformeert tot thought leaders en merkambassadeurs."
+    },
+    "challenge": {
+      "eyebrow": "De uitdaging",
+      "title": "Onbenut potentieel in uw team",
+      "items": [
+        { "title": "Medewerkers zijn onzichtbaar", "description": "Uw team heeft expertise, maar deelt die niet — een enorm gemist bereik." },
+        { "title": "Geen employee advocacy", "description": "Werknemers zijn uw meest geloofwaardige ambassadeurs, maar worden niet geactiveerd." },
+        { "title": "Kennis blijft intern", "description": "Waardevolle inzichten bereiken nooit uw markt of potentiële klanten." }
+      ]
+    },
+    "process": {
+      "eyebrow": "Onze aanpak",
+      "title": "Van assess tot certify",
+      "steps": [
+        { "title": "Assess", "description": "We brengen het huidige niveau en potentieel van uw team in kaart." },
+        { "title": "Train", "description": "Interactieve workshops en coaching sessies op maat." },
+        { "title": "Certify", "description": "Deelnemers ontvangen een Influence-certificering na voltooiing." }
+      ]
+    },
+    "deliverables": {
+      "eyebrow": "Wat u krijgt",
+      "title": "Een compleet trainingsprogramma",
+      "items": [
+        { "title": "LinkedIn Masterclass", "description": "Profiel optimalisatie en contentstrategie voor professionals." },
+        { "title": "Storytelling Workshop", "description": "Leer uw verhaal vertellen op een manier die resoneert." },
+        { "title": "Media Training", "description": "Voorbereiding op interviews en publieke optredens." },
+        { "title": "Certificering", "description": "Officiële Influence-certificering voor deelnemers." }
+      ]
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": [
+        { "q": "Voor hoeveel deelnemers is de training geschikt?", "a": "Onze programma's zijn flexibel: van individuele coaching tot groepen van 50+ medewerkers. We passen het format aan op uw behoeften." },
+        { "q": "Zijn de trainingen ook online beschikbaar?", "a": "Ja, we bieden zowel on-site als online programma's aan. Hybride formaten zijn ook mogelijk." },
+        { "q": "Hoe lang duurt een trainingstraject?", "a": "Van een eendaagse masterclass tot een 3-maanden programma. De duur hangt af van de diepgang en het aantal modules dat u kiest." },
+        { "q": "Meten jullie de impact van de training?", "a": "Absoluut. We meten voor, tijdens en na het traject — denk aan LinkedIn engagement, content output en merkbekendheid van individuele deelnemers." }
+      ]
+    },
+    "cta": {
+      "title": "Klaar om uw team te activeren?",
+      "button": "Ontdek ons aanbod"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Over ons",
+      "title": "Wij geloven in de kracht van reputatie",
+      "subtitle": "Influence Circle is opgericht vanuit één overtuiging: de beste professionals verdienen het om gezien te worden."
+    },
+    "mission": {
+      "eyebrow": "Onze missie",
+      "title": "Reputatie bouwen die deuren opent",
+      "description": "Wij helpen Europese C-level leiders en hun organisaties om strategisch zichtbaar te worden. Niet door te schreeuwen, maar door de juiste boodschap op het juiste moment bij de juiste mensen te brengen."
+    },
+    "values": {
+      "eyebrow": "Onze waarden",
+      "title": "Waar we voor staan",
+      "items": [
+        { "title": "Strategisch", "description": "Elke actie is doordacht en data-gedreven. Geen gokwerk." },
+        { "title": "Authentiek", "description": "We bouwen op wie u werkelijk bent. Geen masker, geen façade." },
+        { "title": "Resultaatgericht", "description": "We meten alles. Als het niet werkt, passen we aan." },
+        { "title": "Exclusief", "description": "We werken met een select aantal klanten per sector." }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Laten we kennismaken",
+      "subtitle": "Klaar om uw reputatie strategisch aan te pakken? Plan een vrijblijvend gesprek."
+    },
+    "form": {
+      "name": "Naam",
+      "email": "E-mailadres",
+      "company": "Bedrijf",
+      "service": "Interesse in",
+      "servicePlaceholder": "Selecteer een dienst",
+      "message": "Uw bericht",
+      "submit": "Verstuur bericht",
+      "success": "Bedankt voor uw bericht. We nemen binnen 24 uur contact met u op.",
+      "error": "Er is iets misgegaan. Probeer het opnieuw."
+    },
+    "info": {
+      "title": "Contactgegevens",
+      "email": "hello@influence.be",
+      "phone": "+32 (0)3 123 45 67",
+      "address": "Antwerpen, België"
+    }
+  }
+}
