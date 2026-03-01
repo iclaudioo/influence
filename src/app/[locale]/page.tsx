@@ -1,3 +1,4 @@
+import { ScrollAtmosphere } from "@/components/ui/ScrollAtmosphere";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ClientLogoBar } from "@/components/sections/ClientLogoBar";
 import { PainPointSection } from "@/components/sections/PainPointSection";
@@ -10,6 +11,7 @@ import { CTABanner } from "@/components/sections/CTABanner";
 export default function HomePage() {
   return (
     <>
+      <ScrollAtmosphere />
       <HeroSection />
       <ClientLogoBar />
       <PainPointSection />

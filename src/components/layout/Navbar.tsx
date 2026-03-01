@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
@@ -40,6 +41,16 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  function handleMouseEnter() {
+    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    setIsServicesOpen(true);
+  }
+
+  function handleMouseLeave() {
+    closeTimeoutRef.current = setTimeout(() => setIsServicesOpen(false), 150);
+  }
 
   useEffect(() => {
     function handleScroll() {
@@ -78,8 +89,8 @@ export function Navbar() {
               {/* Services dropdown */}
               <div
                 className="relative"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -106,35 +117,43 @@ export function Navbar() {
                 </button>
 
                 {/* Mega menu dropdown */}
-                {isServicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
-                    <div className="bg-navy-light border border-white/10 rounded-2xl p-6 shadow-2xl min-w-[560px]">
-                      <div className="grid grid-cols-2 gap-4">
-                        {services.map((service) => (
-                          <Link
-                            key={service.key}
-                            href={service.href}
-                            className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
-                          >
-                            <span
-                              className={`mt-1.5 w-2.5 h-2.5 rounded-full ${service.colorDot} flex-shrink-0`}
-                            />
-                            <div>
+                <AnimatePresence>
+                  {isServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                    >
+                      <div className="bg-navy-light border border-white/10 rounded-2xl p-6 shadow-2xl min-w-[560px]">
+                        <div className="grid grid-cols-2 gap-4">
+                          {services.map((service) => (
+                            <Link
+                              key={service.key}
+                              href={service.href}
+                              className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"
+                            >
                               <span
-                                className={`block font-semibold text-white group-hover:${service.colorText} transition-colors`}
-                              >
-                                {t(service.key)}
-                              </span>
-                              <span className="block text-sm text-white/50 mt-0.5">
-                                {t(`${service.key}Desc`)}
-                              </span>
-                            </div>
-                          </Link>
-                        ))}
+                                className={`mt-1.5 w-2.5 h-2.5 rounded-full ${service.colorDot} flex-shrink-0 transition-transform group-hover:scale-150`}
+                              />
+                              <div>
+                                <span
+                                  className={`block font-semibold text-white group-hover:${service.colorText} transition-colors`}
+                                >
+                                  {t(service.key)}
+                                </span>
+                                <span className="block text-sm text-white/50 mt-0.5">
+                                  {t(`${service.key}Desc`)}
+                                </span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <Link

@@ -6,6 +6,8 @@ import { routing } from "@/i18n/routing";
 import { vastagoGrotesk, libreCaslon } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { PageTransition } from "@/components/layout/PageTransition";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -30,8 +32,11 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${vastagoGrotesk.variable} ${libreCaslon.variable}`}>
       <body className="font-sans antialiased bg-navy text-white">
         <NextIntlClientProvider messages={messages}>
+          <CustomCursor />
           <Navbar />
-          <main>{children}</main>
+          <main>
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>

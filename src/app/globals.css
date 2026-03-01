@@ -199,6 +199,13 @@ html {
   outline-offset: 2px;
 }
 
+/* Hide default cursor on non-touch devices */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
