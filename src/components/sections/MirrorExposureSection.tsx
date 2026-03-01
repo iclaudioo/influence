@@ -15,8 +15,14 @@ export function MirrorExposureSection() {
   const steps = [0, 1, 2, 3] as const;
 
   return (
-    <section className="bg-navy section-padding">
-      <Container>
+    <section className="bg-navy section-padding grain relative">
+      {/* Red background glow */}
+      <div
+        className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(215,38,61,0.15) 0%, transparent 60%)" }}
+      />
+
+      <Container className="relative z-10">
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left column — concentric circles diagram */}
           <motion.div
@@ -32,23 +38,27 @@ export function MirrorExposureSection() {
                 className="w-full h-full"
                 aria-hidden="true"
               >
-                {/* Outermost to innermost */}
-                {[4, 3, 2, 1].map((i) => (
-                  <circle
-                    key={i}
-                    cx="200"
-                    cy="200"
-                    r={40 + i * 40}
-                    fill="none"
-                    stroke={ACCENT}
-                    strokeWidth="1.5"
-                    className="mirror-circle"
-                    style={{
-                      opacity: 0.15 + (4 - i) * 0.15,
-                      animationDelay: `${i * 0.8}s`,
-                    }}
-                  />
-                ))}
+                {/* Outermost to innermost — varying strokeWidth and opacity */}
+                {[4, 3, 2, 1].map((i) => {
+                  const strokeWidth = 0.5 + (4 - i) * 0.5;
+                  const opacity = 0.08 + (4 - i) * 0.14;
+                  return (
+                    <circle
+                      key={i}
+                      cx="200"
+                      cy="200"
+                      r={40 + i * 40}
+                      fill="none"
+                      stroke={ACCENT}
+                      strokeWidth={strokeWidth}
+                      className="mirror-circle"
+                      style={{
+                        opacity,
+                        animationDelay: `${i * 0.8}s`,
+                      }}
+                    />
+                  );
+                })}
 
                 {/* Center filled circle */}
                 <circle cx="200" cy="200" r="12" fill={ACCENT} opacity="0.9" />
@@ -85,7 +95,6 @@ export function MirrorExposureSection() {
                   );
                 })}
               </svg>
-
             </div>
           </motion.div>
 

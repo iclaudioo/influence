@@ -4,10 +4,10 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
 
 const serviceLinks = [
-  { key: "labs", href: "/labs", colorClass: "text-labs" },
-  { key: "circle", href: "/circle", colorClass: "text-circle" },
-  { key: "studio", href: "/studio", colorClass: "text-studio" },
-  { key: "academy", href: "/academy", colorClass: "text-academy" },
+  { key: "labs", href: "/labs", color: "#0FA3B1" },
+  { key: "circle", href: "/circle", color: "#D7263D" },
+  { key: "studio", href: "/studio", color: "#A855F7" },
+  { key: "academy", href: "/academy", color: "#E8A317" },
 ];
 
 const companyLinks = [
@@ -23,7 +23,21 @@ export async function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-dark text-white">
+    <footer className="bg-navy-dark text-white relative">
+      {/* Multi-color accent stripe */}
+      <div
+        className="h-[3px]"
+        style={{
+          background: "linear-gradient(90deg, #0FA3B1, #D7263D, #A855F7, #E8A317)",
+        }}
+      />
+
+      {/* Subtle background glow */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, rgba(15,163,177,0.06) 0%, transparent 60%)" }}
+      />
+
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -53,7 +67,8 @@ export async function Footer() {
                 <li key={service.key}>
                   <Link
                     href={service.href}
-                    className={`text-white/70 hover:text-white transition-colors text-sm`}
+                    className="hover:brightness-125 transition-all text-sm"
+                    style={{ color: service.color }}
                   >
                     {tNav(service.key)}
                   </Link>
