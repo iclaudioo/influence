@@ -2,18 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const CIRCUMFERENCE = 2 * Math.PI * 36; // ~226.19
+
 type Props = {
   target: number;
   suffix?: string;
   duration?: number;
+  accentColor?: string;
 };
 
 export function AnimatedCounter({
   target,
   suffix = "",
   duration = 2000,
+  accentColor,
 }: Props) {
   const [count, setCount] = useState(0);
+  const [ringProgress, setRingProgress] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
@@ -26,6 +31,9 @@ export function AnimatedCounter({
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
           observer.disconnect();
+
+          // Trigger ring animation
+          setRingProgress(0.75);
 
           const startTime = performance.now();
 
@@ -55,10 +63,44 @@ export function AnimatedCounter({
     return () => observer.disconnect();
   }, [target, duration]);
 
+  const strokeColor = accentColor || "#ffffff";
+
   return (
-    <span ref={ref} className="text-5xl md:text-6xl font-bold text-white">
-      {count.toLocaleString()}
-      {suffix}
-    </span>
+    <div className="relative inline-flex items-center justify-center">
+      <svg
+        className="absolute w-24 h-24 -rotate-90"
+        viewBox="0 0 80 80"
+      >
+        <circle
+          cx="40"
+          cy="40"
+          r="36"
+          fill="none"
+          stroke={strokeColor}
+          strokeWidth="2"
+          opacity="0.15"
+        />
+        <circle
+          cx="40"
+          cy="40"
+          r="36"
+          fill="none"
+          stroke={strokeColor}
+          strokeWidth="2"
+          strokeDasharray={CIRCUMFERENCE}
+          strokeDashoffset={CIRCUMFERENCE * (1 - ringProgress)}
+          strokeLinecap="round"
+          className="transition-[stroke-dashoffset] duration-[2000ms] ease-out"
+        />
+      </svg>
+      <span
+        ref={ref}
+        style={{ color: accentColor || "#ffffff" }}
+        className="relative z-10 text-5xl md:text-6xl font-bold"
+      >
+        {count.toLocaleString()}
+        {suffix}
+      </span>
+    </div>
   );
 }
