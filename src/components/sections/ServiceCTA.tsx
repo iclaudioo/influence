@@ -5,7 +5,7 @@ import { motion, useInView } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { reveal, stagger } from "@/lib/animations";
+import { fadeUp, staggerContainer } from "@/lib/animations";
 
 type Props = {
   namespace: string;
@@ -18,23 +18,31 @@ export function ServiceCTA({ namespace, accentColor }: Props) {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="bg-navy section-padding">
-      <Container>
+    <section className="relative bg-navy section-padding overflow-hidden">
+      {/* Gradient overlay toward accent color */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `linear-gradient(135deg, transparent 50%, ${accentColor}15 100%)`,
+        }}
+      />
+
+      <Container className="relative z-10">
         <motion.div
           ref={ref}
-          variants={stagger}
+          variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="text-center"
         >
           <motion.h2
-            variants={reveal}
-            className="font-serif text-3xl md:text-4xl font-normal tracking-[-0.04em] text-white text-center"
+            variants={fadeUp}
+            className="text-3xl md:text-4xl font-bold text-white text-center"
           >
             {t("cta.title")}
           </motion.h2>
 
-          <motion.div variants={reveal} className="mt-8">
+          <motion.div variants={fadeUp} className="mt-8">
             <Button
               variant="primary"
               href="/contact"

@@ -5,35 +5,12 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { reveal, stagger } from "@/lib/animations";
+import { fadeUp, staggerContainer } from "@/lib/animations";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
+  const nav = useTranslations("nav");
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError(false);
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      const res = await fetch("https://formspree.io/f/xplaceholder", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError(true);
-      }
-    } catch {
-      setError(true);
-    }
-  }
 
   return (
     <>
@@ -41,26 +18,23 @@ export default function ContactPage() {
       <section className="bg-navy min-h-[40vh] flex items-center pt-24 pb-12">
         <Container>
           <motion.div
-            variants={stagger}
+            variants={staggerContainer}
             initial="hidden"
             animate="visible"
             className="max-w-3xl"
           >
-            <motion.div variants={reveal} className="mb-4">
-              <div className="w-8 h-px bg-gold" />
-            </motion.div>
-            <motion.p variants={reveal} className="eyebrow text-gold/60 mb-4">
+            <motion.p variants={fadeUp} className="eyebrow text-white/70 mb-4">
               {t("hero.eyebrow")}
             </motion.p>
             <motion.h1
-              variants={reveal}
-              className="font-serif text-5xl md:text-6xl font-normal tracking-[-0.04em]"
+              variants={fadeUp}
+              className="text-5xl md:text-6xl font-bold tracking-[-0.02em]"
             >
               {t("hero.title")}
             </motion.h1>
             <motion.p
-              variants={reveal}
-              className="text-lg md:text-xl text-white/70 mt-6 max-w-xl"
+              variants={fadeUp}
+              className="text-lg md:text-xl text-white/80 mt-6 max-w-xl"
             >
               {t("hero.subtitle")}
             </motion.p>
@@ -75,25 +49,27 @@ export default function ContactPage() {
             {/* Form */}
             <motion.div
               className="lg:col-span-3"
-              variants={stagger}
+              variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
               {submitted ? (
                 <motion.div
-                  variants={reveal}
+                  variants={fadeUp}
                   className="bg-white rounded-2xl p-8 text-center"
                 >
-                  <h3 className="font-serif text-2xl text-navy mb-4">{t("form.successTitle")}</h3>
-                  <p className="text-navy/70">{t("form.success")}</p>
-                  <p className="text-navy/50 text-sm mt-4">{t("form.successNextStep")}</p>
+                  <div className="text-4xl mb-4">✓</div>
+                  <p className="text-navy text-lg">{t("form.success")}</p>
                 </motion.div>
               ) : (
                 <motion.form
-                  variants={reveal}
+                  variants={fadeUp}
                   className="bg-white rounded-2xl p-8 shadow-lg shadow-navy/5 space-y-6"
-                  onSubmit={handleSubmit}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setSubmitted(true);
+                  }}
                 >
                   <div>
                     <label className="block text-sm font-medium text-navy mb-2">
@@ -101,9 +77,8 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
-                      name="name"
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-gold/40"
+                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
                     />
                   </div>
                   <div>
@@ -112,25 +87,41 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="email"
-                      name="email"
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-gold/40"
+                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
                     />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-navy mb-2">
+                      {t("form.company")}
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-navy mb-2">
+                      {t("form.service")}
+                    </label>
+                    <select className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20 bg-white">
+                      <option value="">{t("form.servicePlaceholder")}</option>
+                      <option value="labs">{nav("labs")}</option>
+                      <option value="circle">{nav("circle")}</option>
+                      <option value="studio">{nav("studio")}</option>
+                      <option value="academy">{nav("academy")}</option>
+                    </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-navy mb-2">
                       {t("form.message")}
                     </label>
                     <textarea
-                      name="message"
                       rows={5}
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-gold/40 resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20 resize-none"
                     />
                   </div>
-                  {error && (
-                    <p className="text-red-600 text-sm">{t("form.error")}</p>
-                  )}
                   <Button type="submit" variant="primary">
                     {t("form.submit")}
                   </Button>
@@ -141,13 +132,13 @@ export default function ContactPage() {
             {/* Info */}
             <motion.div
               className="lg:col-span-2"
-              variants={stagger}
+              variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
               <motion.div
-                variants={reveal}
+                variants={fadeUp}
                 className="bg-navy rounded-2xl p-8 text-white"
               >
                 <h3 className="text-xl font-bold mb-6">{t("info.title")}</h3>
@@ -165,7 +156,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-white/60 uppercase tracking-wide mb-1">
-                      {t("info.phoneLabel")}
+                      Telefoon
                     </p>
                     <a
                       href={`tel:${t("info.phone")}`}
@@ -176,7 +167,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-white/60 uppercase tracking-wide mb-1">
-                      {t("info.addressLabel")}
+                      Adres
                     </p>
                     <p className="text-white/80">{t("info.address")}</p>
                   </div>

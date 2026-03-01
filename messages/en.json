@@ -45,28 +45,7 @@
         "description": "Sporadic posts, an outdated bio, no content calendar. Without a system, your reputation remains a matter of chance."
       }
     ],
-    "solution": "The best professionals deserve to be seen. We make that possible — strategically, systematically and with proven results."
-  },
-  "caseStudies": {
-    "eyebrow": "Results",
-    "title": "What changes when leaders are seen.",
-    "items": [
-      {
-        "metric": "+312%",
-        "client": "CEO, TechScale Belgium",
-        "result": "Growth in LinkedIn reach within 6 months. From 200 to 12,000+ impressions per post through strategic thought leadership content."
-      },
-      {
-        "metric": "3x",
-        "client": "Managing Partner, Fortis Consulting",
-        "result": "Tripling of inbound leads after launching a systematic personal branding program."
-      },
-      {
-        "metric": "€2.4M",
-        "client": "CFO, NovaGroup",
-        "result": "In new contracts directly attributable to increased visibility and thought leadership positioning."
-      }
-    ]
+    "solution": "Influence Circle makes you the obvious choice."
   },
   "stats": {
     "items": [
@@ -114,29 +93,11 @@
     ],
     "cta": "Discover your path"
   },
-  "testimonials": {
-    "eyebrow": "What our clients say",
-    "title": "Trusted by leaders",
-    "items": [
-      {
-        "quote": "Influence Circle completely transformed our visibility. In six months, we went from unknown to the reference in our sector.",
-        "name": "Jan De Smedt",
-        "title": "CEO",
-        "company": "TechVentures Belgium"
-      },
-      {
-        "quote": "The systematic approach makes the difference. No isolated actions, but a deliberate strategy that delivers real results.",
-        "name": "Sophie Martens",
-        "title": "Managing Director",
-        "company": "Fortis Consulting"
-      },
-      {
-        "quote": "Thanks to Influence Circle, I'm now regularly invited as a speaker and expert. A year ago, that was unthinkable.",
-        "name": "Marc Willems",
-        "title": "Founder & CEO",
-        "company": "NovaGroup"
-      }
-    ]
+  "testimonial": {
+    "quote": "Influence Circle completely transformed our visibility. In six months, we went from unknown to the reference in our sector.",
+    "name": "Jan De Smedt",
+    "title": "CEO",
+    "company": "TechVentures Belgium"
   },
   "ctaBanner": {
     "title": "Ready to become indispensable?",
@@ -154,72 +115,11 @@
     "connect": "Connect",
     "copyright": "© {year} Influence Circle. All rights reserved."
   },
-  "about": {
-    "hero": {
-      "eyebrow": "About us",
-      "title": "We believe in the power of reputation",
-      "subtitle": "Influence Circle was founded from one conviction: the best professionals deserve to be seen."
-    },
-    "mission": {
-      "eyebrow": "Our mission",
-      "title": "Building reputations that open doors",
-      "description": "We help European C-level leaders and their organizations become strategically visible. Not by shouting, but by delivering the right message at the right time to the right people."
-    },
-    "founder": {
-      "eyebrow": "The founder",
-      "name": "Founder Name",
-      "title": "Founder & CEO, Influence Circle",
-      "bio": "With more than 15 years of experience in strategic communication and reputation management, he founded Influence Circle to help European leaders make their expertise visible. His approach combines data-driven strategy with a deep understanding of human psychology.",
-      "credentials": [
-        "15+ years strategic communication",
-        "200+ C-level engagements guided",
-        "Speaker at international conferences",
-        "Published in FD, De Tijd, L'Echo"
-      ],
-      "cta": "More about us"
-    },
-    "values": {
-      "eyebrow": "Our values",
-      "title": "What we stand for",
-      "items": [
-        { "title": "Strategic", "description": "Every action is deliberate and data-driven. No guesswork." },
-        { "title": "Authentic", "description": "We build on who you truly are. No mask, no façade." },
-        { "title": "Results-driven", "description": "We measure everything. If it doesn't work, we adapt." },
-        { "title": "Exclusive", "description": "We work with a select number of clients per sector." }
-      ]
-    }
-  },
-  "contact": {
-    "hero": {
-      "eyebrow": "Contact",
-      "title": "Let's get acquainted",
-      "subtitle": "Ready to strategically build your reputation? Schedule a no-obligation call."
-    },
-    "form": {
-      "name": "Name",
-      "email": "Email address",
-      "message": "Your message",
-      "submit": "Send message",
-      "success": "Thank you for your message. We'll get back to you within 24 hours.",
-      "successTitle": "Message sent",
-      "successNextStep": "In the meantime, you can explore our approach on the About page.",
-      "error": "Something went wrong. Please try again."
-    },
-    "info": {
-      "title": "Contact details",
-      "email": "hello@influence.be",
-      "phone": "+32 (0)3 123 45 67",
-      "phoneLabel": "Phone",
-      "address": "Antwerp, Belgium",
-      "addressLabel": "Address"
-    }
-  },
   "labs": {
     "hero": {
       "eyebrow": "Influence Labs",
       "title": "Strategic growth, scientifically proven",
-      "subtitle": "Data-driven strategies that position your company for sustainable growth in the European market.",
-      "cta": "Plan your growth session"
+      "subtitle": "Data-driven strategies that position your company for sustainable growth in the European market."
     },
     "challenge": {
       "eyebrow": "The challenge",
@@ -268,8 +168,7 @@
     "hero": {
       "eyebrow": "Influence Circle",
       "title": "Your reputation is your most powerful asset",
-      "subtitle": "Personal branding and thought leadership for CEOs who want to become the reference in their sector.",
-      "cta": "Start your transformation"
+      "subtitle": "Personal branding and thought leadership for CEOs who want to become the reference in their sector."
     },
     "challenge": {
       "eyebrow": "The challenge",
@@ -318,8 +217,7 @@
     "hero": {
       "eyebrow": "Influence Studio",
       "title": "Content that converts and convinces",
-      "subtitle": "Premium content creation for companies that want to tell their story strategically.",
-      "cta": "Discuss your content"
+      "subtitle": "Premium content creation for companies that want to tell their story strategically."
     },
     "challenge": {
       "eyebrow": "The challenge",
@@ -367,8 +265,7 @@
     "hero": {
       "eyebrow": "Influence Academy",
       "title": "Turn your team into your strongest ambassadors",
-      "subtitle": "Training and certification that transforms your employees into thought leaders and brand ambassadors.",
-      "cta": "Discover our programs"
+      "subtitle": "Training and certification that transforms your employees into thought leaders and brand ambassadors."
     },
     "challenge": {
       "eyebrow": "The challenge",
@@ -412,12 +309,50 @@
       "button": "Discover our programs"
     }
   },
-  "privacy": {
-    "title": "Privacy Policy",
-    "content": "This privacy policy will be published soon. Contact us at hello@influence.be for questions about your data."
+  "about": {
+    "hero": {
+      "eyebrow": "About us",
+      "title": "We believe in the power of reputation",
+      "subtitle": "Influence Circle was founded from one conviction: the best professionals deserve to be seen."
+    },
+    "mission": {
+      "eyebrow": "Our mission",
+      "title": "Building reputations that open doors",
+      "description": "We help European C-level leaders and their organizations become strategically visible. Not by shouting, but by delivering the right message at the right time to the right people."
+    },
+    "values": {
+      "eyebrow": "Our values",
+      "title": "What we stand for",
+      "items": [
+        { "title": "Strategic", "description": "Every action is deliberate and data-driven. No guesswork." },
+        { "title": "Authentic", "description": "We build on who you truly are. No mask, no façade." },
+        { "title": "Results-driven", "description": "We measure everything. If it doesn't work, we adapt." },
+        { "title": "Exclusive", "description": "We work with a select number of clients per sector." }
+      ]
+    }
   },
-  "terms": {
-    "title": "Terms & Conditions",
-    "content": "Terms and conditions will be published soon. Contact us at hello@influence.be for questions."
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's get acquainted",
+      "subtitle": "Ready to strategically build your reputation? Schedule a no-obligation call."
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email address",
+      "company": "Company",
+      "service": "Interested in",
+      "servicePlaceholder": "Select a service",
+      "message": "Your message",
+      "submit": "Send message",
+      "success": "Thank you for your message. We'll get back to you within 24 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Contact details",
+      "email": "hello@influence.be",
+      "phone": "+32 (0)3 123 45 67",
+      "address": "Antwerp, Belgium"
+    }
   }
 }

@@ -10,7 +10,7 @@ const ACCENT = "#0FA3B1";
 export default function LabsPage() {
   return (
     <>
-      <ServiceHero namespace="labs" accentColor={ACCENT} />
+      <ServiceHero namespace="labs" accentColor={ACCENT} featured />
       <ChallengeSection namespace="labs" accentColor={ACCENT} />
       <ProcessSteps namespace="labs" accentColor={ACCENT} />
       <DeliverablesGrid namespace="labs" accentColor={ACCENT} />

@@ -45,28 +45,7 @@
         "description": "Sporadische posts, een verouderde bio, geen content kalender. Zonder systeem blijft uw reputatie toeval."
       }
     ],
-    "solution": "De beste professionals verdienen het om gezien te worden. Wij maken dat mogelijk — strategisch, systematisch en met bewezen resultaat."
-  },
-  "caseStudies": {
-    "eyebrow": "Resultaten",
-    "title": "What changes when leaders are seen.",
-    "items": [
-      {
-        "metric": "+312%",
-        "client": "CEO, TechScale Belgium",
-        "result": "Groei in LinkedIn-bereik binnen 6 maanden. Van 200 naar 12.000+ impressies per post door strategische thought leadership content."
-      },
-      {
-        "metric": "3x",
-        "client": "Managing Partner, Fortis Consulting",
-        "result": "Verdrievoudiging van inbound leads na lancering van een systematisch personal branding programma."
-      },
-      {
-        "metric": "€2.4M",
-        "client": "CFO, NovaGroup",
-        "result": "Aan nieuwe contracten direct herleidbaar naar verhoogde zichtbaarheid en thought leadership positionering."
-      }
-    ]
+    "solution": "Influence Circle maakt u de voor de hand liggende keuze."
   },
   "stats": {
     "items": [
@@ -114,29 +93,11 @@
     ],
     "cta": "Ontdek uw pad"
   },
-  "testimonials": {
-    "eyebrow": "Wat onze klanten zeggen",
-    "title": "Vertrouwd door leiders",
-    "items": [
-      {
-        "quote": "Influence Circle heeft onze zichtbaarheid volledig getransformeerd. In zes maanden zijn we van onbekend naar de referentie in onze sector gegaan.",
-        "name": "Jan De Smedt",
-        "title": "CEO",
-        "company": "TechVentures Belgium"
-      },
-      {
-        "quote": "Het systematische aanpak maakt het verschil. Geen losse acties, maar een doordachte strategie die écht resultaat oplevert.",
-        "name": "Sophie Martens",
-        "title": "Managing Director",
-        "company": "Fortis Consulting"
-      },
-      {
-        "quote": "Dankzij Influence Circle word ik nu regelmatig gevraagd als spreker en expert. Dat was een jaar geleden ondenkbaar.",
-        "name": "Marc Willems",
-        "title": "Founder & CEO",
-        "company": "NovaGroup"
-      }
-    ]
+  "testimonial": {
+    "quote": "Influence Circle heeft onze zichtbaarheid volledig getransformeerd. In zes maanden zijn we van onbekend naar de referentie in onze sector gegaan.",
+    "name": "Jan De Smedt",
+    "title": "CEO",
+    "company": "TechVentures Belgium"
   },
   "ctaBanner": {
     "title": "Klaar om onmisbaar te worden?",
@@ -154,72 +115,11 @@
     "connect": "Verbinden",
     "copyright": "© {year} Influence Circle. Alle rechten voorbehouden."
   },
-  "about": {
-    "hero": {
-      "eyebrow": "Over ons",
-      "title": "Wij geloven in de kracht van reputatie",
-      "subtitle": "Influence Circle is opgericht vanuit één overtuiging: de beste professionals verdienen het om gezien te worden."
-    },
-    "mission": {
-      "eyebrow": "Onze missie",
-      "title": "Reputatie bouwen die deuren opent",
-      "description": "Wij helpen Europese C-level leiders en hun organisaties om strategisch zichtbaar te worden. Niet door te schreeuwen, maar door de juiste boodschap op het juiste moment bij de juiste mensen te brengen."
-    },
-    "founder": {
-      "eyebrow": "De oprichter",
-      "name": "Naam Oprichter",
-      "title": "Founder & CEO, Influence Circle",
-      "bio": "Met meer dan 15 jaar ervaring in strategische communicatie en reputatiemanagement heeft hij Influence Circle opgericht om Europese leiders te helpen hun expertise zichtbaar te maken. Zijn aanpak combineert data-gedreven strategie met een diep begrip van menselijke psychologie.",
-      "credentials": [
-        "15+ jaar strategische communicatie",
-        "200+ C-level trajecten begeleid",
-        "Spreker op internationale conferenties",
-        "Gepubliceerd in FD, De Tijd, L'Echo"
-      ],
-      "cta": "Meer over ons"
-    },
-    "values": {
-      "eyebrow": "Onze waarden",
-      "title": "Waar we voor staan",
-      "items": [
-        { "title": "Strategisch", "description": "Elke actie is doordacht en data-gedreven. Geen gokwerk." },
-        { "title": "Authentiek", "description": "We bouwen op wie u werkelijk bent. Geen masker, geen façade." },
-        { "title": "Resultaatgericht", "description": "We meten alles. Als het niet werkt, passen we aan." },
-        { "title": "Exclusief", "description": "We werken met een select aantal klanten per sector." }
-      ]
-    }
-  },
-  "contact": {
-    "hero": {
-      "eyebrow": "Contact",
-      "title": "Laten we kennismaken",
-      "subtitle": "Klaar om uw reputatie strategisch aan te pakken? Plan een vrijblijvend gesprek."
-    },
-    "form": {
-      "name": "Naam",
-      "email": "E-mailadres",
-      "message": "Uw bericht",
-      "submit": "Verstuur bericht",
-      "success": "Bedankt voor uw bericht. We nemen binnen 24 uur contact met u op.",
-      "successTitle": "Bericht verzonden",
-      "successNextStep": "In de tussentijd kunt u onze aanpak bekijken op de Over ons pagina.",
-      "error": "Er is iets misgegaan. Probeer het opnieuw."
-    },
-    "info": {
-      "title": "Contactgegevens",
-      "email": "hello@influence.be",
-      "phone": "+32 (0)3 123 45 67",
-      "phoneLabel": "Telefoon",
-      "address": "Antwerpen, België",
-      "addressLabel": "Adres"
-    }
-  },
   "labs": {
     "hero": {
       "eyebrow": "Influence Labs",
       "title": "Strategische groei, wetenschappelijk onderbouwd",
-      "subtitle": "Data-gedreven strategieën die uw bedrijf positioneren voor duurzame groei in de Europese markt.",
-      "cta": "Plan uw groeigesprek"
+      "subtitle": "Data-gedreven strategieën die uw bedrijf positioneren voor duurzame groei in de Europese markt."
     },
     "challenge": {
       "eyebrow": "De uitdaging",
@@ -268,8 +168,7 @@
     "hero": {
       "eyebrow": "Influence Circle",
       "title": "Uw reputatie is uw krachtigste asset",
-      "subtitle": "Personal branding en thought leadership voor CEO's die de referentie willen worden in hun sector.",
-      "cta": "Start uw transformatie"
+      "subtitle": "Personal branding en thought leadership voor CEO's die de referentie willen worden in hun sector."
     },
     "challenge": {
       "eyebrow": "De uitdaging",
@@ -318,8 +217,7 @@
     "hero": {
       "eyebrow": "Influence Studio",
       "title": "Content die converteert en overtuigt",
-      "subtitle": "Premium content creatie voor bedrijven die hun verhaal strategisch willen vertellen.",
-      "cta": "Bespreek uw content"
+      "subtitle": "Premium content creatie voor bedrijven die hun verhaal strategisch willen vertellen."
     },
     "challenge": {
       "eyebrow": "De uitdaging",
@@ -367,8 +265,7 @@
     "hero": {
       "eyebrow": "Influence Academy",
       "title": "Maak van uw team uw sterkste ambassadeurs",
-      "subtitle": "Training en certificering die uw medewerkers transformeert tot thought leaders en merkambassadeurs.",
-      "cta": "Ontdek ons aanbod"
+      "subtitle": "Training en certificering die uw medewerkers transformeert tot thought leaders en merkambassadeurs."
     },
     "challenge": {
       "eyebrow": "De uitdaging",
@@ -412,12 +309,50 @@
       "button": "Ontdek ons aanbod"
     }
   },
-  "privacy": {
-    "title": "Privacybeleid",
-    "content": "Dit privacybeleid wordt binnenkort gepubliceerd. Neem contact met ons op via hello@influence.be voor vragen over uw gegevens."
+  "about": {
+    "hero": {
+      "eyebrow": "Over ons",
+      "title": "Wij geloven in de kracht van reputatie",
+      "subtitle": "Influence Circle is opgericht vanuit één overtuiging: de beste professionals verdienen het om gezien te worden."
+    },
+    "mission": {
+      "eyebrow": "Onze missie",
+      "title": "Reputatie bouwen die deuren opent",
+      "description": "Wij helpen Europese C-level leiders en hun organisaties om strategisch zichtbaar te worden. Niet door te schreeuwen, maar door de juiste boodschap op het juiste moment bij de juiste mensen te brengen."
+    },
+    "values": {
+      "eyebrow": "Onze waarden",
+      "title": "Waar we voor staan",
+      "items": [
+        { "title": "Strategisch", "description": "Elke actie is doordacht en data-gedreven. Geen gokwerk." },
+        { "title": "Authentiek", "description": "We bouwen op wie u werkelijk bent. Geen masker, geen façade." },
+        { "title": "Resultaatgericht", "description": "We meten alles. Als het niet werkt, passen we aan." },
+        { "title": "Exclusief", "description": "We werken met een select aantal klanten per sector." }
+      ]
+    }
   },
-  "terms": {
-    "title": "Algemene Voorwaarden",
-    "content": "De algemene voorwaarden worden binnenkort gepubliceerd. Neem contact met ons op via hello@influence.be voor vragen."
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Laten we kennismaken",
+      "subtitle": "Klaar om uw reputatie strategisch aan te pakken? Plan een vrijblijvend gesprek."
+    },
+    "form": {
+      "name": "Naam",
+      "email": "E-mailadres",
+      "company": "Bedrijf",
+      "service": "Interesse in",
+      "servicePlaceholder": "Selecteer een dienst",
+      "message": "Uw bericht",
+      "submit": "Verstuur bericht",
+      "success": "Bedankt voor uw bericht. We nemen binnen 24 uur contact met u op.",
+      "error": "Er is iets misgegaan. Probeer het opnieuw."
+    },
+    "info": {
+      "title": "Contactgegevens",
+      "email": "hello@influence.be",
+      "phone": "+32 (0)3 123 45 67",
+      "address": "Antwerpen, België"
+    }
   }
 }

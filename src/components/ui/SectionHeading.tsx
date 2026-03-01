@@ -8,7 +8,6 @@ type Props = {
   light?: boolean;
   accentColor?: string;
   gradient?: boolean;
-  serif?: boolean;
 };
 
 export function SectionHeading({
@@ -19,7 +18,6 @@ export function SectionHeading({
   light = true,
   accentColor,
   gradient = false,
-  serif = false,
 }: Props) {
   const textColor = light ? "text-white" : "text-navy";
   const eyebrowColor = accentColor
@@ -28,8 +26,9 @@ export function SectionHeading({
       ? "text-white/70"
       : "text-navy/60";
 
-  const serifClasses = serif ? "font-serif font-normal tracking-[-0.04em]" : "font-bold tracking-tight";
-  const titleClasses = `text-4xl md:text-5xl ${serifClasses} mb-4 ${textColor}`;
+  const titleClasses = `text-4xl md:text-5xl font-bold tracking-tight mb-4 ${
+    gradient && light ? "text-gradient-teal" : textColor
+  }`;
 
   return (
     <div className={centered ? "text-center" : ""}>

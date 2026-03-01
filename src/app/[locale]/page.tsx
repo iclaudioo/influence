@@ -1,24 +1,24 @@
+import { ScrollAtmosphere } from "@/components/ui/ScrollAtmosphere";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ClientLogoBar } from "@/components/sections/ClientLogoBar";
-import { ThesisStatement } from "@/components/sections/ThesisStatement";
-import { CaseStudySection } from "@/components/sections/CaseStudySection";
+import { PainPointSection } from "@/components/sections/PainPointSection";
+import { StatsBar } from "@/components/sections/StatsBar";
+import { PillarGrid } from "@/components/sections/PillarGrid";
 import { MirrorExposureSection } from "@/components/sections/MirrorExposureSection";
-import { ServicesList } from "@/components/sections/ServicesList";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { FounderSection } from "@/components/sections/FounderSection";
 import { CTABanner } from "@/components/sections/CTABanner";
 
 export default function HomePage() {
   return (
     <>
+      <ScrollAtmosphere />
       <HeroSection />
       <ClientLogoBar />
-      <ThesisStatement />
-      <CaseStudySection />
+      <PainPointSection />
+      <StatsBar />
+      <PillarGrid />
       <MirrorExposureSection />
-      <ServicesList />
       <TestimonialSection />
-      <FounderSection />
       <CTABanner />
     </>
   );

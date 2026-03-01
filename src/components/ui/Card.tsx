@@ -27,9 +27,15 @@ export function Card({
       : "transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-navy/10"
     : "";
 
+  const hoverGlowStyle: React.CSSProperties =
+    hover && accentColor
+      ? { boxShadow: `0 0 40px ${accentColor}15` }
+      : {};
+
   return (
     <div
       className={`${baseClasses} ${hoverClasses} ${className}`}
+      style={hoverGlowStyle}
     >
       {/* Accent bar: top gradient for dark, left solid for light */}
       {accentColor && isDark && (
