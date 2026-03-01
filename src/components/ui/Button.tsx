@@ -27,7 +27,7 @@ export function Button({
   href,
   children,
   className = "",
-  accentColor = "#0FA3B1",
+  accentColor = "#C4A265",
   onClick,
   type = "button",
 }: ButtonProps) {
@@ -38,7 +38,6 @@ export function Button({
       ? {
           backgroundColor: accentColor,
           color: "#ffffff",
-          boxShadow: `0 0 30px ${accentColor}40`,
         }
       : variant === "secondary"
         ? {

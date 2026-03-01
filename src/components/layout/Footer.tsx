@@ -24,19 +24,8 @@ export async function Footer() {
 
   return (
     <footer className="bg-navy-dark text-white relative">
-      {/* Multi-color accent stripe */}
-      <div
-        className="h-[3px]"
-        style={{
-          background: "linear-gradient(90deg, #0FA3B1, #D7263D, #A855F7, #E8A317)",
-        }}
-      />
-
-      {/* Subtle background glow */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(15,163,177,0.06) 0%, transparent 60%)" }}
-      />
+      {/* Gold accent line */}
+      <div className="h-px bg-gold/30" />
 
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -102,11 +91,9 @@ export async function Footer() {
               {t("connect")}
             </h3>
             <div className="flex gap-4">
-              {/* LinkedIn */}
+              {/* LinkedIn — TODO: update with real URL */}
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="text-white/70 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
@@ -120,11 +107,9 @@ export async function Footer() {
                 </svg>
               </a>
 
-              {/* X / Twitter */}
+              {/* X / Twitter — TODO: update with real URL */}
               <a
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="text-white/70 hover:text-white transition-colors"
                 aria-label="X"
               >

@@ -10,7 +10,7 @@ const ACCENT = "#E8A317";
 export default function AcademyPage() {
   return (
     <>
-      <ServiceHero namespace="academy" accentColor={ACCENT} layeredBlocks />
+      <ServiceHero namespace="academy" accentColor={ACCENT} />
       <ChallengeSection namespace="academy" accentColor={ACCENT} />
       <ProcessSteps namespace="academy" accentColor={ACCENT} />
       <DeliverablesGrid namespace="academy" accentColor={ACCENT} />

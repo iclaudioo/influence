@@ -45,7 +45,8 @@
   --color-navy-light: #0a2540;
   --color-navy-dark: #010f1c;
   --color-white: #FFFFFF;
-  --color-off-white: #F8F9FA;
+  --color-off-white: #FAF8F5;
+  --color-gold: #C4A265;
   --color-labs: #0FA3B1;
   --color-circle: #D7263D;
   --color-studio: #A855F7;
@@ -65,7 +66,7 @@ body {
 }
 
 ::selection {
-  background: rgba(15, 163, 177, 0.3);
+  background: rgba(196, 162, 101, 0.3);
   color: white;
 }
 
@@ -118,92 +119,18 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--color-navy-light), rgba(15, 163, 177, 0.3));
+  background: linear-gradient(to bottom, var(--color-navy-light), rgba(196, 162, 101, 0.3));
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgba(15, 163, 177, 0.4), rgba(15, 163, 177, 0.5));
-}
-
-/* Ripple animation for hero */
-.hero-ripple {
-  transform-origin: center;
-  animation: ripplePulse 7s ease-in-out infinite;
-}
-
-@keyframes ripplePulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.06);
-    opacity: 0.3;
-  }
-}
-
-/* Mirror circle animation */
-.mirror-circle {
-  transform-origin: center;
-  animation: mirrorPulse 6s ease-in-out infinite;
-}
-
-@keyframes mirrorPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.04);
-  }
-}
-
-/* Marquee animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-/* Breathing glow animation */
-@keyframes breathingGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(15, 163, 177, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(15, 163, 177, 0.5), 0 0 80px rgba(15, 163, 177, 0.2);
-  }
-}
-
-.animate-breathing-glow {
-  animation: breathingGlow 3s ease-in-out infinite;
-}
-
-/* Gradient text utility */
-.text-gradient-teal {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(15, 163, 177, 0.7) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(to bottom, rgba(196, 162, 101, 0.4), rgba(196, 162, 101, 0.5));
 }
 
 /* Focus-visible styling */
 *:focus-visible {
-  outline: 2px solid rgba(15, 163, 177, 0.6);
+  outline: 2px solid rgba(196, 162, 101, 0.6);
   outline-offset: 2px;
-}
-
-/* Hide default cursor on non-touch devices */
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
 }
 
 /* Reduced motion */

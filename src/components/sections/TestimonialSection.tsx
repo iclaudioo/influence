@@ -3,41 +3,60 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
-import { fadeIn } from "@/lib/animations";
+import { stagger, reveal } from "@/lib/animations";
 
 export function TestimonialSection() {
-  const t = useTranslations("testimonial");
+  const t = useTranslations("testimonials");
+
+  const items = t.raw("items") as Array<{
+    quote: string;
+    name: string;
+    title: string;
+    company: string;
+  }>;
 
   return (
-    <section className="bg-off-white section-padding relative overflow-hidden">
-      {/* Subtle radial glow */}
-      <div
-        className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(15,163,177,0.06) 0%, transparent 60%)" }}
-      />
-
+    <section className="bg-off-white section-padding">
       <Container>
         <motion.div
-          variants={fadeIn}
+          variants={reveal}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="mb-12"
         >
-          {/* Quote text */}
-          <blockquote className="border-l-4 border-labs pl-8">
-            <p className="text-2xl md:text-3xl font-serif text-navy italic leading-relaxed">
-              {t("quote")}
-            </p>
-          </blockquote>
+          <p className="eyebrow text-gold text-center mb-4">{t("eyebrow")}</p>
+          <h2 className="font-serif font-normal tracking-[-0.04em] text-4xl md:text-5xl text-navy text-center">
+            {t("title")}
+          </h2>
+        </motion.div>
 
-          {/* Attribution */}
-          <div className="mt-8 pl-8">
-            <p className="font-bold text-navy">{t("name")}</p>
-            <p className="text-navy/60">
-              {t("title")}, {t("company")}
-            </p>
-          </div>
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+        >
+          {items.map((item, i) => (
+            <motion.div key={i} variants={reveal}>
+              <div className="flex items-center gap-4 mb-4">
+                {/* Photo placeholder */}
+                <div className="w-12 h-12 rounded-full bg-navy/10 border border-navy/10 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-navy">{item.name}</p>
+                  <p className="text-navy/50 text-sm">
+                    {item.title}, {item.company}
+                  </p>
+                </div>
+              </div>
+              <blockquote className="border-l-2 border-gold pl-6">
+                <p className="font-serif text-navy/80 italic leading-relaxed">
+                  &ldquo;{item.quote}&rdquo;
+                </p>
+              </blockquote>
+            </motion.div>
+          ))}
         </motion.div>
       </Container>
     </section>

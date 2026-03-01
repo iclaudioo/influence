@@ -10,7 +10,7 @@ const ACCENT = "#D7263D";
 export default function CirclePage() {
   return (
     <>
-      <ServiceHero namespace="circle" accentColor={ACCENT} networkNodes />
+      <ServiceHero namespace="circle" accentColor={ACCENT} />
       <ChallengeSection namespace="circle" accentColor={ACCENT} />
       <ProcessSteps namespace="circle" accentColor={ACCENT} />
       <DeliverablesGrid namespace="circle" accentColor={ACCENT} />

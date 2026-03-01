@@ -4,7 +4,8 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { reveal, stagger } from "@/lib/animations";
 
 type Props = {
   namespace: string;
@@ -28,22 +29,24 @@ export function FAQAccordion({ namespace, accentColor }: Props) {
       <Container>
         <motion.div
           ref={ref}
-          variants={staggerContainer}
+          variants={stagger}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.h2
-            variants={fadeUp}
-            className="text-3xl font-bold text-navy text-center mb-12"
-          >
-            {t("faq.title")}
-          </motion.h2>
+          <motion.div variants={reveal}>
+            <SectionHeading
+              title={t("faq.title")}
+              centered
+              light={false}
+              accentColor={accentColor}
+            />
+          </motion.div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto mt-12">
             {items.map((item, index) => (
               <motion.div
                 key={index}
-                variants={fadeUp}
+                variants={reveal}
                 className={
                   index < items.length - 1 ? "border-b border-navy/10" : ""
                 }
@@ -52,7 +55,10 @@ export function FAQAccordion({ namespace, accentColor }: Props) {
                   onClick={() => handleToggle(index)}
                   className="w-full flex justify-between items-center py-4 text-left group"
                 >
-                  <span className="text-lg font-semibold text-navy pr-4">
+                  <span
+                    className="text-lg font-semibold pr-4 transition-colors duration-200"
+                    style={{ color: openIndex === index ? accentColor : "#02182B" }}
+                  >
                     {item.q}
                   </span>
                   <svg
@@ -83,7 +89,10 @@ export function FAQAccordion({ namespace, accentColor }: Props) {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-4 text-navy/70 leading-relaxed">
+                      <p
+                        className="pb-4 text-navy/70 leading-relaxed border-l-2 pl-4 ml-0"
+                        style={{ borderColor: accentColor }}
+                      >
                         {item.a}
                       </p>
                     </motion.div>

@@ -14,25 +14,25 @@ const services = [
     key: "labs",
     href: "/labs",
     colorDot: "bg-labs",
-    colorText: "text-labs",
+    hoverTextClass: "group-hover:text-labs",
   },
   {
     key: "circle",
     href: "/circle",
     colorDot: "bg-circle",
-    colorText: "text-circle",
+    hoverTextClass: "group-hover:text-circle",
   },
   {
     key: "studio",
     href: "/studio",
     colorDot: "bg-studio",
-    colorText: "text-studio",
+    hoverTextClass: "group-hover:text-studio",
   },
   {
     key: "academy",
     href: "/academy",
     colorDot: "bg-academy",
-    colorText: "text-academy",
+    hoverTextClass: "group-hover:text-academy",
   },
 ] as const;
 
@@ -139,7 +139,7 @@ export function Navbar() {
                               />
                               <div>
                                 <span
-                                  className={`block font-semibold text-white group-hover:${service.colorText} transition-colors`}
+                                  className={`block font-semibold text-white ${service.hoverTextClass} transition-colors`}
                                 >
                                   {t(service.key)}
                                 </span>
