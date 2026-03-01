@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { slideInLeft, fadeUp, staggerContainer } from "@/lib/animations";
 
 export function PainPointSection() {
   const t = useTranslations("painPoints");
@@ -31,8 +31,8 @@ export function PainPointSection() {
           {items.map((i) => (
             <motion.div
               key={i}
-              variants={fadeUp}
-              className="bg-white rounded-2xl p-8 shadow-lg shadow-navy/5"
+              variants={slideInLeft}
+              className="bg-white rounded-2xl p-8 shadow-lg shadow-navy/5 border-l-4 border-labs"
             >
               <h3 className="text-xl font-bold text-navy">
                 {t(`items.${i}.title`)}
@@ -49,7 +49,7 @@ export function PainPointSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-lg font-semibold text-navy text-center mt-12"
+          className="text-lg font-semibold text-labs text-center mt-12"
         >
           {t("solution")}
         </motion.p>
