@@ -10,6 +10,13 @@ import {
   FileText,
   Settings,
   LogOut,
+  BookOpen,
+  Award,
+  UserCircle,
+  Newspaper,
+  Share2,
+  Download,
+  BarChart3,
 } from "lucide-react";
 import { useAdminAuth } from "@/components/admin/auth/AdminAuthProvider";
 
@@ -19,6 +26,13 @@ const navItems = [
   { href: "/admin/campaigns", label: "Campaigns", icon: Send },
   { href: "/admin/automations", label: "Automations", icon: Workflow },
   { href: "/admin/templates", label: "Templates", icon: FileText },
+  { href: "/admin/blog", label: "Blog", icon: BookOpen },
+  { href: "/admin/cases", label: "Cases", icon: Award },
+  { href: "/admin/team", label: "Team", icon: UserCircle },
+  { href: "/admin/media", label: "Media", icon: Newspaper },
+  { href: "/admin/linkedin", label: "LinkedIn", icon: Share2 },
+  { href: "/admin/resources", label: "Resources", icon: Download },
+  { href: "/admin/assessments", label: "Assessments", icon: BarChart3 },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ] as const;
 

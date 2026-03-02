@@ -13,6 +13,16 @@ const services = [
   { key: "academy", href: "/academy", color: "bg-academy" },
 ] as const;
 
+const overOnsItems = [
+  { key: "about", href: "/about" },
+  { key: "team", href: "/team" },
+] as const;
+
+const toolsItems = [
+  { key: "visibilityScore", href: "/tools/visibility-score" },
+  { key: "roiCalculator", href: "/tools/roi-calculator" },
+] as const;
+
 type MobileNavProps = {
   isOpen: boolean;
   onClose: () => void;
@@ -93,13 +103,76 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
               {/* Divider */}
               <div className="border-t border-white/10 my-4" />
 
-              {/* Other links */}
+              {/* Cases & Blog links */}
               <Link
-                href="/about"
+                href="/cases"
                 onClick={onClose}
                 className="block py-3 text-white text-xl font-medium hover:text-white/80 transition-colors"
               >
-                {t("about")}
+                {t("cases")}
+              </Link>
+              <Link
+                href="/blog"
+                onClick={onClose}
+                className="block py-3 text-white text-xl font-medium hover:text-white/80 transition-colors"
+              >
+                {t("blog")}
+              </Link>
+
+              {/* Divider */}
+              <div className="border-t border-white/10 my-4" />
+
+              {/* Over ons section */}
+              <div>
+                <span className="block text-white/50 text-sm uppercase tracking-wider mb-3">
+                  {t("overOns")}
+                </span>
+                <div className="space-y-1 pl-2">
+                  {overOnsItems.map((item) => (
+                    <Link
+                      key={item.key}
+                      href={item.href}
+                      onClick={onClose}
+                      className="block py-2 text-white/80 hover:text-white transition-colors text-lg"
+                    >
+                      {t(item.key)}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-white/10 my-4" />
+
+              {/* Tools section */}
+              <div>
+                <span className="block text-white/50 text-sm uppercase tracking-wider mb-3">
+                  {t("tools")}
+                </span>
+                <div className="space-y-1 pl-2">
+                  {toolsItems.map((item) => (
+                    <Link
+                      key={item.key}
+                      href={item.href}
+                      onClick={onClose}
+                      className="block py-2 text-white/80 hover:text-white transition-colors text-lg"
+                    >
+                      {t(item.key)}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-white/10 my-4" />
+
+              {/* Other links */}
+              <Link
+                href="/resources"
+                onClick={onClose}
+                className="block py-3 text-white text-xl font-medium hover:text-white/80 transition-colors"
+              >
+                {t("resources")}
               </Link>
               <Link
                 href="/contact"

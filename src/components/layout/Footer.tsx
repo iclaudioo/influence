@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
+import { NewsletterSignup } from "@/components/ui/NewsletterSignup";
 
 const serviceLinks = [
   { key: "labs", href: "/labs", color: "#d55d25" },
@@ -10,9 +11,19 @@ const serviceLinks = [
   { key: "academy", href: "/academy", color: "#E8A317" },
 ];
 
+const insightLinks = [
+  { key: "blog", href: "/blog" },
+  { key: "cases", href: "/cases" },
+  { key: "resources", href: "/resources" },
+];
+
 const companyLinks = [
   { key: "about", href: "/about" },
+  { key: "team", href: "/team" },
   { key: "contact", href: "/contact" },
+];
+
+const legalLinks = [
   { key: "privacy", href: "/privacy" },
   { key: "terms", href: "/terms" },
 ];
@@ -77,66 +88,93 @@ export async function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Company */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">
-              {t("company")}
-            </h3>
-            <ul className="space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link.key}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
-                  >
-                    {t(link.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Column 3: Inzichten + Bedrijf */}
+          <div className="space-y-8">
+            {/* Inzichten */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">
+                {t("insights")}
+              </h3>
+              <ul className="space-y-3">
+                {insightLinks.map((link) => (
+                  <li key={link.key}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-white transition-colors text-sm"
+                    >
+                      {t(link.key)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Bedrijf */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">
+                {t("company")}
+              </h3>
+              <ul className="space-y-3">
+                {companyLinks.map((link) => (
+                  <li key={link.key}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-white transition-colors text-sm"
+                    >
+                      {t(link.key)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Column 4: Connect */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">
-              {t("connect")}
-            </h3>
-            <div className="flex gap-4">
-              {/* LinkedIn */}
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
+          {/* Column 4: Newsletter + Social */}
+          <div className="space-y-8">
+            <NewsletterSignup variant="compact" />
 
-              {/* X / Twitter */}
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="X"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
+            {/* Social icons */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">
+                {t("connect")}
+              </h3>
+              <div className="flex gap-4">
+                {/* LinkedIn */}
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label="LinkedIn"
                 >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </a>
+
+                {/* X / Twitter */}
+                <a
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-white transition-colors"
+                  aria-label="X"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -148,7 +186,21 @@ export async function Footer() {
           <p className="text-white/40 text-sm">
             {t("copyright", { year: currentYear })}
           </p>
-          <LanguageSwitch />
+          <div className="flex items-center gap-6">
+            {/* Juridisch links */}
+            <div className="flex items-center gap-4">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  href={link.href}
+                  className="text-white/40 hover:text-white/70 transition-colors text-sm"
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+            </div>
+            <LanguageSwitch />
+          </div>
         </div>
       </div>
     </footer>

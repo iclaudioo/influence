@@ -4,6 +4,8 @@ import { vastagoGrotesk, libreCaslon } from "@/lib/fonts";
 import { AdminAuthProvider } from "@/components/admin/auth/AdminAuthProvider";
 import "@/app/globals.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Admin | Influence Circle",
   description: "Influence Circle admin dashboard",

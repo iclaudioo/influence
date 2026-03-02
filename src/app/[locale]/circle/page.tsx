@@ -3,6 +3,8 @@ import { ChallengeSection } from "@/components/sections/ChallengeSection";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { DeliverablesGrid } from "@/components/sections/DeliverablesGrid";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
+import { FeaturedCases } from "@/components/sections/FeaturedCases";
+import { BlogPreview } from "@/components/sections/BlogPreview";
 import { ServiceCTA } from "@/components/sections/ServiceCTA";
 
 const ACCENT = "#D7263D";
@@ -15,6 +17,8 @@ export default function CirclePage() {
       <ProcessSteps namespace="circle" accentColor={ACCENT} />
       <DeliverablesGrid namespace="circle" accentColor={ACCENT} />
       <FAQAccordion namespace="circle" accentColor={ACCENT} />
+      <FeaturedCases serviceLine="circle" limit={2} />
+      <BlogPreview serviceLine="circle" />
       <ServiceCTA namespace="circle" accentColor={ACCENT} />
     </>
   );

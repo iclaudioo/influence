@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -8,6 +9,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { PrivacyNotice } from "@/components/ui/PrivacyNotice";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -38,7 +40,14 @@ export default async function LocaleLayout({
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <PrivacyNotice />
         </NextIntlClientProvider>
+        <Script
+          defer
+          data-domain="influencecircle.com"
+          src="https://plausible.io/js/script.tagged-events.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

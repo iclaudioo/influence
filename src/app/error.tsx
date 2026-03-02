@@ -1,0 +1,34 @@
+"use client";
+
+export default function GlobalError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  return (
+    <html lang="nl">
+      <body className="bg-[#02182B]">
+        <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center">
+          <p className="text-[8rem] md:text-[12rem] font-bold leading-none text-[#d55d25]">
+            500
+          </p>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mt-4">
+            Er ging iets mis
+          </h1>
+          <p className="text-white/60 mt-4 max-w-md text-lg leading-relaxed">
+            Onze excuses, er is een onverwachte fout opgetreden. Probeer het
+            opnieuw of ga terug naar de homepage.
+          </p>
+          <button
+            onClick={() => reset()}
+            className="mt-8 inline-block bg-[#d55d25] text-white font-medium rounded-lg px-6 py-3 transition-opacity hover:opacity-90 cursor-pointer"
+          >
+            Opnieuw proberen
+          </button>
+        </div>
+      </body>
+    </html>
+  );
+}

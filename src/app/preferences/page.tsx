@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
@@ -74,6 +74,20 @@ const content = {
 };
 
 export default function PreferenceCenterPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-[#02182B]" />
+        </div>
+      }
+    >
+      <PreferenceCenterContent />
+    </Suspense>
+  );
+}
+
+function PreferenceCenterContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 

@@ -5,10 +5,12 @@ import { useTranslations, useLocale } from "next-intl";
 import { motion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
+  const tCal = useTranslations("calendly");
   const nav = useTranslations("nav");
   const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
@@ -98,13 +100,12 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* Form + Info */}
+      {/* Form + Calendly */}
       <section className="bg-off-white section-padding">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
-            {/* Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Left column: Form */}
             <motion.div
-              className="lg:col-span-3"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -223,48 +224,22 @@ export default function ContactPage() {
               )}
             </motion.div>
 
-            {/* Info */}
+            {/* Right column: Calendly */}
             <motion.div
-              className="lg:col-span-2"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <motion.div
-                variants={fadeUp}
-                className="bg-navy rounded-2xl p-8 text-white"
-              >
-                <h3 className="text-xl font-bold mb-6">{t("info.title")}</h3>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-sm text-white/60 uppercase tracking-wide mb-1">
-                      Email
-                    </p>
-                    <a
-                      href={`mailto:${t("info.email")}`}
-                      className="text-white hover:text-white/80 transition-colors"
-                    >
-                      {t("info.email")}
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-sm text-white/60 uppercase tracking-wide mb-1">
-                      Telefoon
-                    </p>
-                    <a
-                      href={`tel:${t("info.phone")}`}
-                      className="text-white hover:text-white/80 transition-colors"
-                    >
-                      {t("info.phone")}
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-sm text-white/60 uppercase tracking-wide mb-1">
-                      Adres
-                    </p>
-                    <p className="text-white/80">{t("info.address")}</p>
-                  </div>
+              <motion.div variants={fadeUp}>
+                <h2 className="text-2xl font-bold text-navy mb-6">
+                  {tCal("title")}
+                </h2>
+                <div className="bg-white rounded-2xl shadow-lg shadow-navy/5 overflow-hidden">
+                  <CalendlyEmbed
+                    variant="inline"
+                    url="https://calendly.com/influencecircle"
+                  />
                 </div>
               </motion.div>
             </motion.div>

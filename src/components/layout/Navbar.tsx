@@ -36,20 +36,52 @@ const services = [
   },
 ] as const;
 
+const overOnsItems = [
+  { key: "about", href: "/about" },
+  { key: "team", href: "/team" },
+] as const;
+
+const toolsItems = [
+  { key: "visibilityScore", href: "/tools/visibility-score" },
+  { key: "roiCalculator", href: "/tools/roi-calculator" },
+] as const;
+
 export function Navbar() {
   const t = useTranslations("nav");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isOverOnsOpen, setIsOverOnsOpen] = useState(false);
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
+  const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const overOnsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const toolsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  function handleMouseEnter() {
-    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+  function handleServicesMouseEnter() {
+    if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
     setIsServicesOpen(true);
   }
 
-  function handleMouseLeave() {
-    closeTimeoutRef.current = setTimeout(() => setIsServicesOpen(false), 150);
+  function handleServicesMouseLeave() {
+    servicesTimeoutRef.current = setTimeout(() => setIsServicesOpen(false), 150);
+  }
+
+  function handleOverOnsMouseEnter() {
+    if (overOnsTimeoutRef.current) clearTimeout(overOnsTimeoutRef.current);
+    setIsOverOnsOpen(true);
+  }
+
+  function handleOverOnsMouseLeave() {
+    overOnsTimeoutRef.current = setTimeout(() => setIsOverOnsOpen(false), 150);
+  }
+
+  function handleToolsMouseEnter() {
+    if (toolsTimeoutRef.current) clearTimeout(toolsTimeoutRef.current);
+    setIsToolsOpen(true);
+  }
+
+  function handleToolsMouseLeave() {
+    toolsTimeoutRef.current = setTimeout(() => setIsToolsOpen(false), 150);
   }
 
   useEffect(() => {
@@ -60,6 +92,26 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const chevronSvg = (isOpen: boolean) => (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      className={`transition-transform duration-200 ${
+        isOpen ? "rotate-180" : ""
+      }`}
+    >
+      <path
+        d="M3 4.5L6 7.5L9 4.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 
   return (
     <>
@@ -89,31 +141,15 @@ export function Navbar() {
               {/* Services dropdown */}
               <div
                 className="relative"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
               >
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                   className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors text-sm font-medium"
                 >
                   {t("services")}
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    className={`transition-transform duration-200 ${
-                      isServicesOpen ? "rotate-180" : ""
-                    }`}
-                  >
-                    <path
-                      d="M3 4.5L6 7.5L9 4.5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  {chevronSvg(isServicesOpen)}
                 </button>
 
                 {/* Mega menu dropdown */}
@@ -156,12 +192,103 @@ export function Navbar() {
                 </AnimatePresence>
               </div>
 
+              {/* Cases direct link */}
               <Link
-                href="/about"
+                href="/cases"
                 className="text-white/80 hover:text-white transition-colors text-sm font-medium"
               >
-                {t("about")}
+                {t("cases")}
               </Link>
+
+              {/* Blog direct link */}
+              <Link
+                href="/blog"
+                className="text-white/80 hover:text-white transition-colors text-sm font-medium"
+              >
+                {t("blog")}
+              </Link>
+
+              {/* Over ons dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={handleOverOnsMouseEnter}
+                onMouseLeave={handleOverOnsMouseLeave}
+              >
+                <button
+                  onClick={() => setIsOverOnsOpen(!isOverOnsOpen)}
+                  className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors text-sm font-medium"
+                >
+                  {t("overOns")}
+                  {chevronSvg(isOverOnsOpen)}
+                </button>
+
+                <AnimatePresence>
+                  {isOverOnsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                    >
+                      <div className="bg-navy-light border border-white/10 rounded-2xl p-4 shadow-2xl min-w-[200px]">
+                        <div className="space-y-1">
+                          {overOnsItems.map((item) => (
+                            <Link
+                              key={item.key}
+                              href={item.href}
+                              className="block px-3 py-2 rounded-xl text-white/80 hover:text-white hover:bg-white/5 transition-colors text-sm font-medium"
+                            >
+                              {t(item.key)}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Tools dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={handleToolsMouseEnter}
+                onMouseLeave={handleToolsMouseLeave}
+              >
+                <button
+                  onClick={() => setIsToolsOpen(!isToolsOpen)}
+                  className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors text-sm font-medium"
+                >
+                  {t("tools")}
+                  {chevronSvg(isToolsOpen)}
+                </button>
+
+                <AnimatePresence>
+                  {isToolsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
+                    >
+                      <div className="bg-navy-light border border-white/10 rounded-2xl p-4 shadow-2xl min-w-[220px]">
+                        <div className="space-y-1">
+                          {toolsItems.map((item) => (
+                            <Link
+                              key={item.key}
+                              href={item.href}
+                              className="block px-3 py-2 rounded-xl text-white/80 hover:text-white hover:bg-white/5 transition-colors text-sm font-medium"
+                            >
+                              {t(item.key)}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               <Link
                 href="/contact"

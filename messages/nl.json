@@ -17,7 +17,15 @@
     "contact": "Contact",
     "cta": "Boek een gesprek",
     "menu": "Menu",
-    "close": "Sluiten"
+    "close": "Sluiten",
+    "cases": "Cases",
+    "blog": "Blog",
+    "team": "Team",
+    "tools": "Tools",
+    "visibilityScore": "Visibility Score",
+    "roiCalculator": "ROI Calculator",
+    "resources": "Resources",
+    "overOns": "Over ons"
   },
   "hero": {
     "eyebrow": "Reputation Architects",
@@ -113,7 +121,17 @@
     "privacy": "Privacybeleid",
     "terms": "Algemene voorwaarden",
     "connect": "Verbinden",
-    "copyright": "© {year} Influence Circle. Alle rechten voorbehouden."
+    "copyright": "© {year} Influence Circle. Alle rechten voorbehouden.",
+    "insights": "Inzichten",
+    "blog": "Blog",
+    "cases": "Cases",
+    "resources": "Resources",
+    "legal": "Juridisch",
+    "team": "Team",
+    "newsletter": "Blijf op de hoogte",
+    "newsletterPlaceholder": "Uw e-mailadres",
+    "newsletterButton": "Inschrijven",
+    "newsletterSuccess": "Bedankt voor uw inschrijving."
   },
   "labs": {
     "hero": {
@@ -320,6 +338,16 @@
       "title": "Reputatie bouwen die deuren opent",
       "description": "Wij helpen Europese C-level leiders en hun organisaties om strategisch zichtbaar te worden. Niet door te schreeuwen, maar door de juiste boodschap op het juiste moment bij de juiste mensen te brengen."
     },
+    "approach": {
+      "eyebrow": "Onze aanpak",
+      "title": "Hoe wij reputaties bouwen",
+      "steps": [
+        { "title": "Luisteren", "description": "We beginnen met diep begrip van uw visie, markt en ambities." },
+        { "title": "Positioneren", "description": "We definiëren uw unieke positie en de boodschap die resoneert." },
+        { "title": "Activeren", "description": "We brengen uw verhaal naar de juiste mensen via de juiste kanalen." },
+        { "title": "Versterken", "description": "We bouwen een systeem dat uw reputatie continu laat groeien." }
+      ]
+    },
     "values": {
       "eyebrow": "Onze waarden",
       "title": "Waar we voor staan",
@@ -329,6 +357,10 @@
         { "title": "Resultaatgericht", "description": "We meten alles. Als het niet werkt, passen we aan." },
         { "title": "Exclusief", "description": "We werken met een select aantal klanten per sector." }
       ]
+    },
+    "cta": {
+      "title": "Klaar om samen te werken?",
+      "button": "Plan een kennismaking"
     }
   },
   "contact": {
@@ -356,5 +388,167 @@
       "phone": "+32 (0)3 123 45 67",
       "address": "Antwerpen, België"
     }
+  },
+  "blog": {
+    "eyebrow": "Inzichten",
+    "title": "Blog & Artikelen",
+    "description": "Ontdek onze nieuwste inzichten over reputatieopbouw, thought leadership en strategische zichtbaarheid.",
+    "search": "Zoek artikelen...",
+    "allCategories": "Alle categorieën",
+    "allServices": "Alle diensten",
+    "mostRead": "Meest gelezen",
+    "readMore": "Lees meer",
+    "minRead": "min. leestijd",
+    "publishedAt": "Gepubliceerd op",
+    "relatedArticles": "Gerelateerde artikelen",
+    "shareArticle": "Deel dit artikel",
+    "copyLink": "Kopieer link",
+    "linkCopied": "Link gekopieerd",
+    "tableOfContents": "Inhoudsopgave",
+    "noPosts": "Nog geen artikelen beschikbaar.",
+    "loadMore": "Meer laden"
+  },
+  "cases": {
+    "eyebrow": "Resultaten",
+    "title": "Case Studies",
+    "description": "Ontdek hoe wij Europese leiders en organisaties helpen hun zichtbaarheid en reputatie strategisch op te bouwen.",
+    "all": "Alle cases",
+    "challenge": "De uitdaging",
+    "approach": "Onze aanpak",
+    "results": "Resultaten",
+    "similarResult": "Wilt u een vergelijkbaar resultaat?",
+    "bookCall": "Boek een gesprek",
+    "noCases": "Nog geen case studies beschikbaar."
+  },
+  "team": {
+    "eyebrow": "Ons team",
+    "title": "De mensen achter Influence Circle",
+    "description": "Een team van specialisten in reputatieopbouw, personal branding en strategische communicatie.",
+    "viewLinkedIn": "Bekijk op LinkedIn",
+    "viewAll": "Bekijk het hele team"
+  },
+  "media": {
+    "eyebrow": "In de media",
+    "title": "Media & Publicaties"
+  },
+  "linkedin": {
+    "eyebrow": "LinkedIn",
+    "title": "Onze impact op LinkedIn",
+    "viewOnLinkedIn": "Bekijk op LinkedIn",
+    "likes": "likes",
+    "comments": "reacties",
+    "reposts": "reposts"
+  },
+  "resources": {
+    "eyebrow": "Resources",
+    "title": "Gratis Resources",
+    "description": "Download onze gratis gidsen, templates en tools om uw zichtbaarheid te vergroten.",
+    "download": "Download",
+    "downloads": "downloads",
+    "downloadTitle": "Download uw resource",
+    "downloadDescription": "Vul uw gegevens in om de resource te ontvangen.",
+    "noResources": "Nog geen resources beschikbaar."
+  },
+  "visibilityScore": {
+    "title": "Visibility Score",
+    "description": "Ontdek hoe zichtbaar u bent als leider in uw sector. Beantwoord 10 vragen en ontvang uw persoonlijke score.",
+    "start": "Start de test",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "step": "Stap",
+    "of": "van",
+    "getResults": "Bekijk mijn resultaten",
+    "emailTitle": "Ontvang uw volledige rapport",
+    "emailDescription": "Vul uw e-mailadres in om uw gedetailleerde Visibility Score rapport te ontvangen.",
+    "resultTitle": "Uw Visibility Score",
+    "resultDescription": "Op basis van uw antwoorden hebben wij uw zichtbaarheid geanalyseerd.",
+    "categories": {
+      "linkedinPresence": "LinkedIn aanwezigheid",
+      "contentStrategy": "Contentstrategie",
+      "mediaVisibility": "Media zichtbaarheid",
+      "speakingAuthority": "Speaking & autoriteit",
+      "networkInfluence": "Netwerk & invloed",
+      "brandConsistency": "Merkconsistentie"
+    },
+    "levels": {
+      "invisible": "Onzichtbaar",
+      "emerging": "Opkomend",
+      "visible": "Zichtbaar",
+      "influential": "Invloedrijk"
+    },
+    "recommendation": "Op basis van uw score raden wij aan om te beginnen met een strategisch gesprek om uw zichtbaarheid gericht te versterken.",
+    "bookConsultation": "Boek een strategiegesprek"
+  },
+  "roiCalculator": {
+    "title": "ROI Calculator",
+    "description": "Bereken hoeveel omzet u misloopt door onvoldoende zichtbaarheid en ontdek uw groeipotentieel.",
+    "revenue": "Jaaromzet",
+    "revenuePlaceholder": "Bijv. 5.000.000",
+    "networkPercentage": "Percentage omzet via netwerk",
+    "desiredGrowth": "Gewenste groei",
+    "industry": "Sector",
+    "industries": {
+      "technology": "Technologie",
+      "consulting": "Consultancy",
+      "financial": "Financiële dienstverlening",
+      "legal": "Juridisch",
+      "healthcare": "Gezondheidszorg",
+      "other": "Overig"
+    },
+    "calculate": "Bereken mijn ROI",
+    "resultTitle": "Uw ROI Analyse",
+    "missedRevenue": "Geschatte gemiste omzet",
+    "currentLabel": "Huidig",
+    "potentialLabel": "Potentieel",
+    "getReport": "Ontvang het volledige rapport",
+    "reportDescription": "Vul uw gegevens in om een gedetailleerd ROI-rapport per e-mail te ontvangen."
+  },
+  "leadCapture": {
+    "name": "Naam",
+    "namePlaceholder": "Uw volledige naam",
+    "email": "E-mailadres",
+    "emailPlaceholder": "uw@email.com",
+    "gdpr": "Ik ga akkoord met de verwerking van mijn persoonsgegevens conform het privacybeleid.",
+    "submit": "Versturen",
+    "submitting": "Versturen...",
+    "success": "Bedankt! Wij nemen spoedig contact met u op.",
+    "error": "Er is iets misgegaan. Probeer het opnieuw."
+  },
+  "privacy": {
+    "title": "Privacybeleid",
+    "lastUpdated": "Laatst bijgewerkt"
+  },
+  "terms": {
+    "title": "Algemene voorwaarden",
+    "lastUpdated": "Laatst bijgewerkt"
+  },
+  "privacyNotice": {
+    "text": "Wij gebruiken cookies om uw ervaring te verbeteren. Door verder te gaan, gaat u akkoord met ons cookiebeleid.",
+    "learnMore": "Meer informatie",
+    "dismiss": "Begrepen"
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "description": "De pagina die u zoekt bestaat niet of is verplaatst.",
+    "backHome": "Terug naar de homepage"
+  },
+  "error": {
+    "title": "Er is iets misgegaan",
+    "description": "Onze excuses, er is een onverwachte fout opgetreden. Probeer het opnieuw.",
+    "retry": "Opnieuw proberen"
+  },
+  "featuredCases": {
+    "eyebrow": "Resultaten",
+    "title": "Wat wij hebben bereikt",
+    "viewAll": "Bekijk alle cases"
+  },
+  "blogPreview": {
+    "eyebrow": "Inzichten",
+    "title": "Nieuwste artikelen",
+    "viewAll": "Bekijk alle artikelen"
+  },
+  "calendly": {
+    "title": "Plan een gesprek",
+    "button": "Kies een tijdstip"
   }
 }

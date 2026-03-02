@@ -17,7 +17,15 @@
     "contact": "Contact",
     "cta": "Book a call",
     "menu": "Menu",
-    "close": "Close"
+    "close": "Close",
+    "cases": "Cases",
+    "blog": "Blog",
+    "team": "Team",
+    "tools": "Tools",
+    "visibilityScore": "Visibility Score",
+    "roiCalculator": "ROI Calculator",
+    "resources": "Resources",
+    "overOns": "About us"
   },
   "hero": {
     "eyebrow": "Reputation Architects",
@@ -113,7 +121,17 @@
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "connect": "Connect",
-    "copyright": "© {year} Influence Circle. All rights reserved."
+    "copyright": "© {year} Influence Circle. All rights reserved.",
+    "insights": "Insights",
+    "blog": "Blog",
+    "cases": "Cases",
+    "resources": "Resources",
+    "legal": "Legal",
+    "team": "Team",
+    "newsletter": "Stay informed",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterButton": "Subscribe",
+    "newsletterSuccess": "Thank you for subscribing."
   },
   "labs": {
     "hero": {
@@ -320,6 +338,16 @@
       "title": "Building reputations that open doors",
       "description": "We help European C-level leaders and their organizations become strategically visible. Not by shouting, but by delivering the right message at the right time to the right people."
     },
+    "approach": {
+      "eyebrow": "Our approach",
+      "title": "How we build reputations",
+      "steps": [
+        { "title": "Listen", "description": "We start with deep understanding of your vision, market and ambitions." },
+        { "title": "Position", "description": "We define your unique position and the message that resonates." },
+        { "title": "Activate", "description": "We bring your story to the right people through the right channels." },
+        { "title": "Amplify", "description": "We build a system that continuously grows your reputation." }
+      ]
+    },
     "values": {
       "eyebrow": "Our values",
       "title": "What we stand for",
@@ -329,6 +357,10 @@
         { "title": "Results-driven", "description": "We measure everything. If it doesn't work, we adapt." },
         { "title": "Exclusive", "description": "We work with a select number of clients per sector." }
       ]
+    },
+    "cta": {
+      "title": "Ready to work together?",
+      "button": "Schedule a meeting"
     }
   },
   "contact": {
@@ -356,5 +388,167 @@
       "phone": "+32 (0)3 123 45 67",
       "address": "Antwerp, Belgium"
     }
+  },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Blog & Articles",
+    "description": "Discover our latest insights on reputation building, thought leadership and strategic visibility.",
+    "search": "Search articles...",
+    "allCategories": "All categories",
+    "allServices": "All services",
+    "mostRead": "Most read",
+    "readMore": "Read more",
+    "minRead": "min read",
+    "publishedAt": "Published on",
+    "relatedArticles": "Related articles",
+    "shareArticle": "Share this article",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "tableOfContents": "Table of contents",
+    "noPosts": "No articles available yet.",
+    "loadMore": "Load more"
+  },
+  "cases": {
+    "eyebrow": "Results",
+    "title": "Case Studies",
+    "description": "Discover how we help European leaders and organisations strategically build their visibility and reputation.",
+    "all": "All cases",
+    "challenge": "The challenge",
+    "approach": "Our approach",
+    "results": "Results",
+    "similarResult": "Want a similar result?",
+    "bookCall": "Book a call",
+    "noCases": "No case studies available yet."
+  },
+  "team": {
+    "eyebrow": "Our team",
+    "title": "The people behind Influence Circle",
+    "description": "A team of specialists in reputation building, personal branding and strategic communication.",
+    "viewLinkedIn": "View on LinkedIn",
+    "viewAll": "View the full team"
+  },
+  "media": {
+    "eyebrow": "In the media",
+    "title": "Media & Publications"
+  },
+  "linkedin": {
+    "eyebrow": "LinkedIn",
+    "title": "Our impact on LinkedIn",
+    "viewOnLinkedIn": "View on LinkedIn",
+    "likes": "likes",
+    "comments": "comments",
+    "reposts": "reposts"
+  },
+  "resources": {
+    "eyebrow": "Resources",
+    "title": "Free Resources",
+    "description": "Download our free guides, templates and tools to increase your visibility.",
+    "download": "Download",
+    "downloads": "downloads",
+    "downloadTitle": "Download your resource",
+    "downloadDescription": "Fill in your details to receive the resource.",
+    "noResources": "No resources available yet."
+  },
+  "visibilityScore": {
+    "title": "Visibility Score",
+    "description": "Discover how visible you are as a leader in your sector. Answer 10 questions and receive your personal score.",
+    "start": "Start the assessment",
+    "next": "Next",
+    "previous": "Previous",
+    "step": "Step",
+    "of": "of",
+    "getResults": "View my results",
+    "emailTitle": "Receive your full report",
+    "emailDescription": "Enter your email address to receive your detailed Visibility Score report.",
+    "resultTitle": "Your Visibility Score",
+    "resultDescription": "Based on your answers, we have analysed your visibility.",
+    "categories": {
+      "linkedinPresence": "LinkedIn presence",
+      "contentStrategy": "Content strategy",
+      "mediaVisibility": "Media visibility",
+      "speakingAuthority": "Speaking & authority",
+      "networkInfluence": "Network & influence",
+      "brandConsistency": "Brand consistency"
+    },
+    "levels": {
+      "invisible": "Invisible",
+      "emerging": "Emerging",
+      "visible": "Visible",
+      "influential": "Influential"
+    },
+    "recommendation": "Based on your score, we recommend starting with a strategic consultation to strengthen your visibility.",
+    "bookConsultation": "Book a strategy session"
+  },
+  "roiCalculator": {
+    "title": "ROI Calculator",
+    "description": "Calculate how much revenue you are missing due to insufficient visibility and discover your growth potential.",
+    "revenue": "Annual revenue",
+    "revenuePlaceholder": "E.g. 5,000,000",
+    "networkPercentage": "Percentage of revenue via network",
+    "desiredGrowth": "Desired growth",
+    "industry": "Industry",
+    "industries": {
+      "technology": "Technology",
+      "consulting": "Consulting",
+      "financial": "Financial services",
+      "legal": "Legal",
+      "healthcare": "Healthcare",
+      "other": "Other"
+    },
+    "calculate": "Calculate my ROI",
+    "resultTitle": "Your ROI Analysis",
+    "missedRevenue": "Estimated missed revenue",
+    "currentLabel": "Current",
+    "potentialLabel": "Potential",
+    "getReport": "Receive the full report",
+    "reportDescription": "Fill in your details to receive a detailed ROI report by email."
+  },
+  "leadCapture": {
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email address",
+    "emailPlaceholder": "your@email.com",
+    "gdpr": "I agree to the processing of my personal data in accordance with the privacy policy.",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "success": "Thank you! We will be in touch shortly.",
+    "error": "Something went wrong. Please try again."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated"
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last updated"
+  },
+  "privacyNotice": {
+    "text": "We use cookies to improve your experience. By continuing, you agree to our cookie policy.",
+    "learnMore": "Learn more",
+    "dismiss": "Got it"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to homepage"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "We apologise, an unexpected error has occurred. Please try again.",
+    "retry": "Try again"
+  },
+  "featuredCases": {
+    "eyebrow": "Results",
+    "title": "What we have achieved",
+    "viewAll": "View all cases"
+  },
+  "blogPreview": {
+    "eyebrow": "Insights",
+    "title": "Latest articles",
+    "viewAll": "View all articles"
+  },
+  "calendly": {
+    "title": "Schedule a call",
+    "button": "Choose a time"
   }
 }
