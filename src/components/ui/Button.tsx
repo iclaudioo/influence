@@ -27,7 +27,7 @@ export function Button({
   href,
   children,
   className = "",
-  accentColor = "#0FA3B1",
+  accentColor = "#d55d25",
   onClick,
   type = "button",
 }: ButtonProps) {

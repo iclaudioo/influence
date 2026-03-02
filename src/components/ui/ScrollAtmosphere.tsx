@@ -15,11 +15,11 @@ export function ScrollAtmosphere() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
-      {/* Labs teal blob */}
+      {/* Labs orange blob */}
       <div
         className="absolute w-[800px] h-[800px] rounded-full opacity-[0.04]"
         style={{
-          background: "radial-gradient(circle, #0FA3B1, transparent 70%)",
+          background: "radial-gradient(circle, #d55d25, transparent 70%)",
           right: "-200px",
           top: `${-100 + scrollY * -0.05}px`,
         }}

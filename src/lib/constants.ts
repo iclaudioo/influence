@@ -4,7 +4,7 @@ export const colors = {
   navyDark: "#010f1c",
   white: "#FFFFFF",
   offWhite: "#F8F9FA",
-  labs: "#0FA3B1",
+  labs: "#d55d25",
   circle: "#D7263D",
   studio: "#A855F7",
   academy: "#E8A317",

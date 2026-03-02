@@ -46,7 +46,7 @@
   --color-navy-dark: #010f1c;
   --color-white: #FFFFFF;
   --color-off-white: #F8F9FA;
-  --color-labs: #0FA3B1;
+  --color-labs: #d55d25;
   --color-circle: #D7263D;
   --color-studio: #A855F7;
   --color-academy: #E8A317;
@@ -65,7 +65,7 @@ body {
 }
 
 ::selection {
-  background: rgba(15, 163, 177, 0.3);
+  background: rgba(213, 93, 37, 0.3);
   color: white;
 }
 
@@ -118,12 +118,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--color-navy-light), rgba(15, 163, 177, 0.3));
+  background: linear-gradient(to bottom, var(--color-navy-light), rgba(213, 93, 37, 0.3));
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgba(15, 163, 177, 0.4), rgba(15, 163, 177, 0.5));
+  background: linear-gradient(to bottom, rgba(213, 93, 37, 0.4), rgba(213, 93, 37, 0.5));
 }
 
 /* Ripple animation for hero */
@@ -174,10 +174,10 @@ html {
 /* Breathing glow animation */
 @keyframes breathingGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(15, 163, 177, 0.3);
+    box-shadow: 0 0 20px rgba(213, 93, 37, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(15, 163, 177, 0.5), 0 0 80px rgba(15, 163, 177, 0.2);
+    box-shadow: 0 0 40px rgba(213, 93, 37, 0.5), 0 0 80px rgba(213, 93, 37, 0.2);
   }
 }
 
@@ -193,9 +193,16 @@ html {
   background-clip: text;
 }
 
+.text-gradient-orange {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(213, 93, 37, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Focus-visible styling */
 *:focus-visible {
-  outline: 2px solid rgba(15, 163, 177, 0.6);
+  outline: 2px solid rgba(213, 93, 37, 0.6);
   outline-offset: 2px;
 }
 

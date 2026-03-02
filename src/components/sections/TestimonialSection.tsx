@@ -13,7 +13,7 @@ export function TestimonialSection() {
       {/* Subtle radial glow */}
       <div
         className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(15,163,177,0.06) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(213,93,37,0.06) 0%, transparent 60%)" }}
       />
 
       <Container>

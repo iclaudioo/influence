@@ -5,12 +5,12 @@ import { DeliverablesGrid } from "@/components/sections/DeliverablesGrid";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { ServiceCTA } from "@/components/sections/ServiceCTA";
 
-const ACCENT = "#0FA3B1";
+const ACCENT = "#d55d25";
 
 export default function LabsPage() {
   return (
     <>
-      <ServiceHero namespace="labs" accentColor={ACCENT} featured animatedCircles="labs" />
+      <ServiceHero namespace="labs" accentColor={ACCENT} featured animatedCircles="orange" />
       <ChallengeSection namespace="labs" accentColor={ACCENT} />
       <ProcessSteps namespace="labs" accentColor={ACCENT} />
       <DeliverablesGrid namespace="labs" accentColor={ACCENT} />

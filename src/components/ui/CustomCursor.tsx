@@ -62,7 +62,7 @@ export function CustomCursor() {
         marginLeft: isHovering ? -20 : -4,
         marginTop: isHovering ? -20 : -4,
         borderRadius: "50%",
-        backgroundColor: "#0FA3B1",
+        backgroundColor: "#d55d25",
         opacity: 0.8,
         transition: "width 0.2s, height 0.2s, margin 0.2s",
       }}

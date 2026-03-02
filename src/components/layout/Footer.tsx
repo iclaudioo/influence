@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
 
 const serviceLinks = [
-  { key: "labs", href: "/labs", color: "#0FA3B1" },
+  { key: "labs", href: "/labs", color: "#d55d25" },
   { key: "circle", href: "/circle", color: "#D7263D" },
   { key: "studio", href: "/studio", color: "#A855F7" },
   { key: "academy", href: "/academy", color: "#E8A317" },
@@ -28,14 +28,14 @@ export async function Footer() {
       <div
         className="h-[3px]"
         style={{
-          background: "linear-gradient(90deg, #0FA3B1, #D7263D, #A855F7, #E8A317)",
+          background: "linear-gradient(90deg, #d55d25, #D7263D, #A855F7, #E8A317)",
         }}
       />
 
       {/* Subtle background glow */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(15,163,177,0.06) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(213,93,37,0.06) 0%, transparent 60%)" }}
       />
 
       {/* Main footer */}

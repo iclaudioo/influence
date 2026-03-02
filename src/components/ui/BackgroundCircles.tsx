@@ -11,12 +11,12 @@ interface BackgroundCirclesProps {
 const COLOR_VARIANTS = {
     labs: {
         border: [
-            "border-[#0FA3B1]/60",
-            "border-cyan-400/50",
+            "border-[#d55d25]/60",
+            "border-orange-400/50",
             "border-slate-600/30",
         ],
-        gradient: "from-[#0FA3B1]/30",
-        glow: "#0FA3B1",
+        gradient: "from-[#d55d25]/30",
+        glow: "#d55d25",
     },
     circle: {
         border: [

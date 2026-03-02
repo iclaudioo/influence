@@ -27,7 +27,7 @@ export function SectionHeading({
       : "text-navy/60";
 
   const titleClasses = `text-4xl md:text-5xl font-bold tracking-tight mb-4 ${
-    gradient && light ? "text-gradient-teal" : textColor
+    gradient && light ? "text-gradient-orange" : textColor
   }`;
 
   return (

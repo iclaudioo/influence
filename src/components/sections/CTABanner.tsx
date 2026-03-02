@@ -14,10 +14,10 @@ export function CTABanner() {
       className="section-padding relative overflow-hidden grain"
       style={{ background: "linear-gradient(135deg, #02182B 0%, #0a2540 50%, #02182B 100%)" }}
     >
-      {/* Bold teal glow center */}
+      {/* Bold orange glow center */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(15,163,177,0.25) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(213,93,37,0.25) 0%, transparent 60%)" }}
       />
 
       {/* Decorative ripple SVG */}
@@ -33,7 +33,7 @@ export function CTABanner() {
             cy="250"
             r={40 + i * 45}
             fill="none"
-            stroke="#0FA3B1"
+            stroke="#d55d25"
             strokeWidth="1"
           />
         ))}

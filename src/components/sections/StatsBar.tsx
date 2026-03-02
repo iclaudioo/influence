@@ -10,7 +10,7 @@ type StatItem = {
   label: string;
 };
 
-const statColors = ["#0FA3B1", "#D7263D", "#A855F7", "#E8A317"];
+const statColors = ["#d55d25", "#D7263D", "#A855F7", "#E8A317"];
 
 export function StatsBar() {
   const t = useTranslations("stats");

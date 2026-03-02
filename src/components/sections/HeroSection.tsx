@@ -38,14 +38,14 @@ export function HeroSection() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-sm uppercase tracking-[0.15em] font-medium text-labs mb-4"
+            className="text-sm uppercase tracking-[0.15em] font-medium text-[#d55d25] mb-4"
           >
             {t("eyebrow")}
           </motion.p>
 
           <motion.h1
             variants={blurIn}
-            className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-[-0.04em] text-gradient-teal"
+            className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-[-0.04em] text-gradient-orange"
           >
             {t("title")}
           </motion.h1>
@@ -61,7 +61,7 @@ export function HeroSection() {
             variants={scaleIn}
             className="mt-8 flex gap-4 flex-wrap justify-center"
           >
-            <Button href="/contact" accentColor="#0FA3B1">
+            <Button href="/contact" accentColor="#d55d25">
               {t("cta")}
             </Button>
             <Button href="/about" variant="secondary">

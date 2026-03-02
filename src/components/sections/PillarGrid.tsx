@@ -8,7 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { scaleRotate, staggerContainer } from "@/lib/animations";
 
 const pillars = [
-  { key: 0, color: "#0FA3B1", href: "/labs" },
+  { key: 0, color: "#d55d25", href: "/labs" },
   { key: 1, color: "#D7263D", href: "/circle" },
   { key: 2, color: "#A855F7", href: "/studio" },
   { key: 3, color: "#E8A317", href: "/academy" },
