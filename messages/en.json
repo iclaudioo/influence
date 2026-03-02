@@ -345,8 +345,10 @@
       "servicePlaceholder": "Select a service",
       "message": "Your message",
       "submit": "Send message",
+      "sending": "Sending...",
       "success": "Thank you for your message. We'll get back to you within 24 hours.",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again.",
+      "consent": "I agree to the processing of my personal data in accordance with the privacy policy. I understand that I can withdraw my consent at any time."
     },
     "info": {
       "title": "Contact details",

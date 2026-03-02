@@ -345,8 +345,10 @@
       "servicePlaceholder": "Selecteer een dienst",
       "message": "Uw bericht",
       "submit": "Verstuur bericht",
+      "sending": "Versturen...",
       "success": "Bedankt voor uw bericht. We nemen binnen 24 uur contact met u op.",
-      "error": "Er is iets misgegaan. Probeer het opnieuw."
+      "error": "Er is iets misgegaan. Probeer het opnieuw.",
+      "consent": "Ik ga akkoord met de verwerking van mijn persoonsgegevens conform het privacybeleid. Ik begrijp dat ik mijn toestemming op elk moment kan intrekken."
     },
     "info": {
       "title": "Contactgegevens",

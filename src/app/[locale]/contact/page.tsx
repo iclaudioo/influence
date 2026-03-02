@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "motion/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -10,7 +10,63 @@ import { fadeUp, staggerContainer } from "@/lib/animations";
 export default function ContactPage() {
   const t = useTranslations("contact");
   const nav = useTranslations("nav");
+  const locale = useLocale();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    service: "",
+    message: "",
+    gdprConsent: false,
+  });
+
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) {
+    const { name, value, type } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]:
+        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+    }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          language: locale,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || t("form.error"));
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("form.error"));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const inputClass =
+    "w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20";
 
   return (
     <>
@@ -66,10 +122,7 @@ export default function ContactPage() {
                 <motion.form
                   variants={fadeUp}
                   className="bg-white rounded-2xl p-8 shadow-lg shadow-navy/5 space-y-6"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSubmitted(true);
-                  }}
+                  onSubmit={handleSubmit}
                 >
                   <div>
                     <label className="block text-sm font-medium text-navy mb-2">
@@ -77,8 +130,11 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={inputClass}
                     />
                   </div>
                   <div>
@@ -87,8 +143,11 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={inputClass}
                     />
                   </div>
                   <div>
@@ -97,14 +156,22 @@ export default function ContactPage() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className={inputClass}
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-navy mb-2">
                       {t("form.service")}
                     </label>
-                    <select className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20 bg-white">
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className={`${inputClass} bg-white`}
+                    >
                       <option value="">{t("form.servicePlaceholder")}</option>
                       <option value="labs">{nav("labs")}</option>
                       <option value="circle">{nav("circle")}</option>
@@ -117,13 +184,40 @@ export default function ContactPage() {
                       {t("form.message")}
                     </label>
                     <textarea
+                      name="message"
                       rows={5}
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20 resize-none"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className={`${inputClass} resize-none`}
                     />
                   </div>
+
+                  {/* GDPR Consent */}
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      name="gdprConsent"
+                      id="gdprConsent"
+                      required
+                      checked={formData.gdprConsent}
+                      onChange={handleChange}
+                      className="mt-1 h-4 w-4 rounded border-navy/20 text-navy focus:ring-navy/20"
+                    />
+                    <label
+                      htmlFor="gdprConsent"
+                      className="text-sm text-navy/70"
+                    >
+                      {t("form.consent")}
+                    </label>
+                  </div>
+
+                  {error && (
+                    <p className="text-red-600 text-sm">{error}</p>
+                  )}
+
                   <Button type="submit" variant="primary">
-                    {t("form.submit")}
+                    {loading ? t("form.sending") : t("form.submit")}
                   </Button>
                 </motion.form>
               )}
