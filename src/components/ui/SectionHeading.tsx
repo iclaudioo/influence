@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+import { motion } from "motion/react";
+import { clipRevealUp, blurFadeUp } from "@/lib/animations";
 
 type Props = {
   eyebrow?: string;
@@ -8,6 +12,16 @@ type Props = {
   light?: boolean;
   accentColor?: string;
   gradient?: boolean;
+  /** Vary heading size for editorial rhythm: "lg" for hero moments, "md" default, "sm" for supporting */
+  size?: "lg" | "md" | "sm";
+  /** Use serif font for eyebrow */
+  serifEyebrow?: boolean;
+};
+
+const sizeMap = {
+  lg: "text-4xl md:text-5xl lg:text-6xl",
+  md: "text-3xl md:text-4xl lg:text-[3.25rem]",
+  sm: "text-2xl md:text-3xl lg:text-4xl",
 };
 
 export function SectionHeading({
@@ -18,46 +32,72 @@ export function SectionHeading({
   light = true,
   accentColor,
   gradient = false,
+  size = "md",
+  serifEyebrow = false,
 }: Props) {
   const textColor = light ? "text-white" : "text-navy";
   const eyebrowColor = accentColor
     ? undefined
     : light
-      ? "text-white/70"
-      : "text-navy/60";
+      ? "text-white/50"
+      : "text-navy/50";
 
-  const titleClasses = `text-4xl md:text-5xl font-bold tracking-tight mb-4 ${
+  const titleClasses = `${sizeMap[size]} font-bold tracking-tight leading-[1.1] mb-4 ${
     gradient && light ? "text-gradient-orange" : textColor
   }`;
 
   return (
-    <div className={centered ? "text-center" : ""}>
+    <motion.div
+      className={centered ? "text-center" : ""}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+    >
       {eyebrow && (
-        <p
-          className={`mb-4 text-sm uppercase tracking-[0.15em] font-medium flex items-center ${centered ? "justify-center" : ""} ${eyebrowColor ?? ""}`}
-          style={accentColor ? { color: accentColor } : undefined}
+        <motion.div
+          variants={blurFadeUp}
+          className={`mb-5 flex items-center ${centered ? "justify-center" : ""}`}
         >
           {!centered && (
-            <span
-              className="inline-block w-6 h-0.5 mr-3"
+            <motion.span
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="inline-block w-8 h-px mr-3 origin-left"
               style={{
-                backgroundColor:
-                  accentColor ||
-                  (light ? "rgba(255,255,255,0.5)" : "rgba(2,24,43,0.3)"),
+                background: accentColor
+                  ? `linear-gradient(90deg, ${accentColor}, transparent)`
+                  : light
+                    ? "linear-gradient(90deg, rgba(255,255,255,0.3), transparent)"
+                    : "linear-gradient(90deg, rgba(2,24,43,0.2), transparent)",
               }}
             />
           )}
-          {eyebrow}
-        </p>
+          <p
+            className={`text-xs uppercase tracking-[0.2em] font-medium ${serifEyebrow ? "font-serif italic normal-case tracking-[0.05em] text-sm" : ""} ${eyebrowColor ?? ""}`}
+            style={accentColor ? { color: accentColor } : undefined}
+          >
+            {eyebrow}
+          </p>
+          {centered && (
+            <>
+              <span className="sr-only"> </span>
+            </>
+          )}
+        </motion.div>
       )}
-      <h2 className={titleClasses}>{title}</h2>
+      <motion.h2 variants={clipRevealUp} className={titleClasses}>
+        {title}
+      </motion.h2>
       {description && (
-        <p
-          className={`text-lg font-light opacity-80 max-w-2xl ${textColor} ${centered ? "mx-auto" : ""}`}
+        <motion.p
+          variants={blurFadeUp}
+          className={`text-lg leading-relaxed opacity-60 max-w-2xl ${textColor} ${centered ? "mx-auto" : ""}`}
         >
           {description}
-        </p>
+        </motion.p>
       )}
-    </div>
+    </motion.div>
   );
 }

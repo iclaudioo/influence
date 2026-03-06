@@ -59,10 +59,15 @@ export function BlogCard({
       })
     : null;
 
+  const hoverColor = serviceColor || "#d55d25";
+
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block overflow-hidden rounded-2xl border border-white/10 bg-[#0a2540] transition-all duration-300 hover:border-white/20 hover:-translate-y-1"
+      className="group block overflow-hidden rounded-2xl border border-white/10 bg-[#0a2540] transition-all duration-500 hover:border-white/20 hover:-translate-y-1.5"
+      style={{
+        "--card-hover-color": hoverColor,
+      } as React.CSSProperties}
     >
       {/* Cover image */}
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-white/5">
@@ -71,15 +76,34 @@ export function BlogCard({
             src={coverImage}
             alt={title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
-          <div className="flex h-full items-center justify-center">
-            <span className="text-4xl text-white/20">IC</span>
+          <div className="flex h-full items-center justify-center" style={{
+            background: serviceColor
+              ? `linear-gradient(135deg, ${serviceColor}15, transparent 60%)`
+              : "linear-gradient(135deg, rgba(213,93,37,0.08), transparent 60%)",
+          }}>
+            <span className="text-5xl font-serif italic text-white/10 select-none">IC</span>
           </div>
         )}
+        {/* Gradient overlay on hover */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+          style={{
+            background: `linear-gradient(to top, ${hoverColor}30, transparent 60%)`,
+          }}
+        />
       </div>
+
+      {/* Accent line */}
+      {serviceColor && (
+        <div
+          className="h-px w-full opacity-30 group-hover:opacity-60 transition-opacity duration-500"
+          style={{ background: `linear-gradient(90deg, ${serviceColor}, transparent)` }}
+        />
+      )}
 
       {/* Content */}
       <div className="p-5">
@@ -100,9 +124,11 @@ export function BlogCard({
           )}
         </div>
 
-        {/* Title */}
-        <h3 className="text-lg font-bold text-white transition-colors group-hover:text-[#d55d25] line-clamp-2">
-          {title}
+        {/* Title — hover uses service line color */}
+        <h3 className="text-lg font-bold text-white transition-colors duration-300 line-clamp-2">
+          <span className="group-hover:text-[var(--card-hover-color)] transition-colors duration-300">
+            {title}
+          </span>
         </h3>
 
         {/* Excerpt */}

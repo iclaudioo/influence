@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { createServiceClient } from "@/lib/supabase/server";
 import { buildMetadata, getSeoOverride } from "@/lib/seo";
@@ -69,7 +70,11 @@ export default async function CasesPage({
       <StructuredData data={structuredData} />
 
       {/* Hero */}
-      <section className="bg-navy min-h-[40vh] flex items-center pt-24 pb-12">
+      <section className="bg-navy min-h-[40vh] flex items-center pt-24 pb-12 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <Image src="/images/generated/heroes/cases-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-navy" />
+        </div>
         <Container>
           <SectionHeading
             eyebrow={t("eyebrow")}

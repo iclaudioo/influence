@@ -15,7 +15,7 @@ const content = {
     previewText: "De 5 pijlers van thought leadership",
     heading: "De 5 pijlers van thought leadership",
     intro: (name: string) =>
-      `Hoi ${name}, na het Mirror Exposure Effect en een inspirerende case study is het tijd om concreet te worden. Dit zijn de 5 pijlers die elke sterke thought leader gemeen heeft.`,
+      `Hoi ${name}, na het Mere Exposure Effect en een inspirerende case study is het tijd om concreet te worden. Dit zijn de 5 pijlers die elke sterke thought leader gemeen heeft.`,
     pillar1Title: "1. Authentieke positionering",
     pillar1Text:
       "Thought leadership begint bij weten wie je bent en waar je voor staat. Het gaat niet om een persona creëren, maar om je unieke combinatie van expertise, ervaring en perspectief helder te formuleren.",
@@ -41,7 +41,7 @@ const content = {
     previewText: "The 5 pillars of thought leadership",
     heading: "The 5 pillars of thought leadership",
     intro: (name: string) =>
-      `Hi ${name}, after the Mirror Exposure Effect and an inspiring case study, it's time to get concrete. These are the 5 pillars that every strong thought leader has in common.`,
+      `Hi ${name}, after the Mere Exposure Effect and an inspiring case study, it's time to get concrete. These are the 5 pillars that every strong thought leader has in common.`,
     pillar1Title: "1. Authentic positioning",
     pillar1Text:
       "Thought leadership starts with knowing who you are and what you stand for. It's not about creating a persona, but clearly articulating your unique combination of expertise, experience, and perspective.",

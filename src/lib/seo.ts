@@ -56,7 +56,7 @@ export function buildMetadata({
   const finalOgTitle = override?.og_title || finalTitle;
   const finalOgDescription = override?.og_description || finalDescription;
   const finalOgImage =
-    override?.og_image_url || ogImage || `${BASE_URL}/og-default.jpg`;
+    override?.og_image_url || ogImage || `${BASE_URL}/images/generated/og/og-default.png`;
 
   const canonicalUrl = `${BASE_URL}${locale === "nl" ? "" : "/en"}${path === "/" ? "" : path}`;
   const alternateNl = `${BASE_URL}${path === "/" ? "" : path}`;

@@ -15,7 +15,7 @@ const content = {
     previewText: "Case study: Van onzichtbaar naar thought leader in 6 maanden",
     heading: "Van onzichtbaar naar thought leader",
     intro: (name: string) =>
-      `Hoi ${name}, eerder vertelden we je over het Mirror Exposure Effect. Vandaag laten we zien hoe een professional dit in de praktijk bracht.`,
+      `Hoi ${name}, eerder vertelden we je over het Mere Exposure Effect. Vandaag laten we zien hoe een professional dit in de praktijk bracht.`,
     caseHeading: "De situatie",
     caseText:
       "Een senior consultant bij een gerenommeerd adviesbureau had 15 jaar ervaring, maar was online vrijwel onzichtbaar. Zijn expertise was enorm, maar niemand buiten zijn directe netwerk wist het. Nieuwe klanten kwamen uitsluitend via mond-tot-mondreclame.",
@@ -44,7 +44,7 @@ const content = {
     previewText: "Case study: From invisible to thought leader in 6 months",
     heading: "From invisible to thought leader",
     intro: (name: string) =>
-      `Hi ${name}, earlier we told you about the Mirror Exposure Effect. Today we show how a professional put this into practice.`,
+      `Hi ${name}, earlier we told you about the Mere Exposure Effect. Today we show how a professional put this into practice.`,
     caseHeading: "The situation",
     caseText:
       "A senior consultant at a renowned advisory firm had 15 years of experience but was virtually invisible online. His expertise was vast, but nobody outside his direct network knew it. New clients came exclusively through word of mouth.",

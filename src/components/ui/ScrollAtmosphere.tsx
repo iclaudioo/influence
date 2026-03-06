@@ -1,56 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
-export function ScrollAtmosphere() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrollY(window.scrollY);
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+function AtmosphereBlob({
+  color,
+  size,
+  baseTop,
+  speed,
+  opacity,
+  side,
+  posX,
+}: {
+  color: string;
+  size: number;
+  baseTop: number;
+  speed: number;
+  opacity: number;
+  side: "left" | "right";
+  posX: number;
+}) {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 5000], [baseTop, baseTop + 5000 * speed]);
+  const scale = useTransform(scrollY, [0, 2500, 5000], [1, 1.05, 0.98]);
 
   return (
+    <motion.div
+      className="absolute rounded-full will-change-transform"
+      style={{
+        width: size,
+        height: size,
+        background: `radial-gradient(circle, ${color}, transparent 70%)`,
+        opacity,
+        ...(side === "right" ? { right: posX } : { left: posX }),
+        y,
+        scale,
+      }}
+    />
+  );
+}
+
+const blobs = [
+  { color: "#d55d25", size: 800, baseTop: -100, speed: -0.05, opacity: 0.04, side: "right" as const, posX: -200 },
+  { color: "#D7263D", size: 600, baseTop: 400, speed: -0.08, opacity: 0.03, side: "left" as const, posX: -150 },
+  { color: "#A855F7", size: 700, baseTop: 1200, speed: -0.06, opacity: 0.03, side: "right" as const, posX: -100 },
+  { color: "#E8A317", size: 500, baseTop: 2000, speed: -0.04, opacity: 0.04, side: "left" as const, posX: -100 },
+];
+
+export function ScrollAtmosphere() {
+  return (
     <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
-      {/* Labs orange blob */}
-      <div
-        className="absolute w-[800px] h-[800px] rounded-full opacity-[0.04]"
-        style={{
-          background: "radial-gradient(circle, #d55d25, transparent 70%)",
-          right: "-200px",
-          top: `${-100 + scrollY * -0.05}px`,
-        }}
-      />
-      {/* Circle red blob */}
-      <div
-        className="absolute w-[600px] h-[600px] rounded-full opacity-[0.03]"
-        style={{
-          background: "radial-gradient(circle, #D7263D, transparent 70%)",
-          left: "-150px",
-          top: `${400 + scrollY * -0.08}px`,
-        }}
-      />
-      {/* Studio purple blob */}
-      <div
-        className="absolute w-[700px] h-[700px] rounded-full opacity-[0.03]"
-        style={{
-          background: "radial-gradient(circle, #A855F7, transparent 70%)",
-          right: "-100px",
-          top: `${1200 + scrollY * -0.06}px`,
-        }}
-      />
-      {/* Academy gold blob */}
-      <div
-        className="absolute w-[500px] h-[500px] rounded-full opacity-[0.04]"
-        style={{
-          background: "radial-gradient(circle, #E8A317, transparent 70%)",
-          left: "-100px",
-          top: `${2000 + scrollY * -0.04}px`,
-        }}
-      />
+      {blobs.map((blob, i) => (
+        <AtmosphereBlob key={i} {...blob} />
+      ))}
     </div>
   );
 }

@@ -44,8 +44,10 @@
   --color-navy: #02182B;
   --color-navy-light: #0a2540;
   --color-navy-dark: #010f1c;
+  --color-navy-mid: #061e33;
   --color-white: #FFFFFF;
   --color-off-white: #F8F9FA;
+  --color-cream: #F0EDE8;
   --color-labs: #d55d25;
   --color-circle: #D7263D;
   --color-studio: #A855F7;
@@ -69,8 +71,18 @@ body {
   color: white;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Lenis smooth scroll overrides */
+html.lenis {
+  height: auto;
+  scroll-behavior: initial;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 /* Eyebrow text utility */
@@ -91,6 +103,13 @@ html {
   .section-padding {
     padding-top: 6rem;
     padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -133,13 +152,8 @@ html {
 }
 
 @keyframes ripplePulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.06);
-    opacity: 0.3;
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); opacity: 0.3; }
 }
 
 /* Mirror circle animation */
@@ -149,22 +163,14 @@ html {
 }
 
 @keyframes mirrorPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.04);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
 }
 
 /* Marquee animation */
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-marquee {
@@ -173,16 +179,67 @@ html {
 
 /* Breathing glow animation */
 @keyframes breathingGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(213, 93, 37, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(213, 93, 37, 0.5), 0 0 80px rgba(213, 93, 37, 0.2);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(213, 93, 37, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(213, 93, 37, 0.5), 0 0 80px rgba(213, 93, 37, 0.2); }
 }
 
 .animate-breathing-glow {
   animation: breathingGlow 3s ease-in-out infinite;
+}
+
+/* Shimmer line effect */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.shimmer-line {
+  overflow: hidden;
+  position: relative;
+}
+
+.shimmer-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Orbital rotation */
+@keyframes orbital {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-orbital {
+  animation: orbital 20s linear infinite;
+}
+
+.animate-orbital-reverse {
+  animation: orbital 25s linear infinite reverse;
+}
+
+/* Dot progress for testimonial autoplay */
+@keyframes dotProgress {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Pulse ring for CTA hover */
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }
 
 /* Gradient text utility */
@@ -200,6 +257,59 @@ html {
   background-clip: text;
 }
 
+.text-gradient-warm {
+  background: linear-gradient(135deg, #d55d25 0%, #E8A317 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow utilities */
+.glow-orange {
+  box-shadow: 0 0 60px rgba(213, 93, 37, 0.15), 0 0 120px rgba(213, 93, 37, 0.05);
+}
+
+.glow-labs { box-shadow: 0 0 40px rgba(213, 93, 37, 0.2); }
+.glow-circle { box-shadow: 0 0 40px rgba(215, 38, 61, 0.2); }
+.glow-studio { box-shadow: 0 0 40px rgba(168, 85, 247, 0.2); }
+.glow-academy { box-shadow: 0 0 40px rgba(232, 163, 23, 0.2); }
+
+/* Mesh gradient backgrounds */
+.mesh-gradient-dark {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(213, 93, 37, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(10, 37, 64, 1) 0%, rgba(2, 24, 43, 1) 100%);
+}
+
+.mesh-gradient-hero {
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(213, 93, 37, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(232, 163, 23, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(10, 37, 64, 0.6);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Divider with gradient */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 70%, transparent);
+}
+
 /* Focus-visible styling */
 *:focus-visible {
   outline: 2px solid rgba(213, 93, 37, 0.6);
@@ -210,6 +320,41 @@ html {
 @media (pointer: fine) {
   * {
     cursor: none !important;
+  }
+}
+
+/* Perspective utility */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Glass warm variant (orange-tinted) */
+.glass-warm {
+  background: rgba(213, 93, 37, 0.08);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border: 1px solid rgba(213, 93, 37, 0.12);
+}
+
+/* Floating navbar pill */
+.navbar-floating {
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  border-radius: 9999px;
+}
+
+@media (min-width: 768px) {
+  .navbar-floating {
+    left: 24px;
+    right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-floating {
+    left: 40px;
+    right: 40px;
   }
 }
 

@@ -12,7 +12,7 @@ const ACCENT = "#D7263D";
 export default function CirclePage() {
   return (
     <>
-      <ServiceHero namespace="circle" accentColor={ACCENT} networkNodes animatedCircles="circle" />
+      <ServiceHero namespace="circle" accentColor={ACCENT} networkNodes animatedCircles="circle" backgroundImage="/images/generated/heroes/circle-hero.png" breadcrumbLabel="Influence Circle" breadcrumbHref="/circle" />
       <ChallengeSection namespace="circle" accentColor={ACCENT} />
       <ProcessSteps namespace="circle" accentColor={ACCENT} />
       <DeliverablesGrid namespace="circle" accentColor={ACCENT} />

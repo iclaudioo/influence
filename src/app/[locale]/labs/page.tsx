@@ -12,7 +12,7 @@ const ACCENT = "#d55d25";
 export default function LabsPage() {
   return (
     <>
-      <ServiceHero namespace="labs" accentColor={ACCENT} featured animatedCircles="orange" />
+      <ServiceHero namespace="labs" accentColor={ACCENT} featured animatedCircles="orange" backgroundImage="/images/generated/heroes/labs-hero.png" breadcrumbLabel="Influence Labs" breadcrumbHref="/labs" />
       <ChallengeSection namespace="labs" accentColor={ACCENT} />
       <ProcessSteps namespace="labs" accentColor={ACCENT} />
       <DeliverablesGrid namespace="labs" accentColor={ACCENT} />

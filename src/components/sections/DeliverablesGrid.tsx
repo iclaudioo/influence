@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { blurFadeUp, staggerContainer } from "@/lib/animations";
 
 type Props = {
   namespace: string;
@@ -24,7 +24,13 @@ export function DeliverablesGrid({ namespace, accentColor }: Props) {
   }>;
 
   return (
-    <section className="bg-off-white section-padding">
+    <section className="bg-off-white section-padding relative overflow-hidden">
+      {/* Subtle accent glow */}
+      <div
+        className="absolute top-0 right-0 w-[400px] h-[400px] pointer-events-none"
+        style={{ background: `radial-gradient(circle, ${accentColor}04 0%, transparent 60%)` }}
+      />
+
       <Container>
         <SectionHeading
           eyebrow={t("deliverables.eyebrow")}
@@ -38,13 +44,20 @@ export function DeliverablesGrid({ namespace, accentColor }: Props) {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
         >
           {items.map((item, index) => (
-            <motion.div key={index} variants={fadeUp}>
+            <motion.div key={index} variants={blurFadeUp}>
               <Card accentColor={accentColor} hover={true}>
-                <h3 className="text-xl font-bold text-navy">{item.title}</h3>
-                <p className="text-navy/70 mt-2">{item.description}</p>
+                {/* Index number */}
+                <span
+                  className="text-xs font-bold tracking-widest mb-3 block"
+                  style={{ color: `${accentColor}80` }}
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-lg font-bold text-navy mb-2">{item.title}</h3>
+                <p className="text-navy/60 text-sm leading-relaxed">{item.description}</p>
               </Card>
             </motion.div>
           ))}

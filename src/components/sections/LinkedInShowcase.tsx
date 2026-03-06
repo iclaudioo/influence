@@ -31,13 +31,16 @@ export function LinkedInShowcase({ posts }: Props) {
   }
 
   return (
-    <section className="bg-navy section-padding">
+    <section className="bg-navy section-padding relative overflow-hidden">
+      {/* Top gradient bridge from cream */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-cream/5 to-transparent pointer-events-none" />
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
           title={t("title")}
           centered
           light
+          size="sm"
         />
 
         <div className="mt-12 -mx-4 px-4 overflow-x-auto scrollbar-hide">

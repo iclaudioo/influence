@@ -91,7 +91,7 @@
   },
   "mirror": {
     "eyebrow": "Our method",
-    "title": "The Mirror Exposure Effect",
+    "title": "The Mere Exposure Effect",
     "description": "The more people see you, the more they trust you. We make that systematic.",
     "steps": [
       { "title": "Visibility", "description": "Being present where your audience looks" },
@@ -199,7 +199,7 @@
     },
     "process": {
       "eyebrow": "Our approach",
-      "title": "The Mirror Exposure journey",
+      "title": "The Mere Exposure journey",
       "steps": [
         { "title": "Mirror", "description": "We analyze who you are, what you stand for and how you want to be seen." },
         { "title": "Position", "description": "We define your unique position and thought leadership domains." },
@@ -550,5 +550,121 @@
   "calendly": {
     "title": "Schedule a call",
     "button": "Choose a time"
+  },
+  "share": {
+    "label": "Share",
+    "copied": "Copied!",
+    "linkedin": "Share on LinkedIn",
+    "twitter": "Share on X"
+  },
+  "blogFilter": {
+    "search": "Search articles...",
+    "all": "All",
+    "noResults": "No articles found",
+    "reset": "Reset filters"
+  },
+  "biases": {
+    "meta": {
+      "title": "The Psychology of Visibility | Influence Circle",
+      "description": "Discover which cognitive biases and heuristics form the foundation of effective personal branding. From the Mere Exposure Effect to Social Proof."
+    },
+    "hero": {
+      "eyebrow": "Biases & Heuristics",
+      "title": "The Psychology of Visibility",
+      "subtitle": "Your brain makes thousands of decisions on autopilot every day. Those who understand these patterns build a brand that instinctively inspires trust."
+    },
+    "intro": {
+      "title": "How your brain really decides",
+      "system1": "System 1 thinks fast, intuitively and automatically. It relies on mental shortcuts — heuristics — to make rapid judgments. This system drives 95% of our daily decisions.",
+      "system2": "System 2 is slow, analytical and deliberate. It requires energy and is only activated when System 1 gets stuck. Most choices — including who you trust — are made without System 2 getting involved.",
+      "relevance": "Personal branding that works taps into System 1. By strategically leveraging cognitive biases, you ensure your audience unconsciously perceives you as the logical choice."
+    },
+    "card": {
+      "howWeApply": "How we apply this",
+      "showMore": "More",
+      "showLess": "Less"
+    },
+    "grid": {
+      "eyebrow": "The science",
+      "title": "8 biases that make or break your personal brand"
+    },
+    "items": [
+      {
+        "key": "mere-exposure",
+        "title": "Mere Exposure Effect",
+        "oneliner": "The more often you see someone, the more you trust them.",
+        "description": "Robert Zajonc proved in 1968 that repeated exposure to a stimulus increases preference for it — even without conscious recognition. For personal branding this means: consistent visibility builds trust, before a first conversation even takes place.",
+        "application": "With Influence Circle, we ensure repeated, strategic visibility through LinkedIn, events and media. Making you a trusted face in your industry.",
+        "service": "circle",
+        "serviceLabel": "Discover Circle"
+      },
+      {
+        "key": "authority-bias",
+        "title": "Authority Bias",
+        "oneliner": "We follow experts and authorities.",
+        "description": "People attribute more credibility to someone perceived as an authority. Titles, publications, speaking engagements and media appearances amplify this effect exponentially.",
+        "application": "Influence Labs strategically positions you as a thought leader in your domain, with the right signals that convey authority.",
+        "service": "labs",
+        "serviceLabel": "Discover Labs"
+      },
+      {
+        "key": "social-proof",
+        "title": "Social Proof",
+        "oneliner": "We do what others do.",
+        "description": "When uncertain, we look at other people's behaviour. High engagement, recommendations and a large network are powerful signals that someone is worth paying attention to.",
+        "application": "Through Circle, we organically grow your LinkedIn network and engagement, so social proof works in your favour.",
+        "service": "circle",
+        "serviceLabel": "Discover Circle"
+      },
+      {
+        "key": "halo-effect",
+        "title": "Halo Effect",
+        "oneliner": "One positive trait colours everything.",
+        "description": "One strong positive attribute — a professional appearance, a polished video, a well-written article — positively colours the perception of all your other qualities.",
+        "application": "Influence Studio creates premium content and visuals that leave an immediate professional impression.",
+        "service": "studio",
+        "serviceLabel": "Discover Studio"
+      },
+      {
+        "key": "anchoring",
+        "title": "Anchoring",
+        "oneliner": "The first impression sets the reference frame.",
+        "description": "The first piece of information we receive acts as an anchor for all subsequent judgments. Who you are at the first point of contact determines how everything after is interpreted.",
+        "application": "With Influence Labs, we define your initial positioning so the anchor works in your favour.",
+        "service": "labs",
+        "serviceLabel": "Discover Labs"
+      },
+      {
+        "key": "availability-heuristic",
+        "title": "Availability Heuristic",
+        "oneliner": "What we see more often, we consider more important.",
+        "description": "Information that easily comes to mind is perceived as more relevant and important. Those who are regularly visible are automatically seen as more influential.",
+        "application": "Circle and Studio together ensure consistent content that keeps you top-of-mind with your audience.",
+        "service": "circle",
+        "serviceLabel": "Discover Circle & Studio"
+      },
+      {
+        "key": "framing-effect",
+        "title": "Framing Effect",
+        "oneliner": "How something is presented determines perception.",
+        "description": "The same information leads to different conclusions depending on how it is presented. The way you tell your story is just as important as the content itself.",
+        "application": "Influence Studio masters the art of storytelling and framing, ensuring your message resonates to maximum effect.",
+        "service": "studio",
+        "serviceLabel": "Discover Studio"
+      },
+      {
+        "key": "bandwagon-effect",
+        "title": "Bandwagon Effect",
+        "oneliner": "We want to belong.",
+        "description": "People join what's popular. When a community grows around someone's ideas, it attracts increasingly more like-minded professionals.",
+        "application": "Through the Influence Academy, we build a community of like-minded professionals around your expertise.",
+        "service": "academy",
+        "serviceLabel": "Discover Academy"
+      }
+    ],
+    "cta": {
+      "title": "Put psychology to work for your personal brand",
+      "button": "Get in touch"
+    }
   }
 }

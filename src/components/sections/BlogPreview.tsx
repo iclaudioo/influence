@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
 import { createServiceClient } from "@/lib/supabase/server";
+import { getBlogFallbackImage } from "@/lib/fallback-images";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BlogCard } from "@/components/sections/BlogCard";
@@ -41,13 +42,18 @@ export async function BlogPreview({
   }
 
   return (
-    <section className="bg-off-white section-padding">
+    <section className="bg-cream section-padding relative overflow-hidden">
+      {/* Top gradient bridge from dark */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-navy/8 to-transparent pointer-events-none" />
+      {/* Bottom gradient bridge to dark */}
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-navy/8 to-transparent pointer-events-none" />
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
           title={t("title")}
           centered
           light={false}
+          size="sm"
         />
         <BlogPreviewAnimated>
           {posts.map((post: { slug: string; title: string; excerpt: string; cover_image_url: string | null; category: string | null; service_line: string | null; read_time_minutes: number | null; published_at: string | null; author: unknown }) => {
@@ -62,7 +68,7 @@ export async function BlogPreview({
                 slug={post.slug}
                 title={post.title}
                 excerpt={post.excerpt}
-                coverImage={post.cover_image_url}
+                coverImage={post.cover_image_url ?? getBlogFallbackImage(post.slug)}
                 category={post.category}
                 authorName={authorName}
                 publishedAt={post.published_at}
@@ -76,9 +82,9 @@ export async function BlogPreview({
         <div className="mt-12 text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-navy/70 hover:text-navy transition-colors text-sm font-medium"
+            className="group inline-flex items-center gap-2 text-navy/50 hover:text-navy transition-all duration-300 text-sm font-medium"
           >
-            {t("viewAll")}
+            <span className="group-hover:tracking-wide transition-all duration-300">{t("viewAll")}</span>
             <svg
               width="16"
               height="16"
@@ -88,6 +94,7 @@ export async function BlogPreview({
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="transition-transform duration-300 group-hover:translate-x-1"
             >
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>

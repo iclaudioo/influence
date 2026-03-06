@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 const CIRCUMFERENCE = 2 * Math.PI * 36; // ~226.19
 
@@ -19,7 +20,10 @@ export function AnimatedCounter({
 }: Props) {
   const [count, setCount] = useState(0);
   const [ringProgress, setRingProgress] = useState(0);
+  const [isCounting, setIsCounting] = useState(false);
+  const [burstScale, setBurstScale] = useState(1);
   const ref = useRef<HTMLSpanElement>(null);
+  const ringRef = useRef<SVGCircleElement>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -31,28 +35,44 @@ export function AnimatedCounter({
         if (entry.isIntersecting && !hasAnimated.current) {
           hasAnimated.current = true;
           observer.disconnect();
+          setIsCounting(true);
 
-          // Trigger ring animation
-          setRingProgress(0.75);
+          // GSAP counter animation
+          const counter = { value: 0 };
+          const durationSec = duration / 1000;
 
-          const startTime = performance.now();
+          const tl = gsap.timeline();
 
-          function animate(currentTime: number) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
+          // Animate counter
+          tl.to(counter, {
+            value: target,
+            duration: durationSec,
+            ease: "power4.out",
+            onUpdate: () => {
+              setCount(Math.round(counter.value));
+            },
+            onComplete: () => {
+              setIsCounting(false);
+              // Burst pulse
+              setBurstScale(1.08);
+              setTimeout(() => setBurstScale(1), 200);
+            },
+          });
 
-            // Ease-out cubic for a smooth deceleration
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(eased * target);
-
-            setCount(current);
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
+          // Animate ring in sync
+          if (ringRef.current) {
+            gsap.fromTo(
+              ringRef.current,
+              { strokeDashoffset: CIRCUMFERENCE },
+              {
+                strokeDashoffset: CIRCUMFERENCE * 0.25,
+                duration: durationSec,
+                ease: "power4.out",
+              }
+            );
           }
 
-          requestAnimationFrame(animate);
+          setRingProgress(0.75);
         }
       },
       { threshold: 0.3 },
@@ -81,6 +101,7 @@ export function AnimatedCounter({
           opacity="0.15"
         />
         <circle
+          ref={ringRef}
           cx="40"
           cy="40"
           r="36"
@@ -88,15 +109,19 @@ export function AnimatedCounter({
           stroke={strokeColor}
           strokeWidth="2"
           strokeDasharray={CIRCUMFERENCE}
-          strokeDashoffset={CIRCUMFERENCE * (1 - ringProgress)}
+          strokeDashoffset={CIRCUMFERENCE}
           strokeLinecap="round"
-          className="transition-[stroke-dashoffset] duration-[2000ms] ease-out"
         />
       </svg>
       <span
         ref={ref}
-        style={{ color: accentColor || "#ffffff" }}
-        className="relative z-10 text-5xl md:text-6xl font-bold"
+        style={{
+          color: accentColor || "#ffffff",
+          filter: isCounting ? "blur(0.5px)" : "blur(0px)",
+          transform: `scale(${burstScale})`,
+          transition: "filter 0.3s ease-out, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        }}
+        className="relative z-10 text-5xl md:text-6xl font-bold tabular-nums"
       >
         {count.toLocaleString()}
         {suffix}

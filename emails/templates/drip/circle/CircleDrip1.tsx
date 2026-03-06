@@ -12,15 +12,15 @@ const ACCENT = "#D7263D";
 
 const content = {
   nl: {
-    previewText: "Het Mirror Exposure Effect: waarom zichtbaarheid alles is",
-    heading: "Het Mirror Exposure Effect",
+    previewText: "Het Mere Exposure Effect: waarom zichtbaarheid alles is",
+    heading: "Het Mere Exposure Effect",
     intro: (name: string) =>
-      `Hoi ${name}, welkom bij Influence Circle! Vandaag introduceren we een concept dat de kern vormt van alles wat we doen: het Mirror Exposure Effect.`,
-    conceptHeading: "Wat is het Mirror Exposure Effect?",
+      `Hoi ${name}, welkom bij Influence Circle! Vandaag introduceren we een concept dat de kern vormt van alles wat we doen: het Mere Exposure Effect.`,
+    conceptHeading: "Wat is het Mere Exposure Effect?",
     conceptText1:
       "Psychologisch onderzoek toont aan dat mensen een voorkeur ontwikkelen voor dingen — en mensen — die ze vaker zien. Dit heet het Mere Exposure Effect. Maar bij personal branding gaat het verder.",
     conceptText2:
-      "Het Mirror Exposure Effect combineert herhaalde zichtbaarheid met herkenning. Wanneer jouw publiek zichzelf herkent in jouw verhaal, ontstaat er een diepere connectie dan bij gewone naamsbekendheid.",
+      "Het Mere Exposure Effect combineert herhaalde zichtbaarheid met herkenning. Wanneer jouw publiek zichzelf herkent in jouw verhaal, ontstaat er een diepere connectie dan bij gewone naamsbekendheid.",
     pillar1Title: "Zichtbaarheid",
     pillar1Text:
       "Consequent aanwezig zijn op de platforms waar jouw doelgroep actief is. Niet eenmalig, maar structureel.",
@@ -37,15 +37,15 @@ const content = {
     team: "Het Influence Circle team",
   },
   en: {
-    previewText: "The Mirror Exposure Effect: why visibility is everything",
-    heading: "The Mirror Exposure Effect",
+    previewText: "The Mere Exposure Effect: why visibility is everything",
+    heading: "The Mere Exposure Effect",
     intro: (name: string) =>
-      `Hi ${name}, welcome to Influence Circle! Today we introduce a concept that forms the core of everything we do: the Mirror Exposure Effect.`,
-    conceptHeading: "What is the Mirror Exposure Effect?",
+      `Hi ${name}, welcome to Influence Circle! Today we introduce a concept that forms the core of everything we do: the Mere Exposure Effect.`,
+    conceptHeading: "What is the Mere Exposure Effect?",
     conceptText1:
       "Psychological research shows that people develop a preference for things — and people — they see more often. This is called the Mere Exposure Effect. But with personal branding, it goes further.",
     conceptText2:
-      "The Mirror Exposure Effect combines repeated visibility with recognition. When your audience sees themselves reflected in your story, a deeper connection emerges than with mere name recognition.",
+      "The Mere Exposure Effect combines repeated visibility with recognition. When your audience sees themselves reflected in your story, a deeper connection emerges than with mere name recognition.",
     pillar1Title: "Visibility",
     pillar1Text:
       "Being consistently present on the platforms where your target audience is active. Not once, but structurally.",

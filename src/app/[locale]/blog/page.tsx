@@ -1,12 +1,14 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { createServiceClient } from "@/lib/supabase/server";
 import { buildMetadata, getSeoOverride } from "@/lib/seo";
+import { getBlogFallbackImage } from "@/lib/fallback-images";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StructuredData } from "@/components/ui/StructuredData";
-import { BlogCard } from "@/components/sections/BlogCard";
+import { BlogFilterClient } from "./BlogFilterClient";
 
 /* ---------- Metadata ---------- */
 
@@ -68,7 +70,11 @@ export default async function BlogPage({ params }: PageProps) {
       <StructuredData data={blogStructuredData} />
 
       {/* Hero */}
-      <section className="bg-navy pt-32 pb-16">
+      <section className="bg-navy pt-32 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <Image src="/images/generated/heroes/blog-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-navy" />
+        </div>
         <Container>
           <SectionHeading
             eyebrow={t("eyebrow")}
@@ -81,12 +87,13 @@ export default async function BlogPage({ params }: PageProps) {
         </Container>
       </section>
 
-      {/* Posts grid */}
+      {/* Posts grid with filter */}
       <section className="bg-navy section-padding">
         <Container>
           {posts && posts.length > 0 ? (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post: { id: string; slug: string; title_nl: string | null; title_en: string | null; excerpt_nl: string | null; excerpt_en: string | null; cover_image_url: string | null; category: string | null; service_line: string | null; read_time: number | null; published_at: string | null; author: unknown }) => {
+            <BlogFilterClient
+              locale={locale}
+              posts={posts.map((post: { id: string; slug: string; title_nl: string | null; title_en: string | null; excerpt_nl: string | null; excerpt_en: string | null; cover_image_url: string | null; category: string | null; service_line: string | null; read_time: number | null; published_at: string | null; author: unknown }) => {
                 const title =
                   locale === "nl"
                     ? (post.title_nl ?? post.title_en)
@@ -97,23 +104,20 @@ export default async function BlogPage({ params }: PageProps) {
                     : (post.excerpt_en ?? post.excerpt_nl);
                 const author = post.author as { name: string } | null;
 
-                return (
-                  <BlogCard
-                    key={post.id}
-                    slug={post.slug}
-                    title={title ?? ""}
-                    excerpt={excerpt ?? ""}
-                    coverImage={post.cover_image_url}
-                    category={post.category}
-                    authorName={author?.name ?? null}
-                    publishedAt={post.published_at}
-                    serviceLine={post.service_line}
-                    readTime={post.read_time}
-                    locale={locale}
-                  />
-                );
+                return {
+                  id: post.id,
+                  slug: post.slug,
+                  title: title ?? "",
+                  excerpt: excerpt ?? "",
+                  coverImage: post.cover_image_url ?? getBlogFallbackImage(post.slug),
+                  category: post.category,
+                  serviceLine: post.service_line,
+                  readTime: post.read_time,
+                  publishedAt: post.published_at,
+                  authorName: author?.name ?? null,
+                };
               })}
-            </div>
+            />
           ) : (
             <div className="py-20 text-center">
               <p className="text-lg text-white/50">{t("noPosts")}</p>

@@ -12,7 +12,7 @@ const ACCENT = "#A855F7";
 export default function StudioPage() {
   return (
     <>
-      <ServiceHero namespace="studio" accentColor={ACCENT} gradientMesh animatedCircles="studio" />
+      <ServiceHero namespace="studio" accentColor={ACCENT} gradientMesh animatedCircles="studio" backgroundImage="/images/generated/heroes/studio-hero.png" breadcrumbLabel="Influence Studio" breadcrumbHref="/studio" />
       <ChallengeSection namespace="studio" accentColor={ACCENT} />
       <ProcessSteps namespace="studio" accentColor={ACCENT} />
       <DeliverablesGrid namespace="studio" accentColor={ACCENT} />

@@ -91,7 +91,7 @@
   },
   "mirror": {
     "eyebrow": "Onze methode",
-    "title": "Het Mirror Exposure Effect",
+    "title": "Het Mere Exposure Effect",
     "description": "Hoe vaker mensen u zien, hoe meer ze u vertrouwen. Wij maken dat systematisch.",
     "steps": [
       { "title": "Zichtbaarheid", "description": "Aanwezig zijn waar uw doelgroep kijkt" },
@@ -199,7 +199,7 @@
     },
     "process": {
       "eyebrow": "Onze aanpak",
-      "title": "Het Mirror Exposure traject",
+      "title": "Het Mere Exposure traject",
       "steps": [
         { "title": "Mirror", "description": "We analyseren wie u bent, waar u voor staat en hoe u gezien wilt worden." },
         { "title": "Positie", "description": "We definiëren uw unieke positie en thought leadership domeinen." },
@@ -550,5 +550,121 @@
   "calendly": {
     "title": "Plan een gesprek",
     "button": "Kies een tijdstip"
+  },
+  "share": {
+    "label": "Delen",
+    "copied": "Gekopieerd!",
+    "linkedin": "Deel op LinkedIn",
+    "twitter": "Deel op X"
+  },
+  "blogFilter": {
+    "search": "Zoek artikelen...",
+    "all": "Alles",
+    "noResults": "Geen artikelen gevonden",
+    "reset": "Reset filters"
+  },
+  "biases": {
+    "meta": {
+      "title": "De Psychologie achter Zichtbaarheid | Influence Circle",
+      "description": "Ontdek welke cognitieve biases en heuristics het fundament vormen van effectieve personal branding. Van het Mere Exposure Effect tot Social Proof."
+    },
+    "hero": {
+      "eyebrow": "Biases & Heuristics",
+      "title": "De Psychologie achter Zichtbaarheid",
+      "subtitle": "Uw brein neemt dagelijks duizenden beslissingen op de automatische piloot. Wie deze patronen begrijpt, bouwt een merk dat onbewust vertrouwen wekt."
+    },
+    "intro": {
+      "title": "Hoe uw brein echt beslist",
+      "system1": "System 1 denkt snel, intuïtief en automatisch. Het vertrouwt op mentale shortcuts — heuristics — om razendsnel te oordelen. Dit systeem bepaalt 95% van onze dagelijkse beslissingen.",
+      "system2": "System 2 is traag, analytisch en bewust. Het kost energie en wordt alleen ingeschakeld wanneer System 1 vastloopt. De meeste keuzes — ook over wie u vertrouwt — worden gemaakt zonder dat System 2 eraan te pas komt.",
+      "relevance": "Personal branding die werkt, speelt in op System 1. Door strategisch in te zetten op cognitieve biases zorgt u ervoor dat uw doelgroep u onbewust als de logische keuze ervaart."
+    },
+    "card": {
+      "howWeApply": "Hoe wij dit toepassen",
+      "showMore": "Meer",
+      "showLess": "Minder"
+    },
+    "grid": {
+      "eyebrow": "De wetenschap",
+      "title": "8 biases die uw personal brand maken of breken"
+    },
+    "items": [
+      {
+        "key": "mere-exposure",
+        "title": "Mere Exposure Effect",
+        "oneliner": "Hoe vaker je iemand ziet, hoe meer je ze vertrouwt.",
+        "description": "Robert Zajonc bewees in 1968 dat herhaalde blootstelling aan een stimulus de voorkeur ervoor vergroot — zelfs zonder bewuste herkenning. Voor personal branding betekent dit: consistente zichtbaarheid bouwt vertrouwen, nog vóór een eerste gesprek.",
+        "application": "Met Influence Circle zorgen we voor herhaalde, strategische zichtbaarheid via LinkedIn, evenementen en media. Zo wordt u een vertrouwd gezicht in uw industrie.",
+        "service": "circle",
+        "serviceLabel": "Ontdek Circle"
+      },
+      {
+        "key": "authority-bias",
+        "title": "Authority Bias",
+        "oneliner": "We volgen experts en autoriteiten.",
+        "description": "Mensen kennen meer geloofwaardigheid toe aan iemand die als autoriteit wordt gezien. Titels, publicaties, podiumplaatsen en media-optredens versterken dit effect exponentieel.",
+        "application": "Influence Labs positioneert u strategisch als thought leader in uw domein, met de juiste signalen die autoriteit uitstralen.",
+        "service": "labs",
+        "serviceLabel": "Ontdek Labs"
+      },
+      {
+        "key": "social-proof",
+        "title": "Social Proof",
+        "oneliner": "We doen wat anderen doen.",
+        "description": "Wanneer we onzeker zijn, kijken we naar het gedrag van anderen. Veel engagement, aanbevelingen en een groot netwerk zijn krachtige signalen dat iemand de moeite waard is.",
+        "application": "Via Circle bouwen we uw LinkedIn-netwerk en engagement organisch op, zodat social proof voor u werkt.",
+        "service": "circle",
+        "serviceLabel": "Ontdek Circle"
+      },
+      {
+        "key": "halo-effect",
+        "title": "Halo Effect",
+        "oneliner": "Eén positieve eigenschap kleurt alles.",
+        "description": "Eén sterk positief kenmerk — een professionele uitstraling, een slick video, een goed geschreven artikel — kleurt de perceptie van al uw andere kwaliteiten positief.",
+        "application": "Influence Studio creëert premium content en visuals die een onmiddellijke professionele indruk achterlaten.",
+        "service": "studio",
+        "serviceLabel": "Ontdek Studio"
+      },
+      {
+        "key": "anchoring",
+        "title": "Anchoring",
+        "oneliner": "De eerste indruk bepaalt het referentiekader.",
+        "description": "Het eerste stuk informatie dat we ontvangen fungeert als anker voor alle volgende beoordelingen. Wie u bent bij het eerste contactmoment bepaalt hoe alles daarna wordt geïnterpreteerd.",
+        "application": "Met Influence Labs bepalen we uw initiële positionering, zodat het anker in uw voordeel werkt.",
+        "service": "labs",
+        "serviceLabel": "Ontdek Labs"
+      },
+      {
+        "key": "availability-heuristic",
+        "title": "Availability Heuristic",
+        "oneliner": "Wat we vaker zien, schatten we als belangrijker in.",
+        "description": "Informatie die gemakkelijk in ons geheugen opkomt, beschouwen we als relevanter en belangrijker. Wie regelmatig in beeld is, wordt automatisch als invloedrijker ervaren.",
+        "application": "Circle en Studio zorgen samen voor consistente content die u top-of-mind houdt bij uw doelgroep.",
+        "service": "circle",
+        "serviceLabel": "Ontdek Circle & Studio"
+      },
+      {
+        "key": "framing-effect",
+        "title": "Framing Effect",
+        "oneliner": "Hoe iets gepresenteerd wordt, bepaalt de perceptie.",
+        "description": "Dezelfde informatie leidt tot andere conclusies, afhankelijk van hoe deze wordt gepresenteerd. De manier waarop u uw verhaal vertelt is net zo belangrijk als de inhoud.",
+        "application": "Influence Studio beheerst de kunst van storytelling en framing, zodat uw boodschap maximaal resoneert.",
+        "service": "studio",
+        "serviceLabel": "Ontdek Studio"
+      },
+      {
+        "key": "bandwagon-effect",
+        "title": "Bandwagon Effect",
+        "oneliner": "We willen erbij horen.",
+        "description": "Mensen sluiten zich aan bij wat populair is. Wanneer een community groeit rondom iemands gedachtegoed, trekt dat steeds meer gelijkgestemden aan.",
+        "application": "Via de Influence Academy bouwen we een community van gelijkgestemde professionals rondom uw expertise.",
+        "service": "academy",
+        "serviceLabel": "Ontdek Academy"
+      }
+    ],
+    "cta": {
+      "title": "Zet psychologie in voor uw personal brand",
+      "button": "Neem contact op"
+    }
   }
 }

@@ -59,9 +59,9 @@ INSERT INTO automation_flows (id, name, description, trigger_type, trigger_confi
   ('a0000000-0000-0000-0000-000000000002', 'Circle Drip Campaign', 'Automated drip sequence for Influence Circle leads', 'service_interest', '{"service": "circle"}', 'active');
 
 INSERT INTO flow_steps (id, flow_id, position, action, config) VALUES
-  -- Step 1: Mirror Exposure Effect
+  -- Step 1: Mere Exposure Effect
   ('c0000000-0000-0000-0000-000000000001', 'a0000000-0000-0000-0000-000000000002', 1, 'send_email',
-   '{"template": "drip/circle/CircleDrip1", "subject_nl": "Het Mirror Exposure Effect — Waarom zichtbaarheid alles verandert", "subject_en": "The Mirror Exposure Effect — Why visibility changes everything"}'),
+   '{"template": "drip/circle/CircleDrip1", "subject_nl": "Het Mere Exposure Effect — Waarom zichtbaarheid alles verandert", "subject_en": "The Mere Exposure Effect — Why visibility changes everything"}'),
 
   -- Step 2: Wait 2 days
   ('c0000000-0000-0000-0000-000000000002', 'a0000000-0000-0000-0000-000000000002', 2, 'delay',

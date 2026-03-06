@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useInView } from "motion/react";
 import { Container } from "@/components/ui/Container";
@@ -49,6 +50,12 @@ export function AboutClient({ serverSections }: { serverSections?: React.ReactNo
     <>
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center pt-24 bg-navy overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <Image src="/images/generated/heroes/about-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-navy" />
+        </div>
+
         {/* Gradient overlay */}
         <div
           className="absolute inset-0 pointer-events-none"

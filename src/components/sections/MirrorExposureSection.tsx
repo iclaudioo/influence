@@ -1,18 +1,43 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { fadeUp, staggerContainer, springScale } from "@/lib/animations";
 
 const ACCENT = "#D7263D";
 
 export function MirrorExposureSection() {
   const t = useTranslations("mirror");
+  const svgRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: svgRef,
+    offset: ["start end", "center center"],
+  });
 
   const steps = [0, 1, 2, 3] as const;
+
+  // Fixed hook calls for each circle (not in a loop)
+  const circ4 = 2 * Math.PI * (40 + 4 * 40);
+  const circ3 = 2 * Math.PI * (40 + 3 * 40);
+  const circ2 = 2 * Math.PI * (40 + 2 * 40);
+  const circ1 = 2 * Math.PI * (40 + 1 * 40);
+
+  const dash4 = useTransform(scrollYProgress, [0.1, 0.4], [circ4, 0]);
+  const dash3 = useTransform(scrollYProgress, [0.2, 0.5], [circ3, 0]);
+  const dash2 = useTransform(scrollYProgress, [0.3, 0.6], [circ2, 0]);
+  const dash1 = useTransform(scrollYProgress, [0.4, 0.7], [circ1, 0]);
+
+  const circleData = [
+    { i: 4, circ: circ4, dash: dash4 },
+    { i: 3, circ: circ3, dash: dash3 },
+    { i: 2, circ: circ2, dash: dash2 },
+    { i: 1, circ: circ1, dash: dash1 },
+  ];
 
   return (
     <section className="bg-navy section-padding grain relative">
@@ -31,6 +56,7 @@ export function MirrorExposureSection() {
             whileInView="visible"
             viewport={{ once: true }}
             className="hidden lg:flex items-center justify-center"
+            ref={svgRef}
           >
             <div className="relative w-full max-w-md aspect-square">
               <svg
@@ -38,12 +64,12 @@ export function MirrorExposureSection() {
                 className="w-full h-full"
                 aria-hidden="true"
               >
-                {/* Outermost to innermost — varying strokeWidth and opacity */}
-                {[4, 3, 2, 1].map((i) => {
+                {/* Outermost to innermost — draw-in on scroll */}
+                {circleData.map(({ i, circ, dash }) => {
                   const strokeWidth = 0.5 + (4 - i) * 0.5;
                   const opacity = 0.08 + (4 - i) * 0.14;
                   return (
-                    <circle
+                    <motion.circle
                       key={i}
                       cx="200"
                       cy="200"
@@ -51,19 +77,22 @@ export function MirrorExposureSection() {
                       fill="none"
                       stroke={ACCENT}
                       strokeWidth={strokeWidth}
-                      className="mirror-circle"
+                      strokeDasharray={circ}
                       style={{
                         opacity,
-                        animationDelay: `${i * 0.8}s`,
+                        strokeDashoffset: dash,
                       }}
                     />
                   );
                 })}
 
-                {/* Center filled circle */}
-                <circle cx="200" cy="200" r="12" fill={ACCENT} opacity="0.9" />
+                {/* Center filled circle — pulsing glow */}
+                <circle cx="200" cy="200" r="12" fill={ACCENT} opacity="0.9">
+                  <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.9;0.5;0.9" dur="2s" repeatCount="indefinite" />
+                </circle>
 
-                {/* Step labels at cardinal positions */}
+                {/* Step labels at cardinal positions — springScale staggered */}
                 {steps.map((i) => {
                   const positions = [
                     { x: 200, y: 38 },
@@ -72,7 +101,14 @@ export function MirrorExposureSection() {
                     { x: 38, y: 200 },
                   ];
                   return (
-                    <g key={i}>
+                    <motion.g
+                      key={i}
+                      variants={springScale}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 * i }}
+                    >
                       <circle
                         cx={positions[i].x}
                         cy={positions[i].y}
@@ -91,7 +127,7 @@ export function MirrorExposureSection() {
                       >
                         {i + 1}
                       </text>
-                    </g>
+                    </motion.g>
                   );
                 })}
               </svg>
@@ -110,6 +146,7 @@ export function MirrorExposureSection() {
                 eyebrow={t("eyebrow")}
                 title={t("title")}
                 light
+                size="md"
               />
             </motion.div>
 
@@ -139,7 +176,7 @@ export function MirrorExposureSection() {
             </motion.div>
 
             <motion.div variants={fadeUp} className="mt-8">
-              <Button href="/contact">{t("cta")}</Button>
+              <Button href="/contact" accentColor={ACCENT}>{t("cta")}</Button>
             </motion.div>
           </motion.div>
         </div>

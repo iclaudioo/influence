@@ -8,6 +8,8 @@ import { StructuredData } from "@/components/ui/StructuredData";
 import { Button } from "@/components/ui/Button";
 import { colors } from "@/lib/constants";
 import type { ServiceLine } from "@/lib/constants";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { SocialShare } from "@/components/ui/SocialShare";
 import { CaseDetailClient } from "./CaseDetailClient";
 
 async function getCase(slug: string) {
@@ -74,6 +76,9 @@ export default async function CaseDetailPage({
     }
   }
 
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://influencecircle.com";
+  const caseUrl = `${BASE_URL}${locale === "nl" ? "" : "/en"}/cases/${slug}`;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -95,6 +100,19 @@ export default async function CaseDetailPage({
     <>
       <StructuredData data={structuredData} />
 
+      {/* Breadcrumb */}
+      <div className="bg-navy pt-24 pb-0">
+        <div className="mx-auto max-w-7xl px-6">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Cases", href: "/cases" },
+              { label: title ?? "" },
+            ]}
+          />
+        </div>
+      </div>
+
       <CaseDetailClient
         title={title}
         clientName={cs.client_name}
@@ -112,6 +130,13 @@ export default async function CaseDetailPage({
         similarResultLabel={t("similarResult")}
         bookCallLabel={t("bookCall")}
       />
+
+      {/* Social share */}
+      <div className="bg-navy section-padding">
+        <div className="mx-auto max-w-7xl px-6">
+          <SocialShare url={caseUrl} title={title ?? ""} />
+        </div>
+      </div>
     </>
   );
 }

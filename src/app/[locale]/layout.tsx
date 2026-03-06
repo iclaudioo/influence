@@ -10,6 +10,8 @@ import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { PrivacyNotice } from "@/components/ui/PrivacyNotice";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { LenisProvider } from "@/hooks/useSmoothScroll";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -34,13 +36,16 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${vastagoGrotesk.variable} ${libreCaslon.variable}`}>
       <body className="font-sans antialiased bg-navy text-white">
         <NextIntlClientProvider messages={messages}>
-          <CustomCursor />
-          <Navbar />
-          <main>
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-          <PrivacyNotice />
+          <LenisProvider>
+            <CustomCursor />
+            <Navbar />
+            <main>
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <ScrollToTop />
+            <Footer />
+            <PrivacyNotice />
+          </LenisProvider>
         </NextIntlClientProvider>
         <Script
           defer

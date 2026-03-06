@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { ServiceLine } from "@/lib/constants";
 import { colors } from "@/lib/constants";
+import { getCaseFallbackImage } from "@/lib/fallback-images";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 type CaseCardProps = {
   slug: string;
@@ -43,10 +45,22 @@ export function CaseCard({
 }: CaseCardProps) {
   const badgeColor = serviceColorMap[serviceLine] || colors.labs;
   const badgeLabel = serviceLabelMap[serviceLine] || serviceLine;
+  const fallbackImage = getCaseFallbackImage(slug);
 
   return (
-    <Link href={`/cases/${slug}`}>
-      <div className="relative overflow-hidden rounded-2xl bg-[#0a2540] border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group">
+    <Link href={`/cases/${slug}`} className="block h-full">
+      <TiltCard
+        glowColor={badgeColor}
+        maxRotation={6}
+        className="relative overflow-hidden rounded-2xl bg-[#0a2540] border border-white/10 p-8 h-full group"
+      >
+        {/* Hover-reveal background image */}
+        {fallbackImage && (
+          <div className="absolute inset-0 overflow-hidden rounded-2xl" aria-hidden="true">
+            <Image src={fallbackImage} alt="" fill className="object-cover opacity-0 group-hover:opacity-[0.08] transition-opacity duration-700 mix-blend-luminosity" sizes="(max-width: 768px) 100vw, 33vw" />
+          </div>
+        )}
+
         {/* Accent bar */}
         <div
           className="absolute inset-x-0 top-0 h-0.5"
@@ -101,7 +115,7 @@ export function CaseCard({
         >
           {badgeLabel}
         </span>
-      </div>
+      </TiltCard>
     </Link>
   );
 }
