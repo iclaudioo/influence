@@ -1,17 +1,10 @@
-import { ScrollAtmosphere } from "@/components/ui/ScrollAtmosphere";
 import { StructuredData } from "@/components/ui/StructuredData";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ClientLogoBar } from "@/components/sections/ClientLogoBar";
-import { PainPointSection } from "@/components/sections/PainPointSection";
-import { StatsBar } from "@/components/sections/StatsBar";
-import { PillarGrid } from "@/components/sections/PillarGrid";
-import { MirrorExposureSection } from "@/components/sections/MirrorExposureSection";
-import { MediaMentions } from "@/components/sections/MediaMentions";
-import { TestimonialSection } from "@/components/sections/TestimonialSection";
-import { LinkedInShowcaseWrapper } from "@/components/sections/LinkedInShowcaseWrapper";
-import { FeaturedCases } from "@/components/sections/FeaturedCases";
-import { BlogPreview } from "@/components/sections/BlogPreview";
-import { CTABanner } from "@/components/sections/CTABanner";
+import { DossierHero } from "@/components/dossier/DossierHero";
+import { ReputationModel } from "@/components/dossier/ReputationModel";
+import { MethodeSection } from "@/components/dossier/MethodeSection";
+import { DossierCTA } from "@/components/dossier/DossierCTA";
+import { ContainerScroll } from "@/components/ui/ContainerScroll";
+import { CONTAINER_SCROLL } from "@/lib/animations";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -33,19 +26,16 @@ export default function HomePage() {
   return (
     <>
       <StructuredData data={organizationSchema} />
-      <ScrollAtmosphere />
-      <HeroSection />
-      <ClientLogoBar />
-      <PainPointSection />
-      <StatsBar />
-      <PillarGrid />
-      <MirrorExposureSection />
-      <MediaMentions />
-      <TestimonialSection />
-      <LinkedInShowcaseWrapper />
-      <FeaturedCases />
-      <BlogPreview />
-      <CTABanner />
+      <DossierHero />
+      <ContainerScroll {...CONTAINER_SCROLL.dramatic}>
+        <ReputationModel />
+      </ContainerScroll>
+      <ContainerScroll {...CONTAINER_SCROLL.subtle}>
+        <MethodeSection />
+      </ContainerScroll>
+      <ContainerScroll {...CONTAINER_SCROLL.landing} behindColor="#02182B">
+        <DossierCTA />
+      </ContainerScroll>
     </>
   );
 }
