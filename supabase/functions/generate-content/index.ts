@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import Anthropic from "https://esm.sh/@anthropic-ai/sdk@0.39.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -82,24 +81,38 @@ async function sendTelegramMessage(
 }
 
 async function generateWithClaude(
-  anthropic: Anthropic,
+  apiKey: string,
   topic: string,
   formatInstructions: string
 ): Promise<string> {
-  const response = await anthropic.messages.create({
-    model: "claude-sonnet-4-6",
-    max_tokens: 4096,
-    messages: [
-      {
-        role: "user",
-        content: `Onderwerp: ${topic}\n\n${formatInstructions}`,
-      },
-    ],
-    system: BRAND_VOICE_PROMPT,
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-6",
+      max_tokens: 4096,
+      system: BRAND_VOICE_PROMPT,
+      messages: [
+        {
+          role: "user",
+          content: `Onderwerp: ${topic}\n\n${formatInstructions}`,
+        },
+      ],
+    }),
   });
 
-  const textBlock = response.content.find((b: { type: string }) => b.type === "text");
-  return (textBlock as { type: "text"; text: string })?.text ?? "";
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Claude API error ${response.status}: ${err}`);
+  }
+
+  const data = await response.json();
+  const textBlock = data.content?.find((b: { type: string }) => b.type === "text");
+  return textBlock?.text ?? "";
 }
 
 function extractJson(raw: string): string {
@@ -112,13 +125,12 @@ serve(async (req: Request) => {
     return new Response("ok", { headers: corsHeaders });
   }
 
-  const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN")!;
-  const supabaseUrl = Deno.env.get("NEXT_PUBLIC_SUPABASE_URL")!;
-  const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-  const anthropicApiKey = Deno.env.get("ANTHROPIC_API_KEY")!;
+  const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN") || "";
+  const supabaseUrl = Deno.env.get("SUPABASE_URL") || Deno.env.get("NEXT_PUBLIC_SUPABASE_URL") || "";
+  const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+  const anthropicApiKey = Deno.env.get("ANTHROPIC_API_KEY") || "";
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
-  const anthropic = new Anthropic({ apiKey: anthropicApiKey });
 
   let chatId = 0;
 
@@ -129,7 +141,7 @@ serve(async (req: Request) => {
     // --- BLOG ---
     if (formats.includes("blog")) {
       try {
-        const raw = await generateWithClaude(anthropic, topic, BLOG_FORMAT_INSTRUCTIONS);
+        const raw = await generateWithClaude(anthropicApiKey, topic, BLOG_FORMAT_INSTRUCTIONS);
         const blog = JSON.parse(extractJson(raw));
 
         const { data: post, error } = await supabase
@@ -173,7 +185,7 @@ serve(async (req: Request) => {
     // --- LINKEDIN ---
     if (formats.includes("linkedin")) {
       try {
-        const raw = await generateWithClaude(anthropic, topic, LINKEDIN_FORMAT_INSTRUCTIONS);
+        const raw = await generateWithClaude(anthropicApiKey, topic, LINKEDIN_FORMAT_INSTRUCTIONS);
         const li = JSON.parse(extractJson(raw));
 
         const { error } = await supabase

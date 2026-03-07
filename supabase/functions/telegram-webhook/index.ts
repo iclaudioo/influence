@@ -46,8 +46,8 @@ serve(async (req: Request) => {
   try {
     const botToken = Deno.env.get("TELEGRAM_BOT_TOKEN")!;
     const allowedChatId = parseInt(Deno.env.get("TELEGRAM_CHAT_ID")!, 10);
-    const supabaseUrl = Deno.env.get("NEXT_PUBLIC_SUPABASE_URL")!;
-    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseUrl = Deno.env.get("SUPABASE_URL") || Deno.env.get("NEXT_PUBLIC_SUPABASE_URL") || "";
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
 
     const update: TelegramUpdate = await req.json();
     const message = update.message;
