@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/client";
 import { ArrowLeft, Save, Send, Trash2 } from "lucide-react";
 import Input from "@/components/admin/ui/Input";
 import Select from "@/components/admin/ui/Select";
@@ -91,10 +91,7 @@ export default function EditBlogPostPage({ params }: EditBlogPostPageProps) {
   // Load post + team members
   useEffect(() => {
     async function load() {
-      const supabase = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-      );
+      const supabase = createClient();
 
       // Load team members
       const { data: members } = await supabase
@@ -126,8 +123,8 @@ export default function EditBlogPostPage({ params }: EditBlogPostPageProps) {
       setAuthorId(post.author_id ?? "");
       setServiceLine(post.service_line ?? "");
       setTags(Array.isArray(post.tags) ? post.tags.join(", ") : "");
-      setMetaTitle(post.meta_title ?? "");
-      setMetaDescription(post.meta_description ?? "");
+      setMetaTitle(post.meta_title_nl ?? "");
+      setMetaDescription(post.meta_description_nl ?? "");
       setStatus(post.status ?? "draft");
       setPublishedAt(
         post.published_at
@@ -190,8 +187,8 @@ export default function EditBlogPostPage({ params }: EditBlogPostPageProps) {
         author_id: authorId || null,
         service_line: serviceLine || null,
         tags: tagsArray.length > 0 ? tagsArray : null,
-        meta_title: metaTitle || null,
-        meta_description: metaDescription || null,
+        meta_title_nl: metaTitle || null,
+        meta_description_nl: metaDescription || null,
         status,
         published_at:
           status === "published"

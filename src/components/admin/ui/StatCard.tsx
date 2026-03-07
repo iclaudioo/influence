@@ -1,14 +1,22 @@
 "use client";
 
 import React from "react";
-import type { LucideIcon } from "lucide-react";
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { Users, UserCheck, Mail, MousePointerClick, TrendingUp, TrendingDown } from "lucide-react";
+
+const iconMap = {
+  Users,
+  UserCheck,
+  Mail,
+  MousePointerClick,
+} as const;
+
+type IconName = keyof typeof iconMap;
 
 interface StatCardProps {
   title: string;
   value: string | number;
   change?: string;
-  icon: LucideIcon;
+  icon: IconName;
   accentColor?: string;
 }
 
@@ -16,9 +24,10 @@ export default function StatCard({
   title,
   value,
   change,
-  icon: Icon,
+  icon,
   accentColor = "#02182B",
 }: StatCardProps) {
+  const Icon = iconMap[icon];
   const isPositive = change?.startsWith("+");
   const isNegative = change?.startsWith("-");
 

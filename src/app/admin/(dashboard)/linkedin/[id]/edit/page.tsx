@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback, use } from "react";
 import { useRouter } from "next/navigation";
 import { createBrowserClient } from "@supabase/ssr";
-import { ArrowLeft, Save } from "lucide-react";
+import { ArrowLeft, Save, Trash2 } from "lucide-react";
 import Input from "@/components/admin/ui/Input";
 import Select from "@/components/admin/ui/Select";
 
@@ -23,15 +23,10 @@ export default function EditLinkedInPostPage({ params }: EditLinkedInPostPagePro
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({
-    author_name: "",
-    author_photo_url: "",
-    post_text: "",
-    post_image_url: "",
-    likes: "0",
-    comments: "0",
-    reposts: "0",
-    linkedin_url: "",
-    sort_order: "0",
+    hook: "",
+    content: "",
+    topic: "",
+    hashtags: "",
     status: "draft",
   });
 
@@ -58,15 +53,10 @@ export default function EditLinkedInPostPage({ params }: EditLinkedInPostPagePro
       }
 
       setForm({
-        author_name: data.author_name ?? "",
-        author_photo_url: data.author_photo_url ?? "",
-        post_text: data.post_text ?? "",
-        post_image_url: data.post_image_url ?? "",
-        likes: String(data.likes ?? 0),
-        comments: String(data.comments ?? 0),
-        reposts: String(data.reposts ?? 0),
-        linkedin_url: data.linkedin_url ?? "",
-        sort_order: String(data.sort_order ?? 0),
+        hook: data.hook ?? "",
+        content: data.content ?? "",
+        topic: data.topic ?? "",
+        hashtags: Array.isArray(data.hashtags) ? data.hashtags.join(", ") : "",
         status: data.status ?? "draft",
       });
       setLoading(false);
@@ -76,7 +66,7 @@ export default function EditLinkedInPostPage({ params }: EditLinkedInPostPagePro
   }, [id, router]);
 
   const handleSave = useCallback(async () => {
-    if (!form.author_name.trim()) return;
+    if (!form.content.trim()) return;
 
     setSaving(true);
 
@@ -85,19 +75,20 @@ export default function EditLinkedInPostPage({ params }: EditLinkedInPostPagePro
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     );
 
+    const hashtagsArray = form.hashtags
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean);
+
     const { error } = await supabase
       .from("linkedin_posts")
       .update({
-        author_name: form.author_name,
-        author_photo_url: form.author_photo_url || null,
-        post_text: form.post_text || null,
-        post_image_url: form.post_image_url || null,
-        likes: parseInt(form.likes, 10) || 0,
-        comments: parseInt(form.comments, 10) || 0,
-        reposts: parseInt(form.reposts, 10) || 0,
-        linkedin_url: form.linkedin_url || null,
-        sort_order: parseInt(form.sort_order, 10) || 0,
+        hook: form.hook || null,
+        content: form.content,
+        topic: form.topic || null,
+        hashtags: hashtagsArray,
         status: form.status,
+        published_at: form.status === "published" ? new Date().toISOString() : null,
       })
       .eq("id", id);
 
@@ -109,6 +100,29 @@ export default function EditLinkedInPostPage({ params }: EditLinkedInPostPagePro
 
     router.push("/admin/linkedin");
   }, [form, id, router]);
+
+  const handleDelete = useCallback(async () => {
+    if (!confirm("Are you sure you want to delete this LinkedIn post? This action cannot be undone.")) {
+      return;
+    }
+
+    const supabase = createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+
+    const { error } = await supabase
+      .from("linkedin_posts")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error("Failed to delete LinkedIn post:", error);
+      return;
+    }
+
+    router.push("/admin/linkedin");
+  }, [id, router]);
 
   if (loading) {
     return (
@@ -132,97 +146,70 @@ export default function EditLinkedInPostPage({ params }: EditLinkedInPostPagePro
         </button>
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900">Edit LinkedIn Post</h1>
-          <button
-            type="button"
-            onClick={handleSave}
-            disabled={saving || !form.author_name.trim()}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#02182B] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#02182B]/90 disabled:opacity-50"
-          >
-            <Save className="h-4 w-4" />
-            {saving ? "Saving..." : "Save Post"}
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="inline-flex items-center gap-2 rounded-xl border border-red-200 px-4 py-2.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50"
+            >
+              <Trash2 className="h-4 w-4" />
+              Delete
+            </button>
+            <button
+              type="button"
+              onClick={handleSave}
+              disabled={saving || !form.content.trim()}
+              className="inline-flex items-center gap-2 rounded-xl bg-[#02182B] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#02182B]/90 disabled:opacity-50"
+            >
+              <Save className="h-4 w-4" />
+              {saving ? "Saving..." : "Save Post"}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Form */}
       <div className="max-w-2xl space-y-6">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Input
-            label="Author Name"
-            value={form.author_name}
-            onChange={(e) => updateField("author_name", e.target.value)}
-            placeholder="Full name"
-          />
-          <Input
-            label="Author Photo URL"
-            value={form.author_photo_url}
-            onChange={(e) => updateField("author_photo_url", e.target.value)}
-            placeholder="https://..."
-          />
-        </div>
+        <Input
+          label="Hook (opening line)"
+          value={form.hook}
+          onChange={(e) => updateField("hook", e.target.value)}
+          placeholder="Attention-grabbing opening line"
+        />
 
         <div className="w-full">
           <label className="mb-1.5 block text-sm font-medium text-gray-700">
-            Post Text
+            Post Content
           </label>
           <textarea
-            value={form.post_text}
-            onChange={(e) => updateField("post_text", e.target.value)}
-            rows={6}
+            value={form.content}
+            onChange={(e) => updateField("content", e.target.value)}
+            rows={12}
             className="w-full rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 focus:border-[#02182B] focus:ring-[#02182B]/20"
             placeholder="LinkedIn post content..."
           />
         </div>
 
         <Input
-          label="Post Image URL"
-          value={form.post_image_url}
-          onChange={(e) => updateField("post_image_url", e.target.value)}
-          placeholder="https://..."
+          label="Topic"
+          value={form.topic}
+          onChange={(e) => updateField("topic", e.target.value)}
+          placeholder="e.g. Leadership, Personal Branding"
         />
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <Input
-            label="Likes"
-            type="number"
-            value={form.likes}
-            onChange={(e) => updateField("likes", e.target.value)}
-          />
-          <Input
-            label="Comments"
-            type="number"
-            value={form.comments}
-            onChange={(e) => updateField("comments", e.target.value)}
-          />
-          <Input
-            label="Reposts"
-            type="number"
-            value={form.reposts}
-            onChange={(e) => updateField("reposts", e.target.value)}
-          />
-        </div>
 
         <Input
-          label="LinkedIn URL"
-          value={form.linkedin_url}
-          onChange={(e) => updateField("linkedin_url", e.target.value)}
-          placeholder="https://linkedin.com/posts/..."
+          label="Hashtags (komma-gescheiden)"
+          value={form.hashtags}
+          onChange={(e) => updateField("hashtags", e.target.value)}
+          placeholder="#tag1, #tag2"
         />
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Input
-            label="Sort Order"
-            type="number"
-            value={form.sort_order}
-            onChange={(e) => updateField("sort_order", e.target.value)}
-          />
-          <Select
-            label="Status"
-            options={STATUS_OPTIONS}
-            value={form.status}
-            onChange={(e) => updateField("status", e.target.value)}
-          />
-        </div>
+        <Select
+          label="Status"
+          options={STATUS_OPTIONS}
+          value={form.status}
+          onChange={(e) => updateField("status", e.target.value)}
+        />
       </div>
     </div>
   );

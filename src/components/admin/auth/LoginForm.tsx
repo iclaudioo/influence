@@ -29,6 +29,7 @@ export function LoginForm() {
       }
 
       router.push("/admin");
+      router.refresh();
     } catch {
       setError("An unexpected error occurred. Please try again.");
     } finally {

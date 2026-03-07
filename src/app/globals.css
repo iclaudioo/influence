@@ -53,14 +53,22 @@
   --color-studio: #A855F7;
   --color-academy: #E8A317;
 
+  --color-surface: #FFFFFF;
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-text-tertiary: #a1a1a6;
+  --color-divider: rgba(0,0,0,0.06);
+  --color-dark-block: #02182B;
+
   --font-sans: "Vastago Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Libre Caslon Display", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-navy);
-  color: var(--color-white);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -68,7 +76,7 @@ body {
 
 ::selection {
   background: rgba(213, 93, 37, 0.3);
-  color: white;
+  color: #1d1d1f;
 }
 
 /* Lenis smooth scroll overrides */
@@ -121,7 +129,7 @@ html.lenis {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
-  opacity: 0.4;
+  opacity: 0.25;
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 1;
@@ -133,49 +141,18 @@ html.lenis {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-navy-dark);
+  background: #f5f5f7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--color-navy-light), rgba(213, 93, 37, 0.3));
+  background: #d2d2d7;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgba(213, 93, 37, 0.4), rgba(213, 93, 37, 0.5));
+  background: #a1a1a6;
 }
 
-/* Ripple animation for hero */
-.hero-ripple {
-  transform-origin: center;
-  animation: ripplePulse 7s ease-in-out infinite;
-}
-
-@keyframes ripplePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.06); opacity: 0.3; }
-}
-
-/* Mirror circle animation */
-.mirror-circle {
-  transform-origin: center;
-  animation: mirrorPulse 6s ease-in-out infinite;
-}
-
-@keyframes mirrorPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-}
-
-/* Marquee animation */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
 
 /* Breathing glow animation */
 @keyframes breathingGlow {
@@ -232,26 +209,9 @@ html.lenis {
   100% { transform: scale(1.4); opacity: 0; }
 }
 
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-/* Gradient text utility */
-.text-gradient-teal {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(15, 163, 177, 0.7) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 
 .text-gradient-orange {
-  background: linear-gradient(135deg, #ffffff 0%, rgba(213, 93, 37, 0.8) 100%);
+  background: linear-gradient(135deg, #1d1d1f 0%, rgba(213, 93, 37, 0.9) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -264,44 +224,12 @@ html.lenis {
   background-clip: text;
 }
 
-/* Glow utilities */
-.glow-orange {
-  box-shadow: 0 0 60px rgba(213, 93, 37, 0.15), 0 0 120px rgba(213, 93, 37, 0.05);
-}
-
-.glow-labs { box-shadow: 0 0 40px rgba(213, 93, 37, 0.2); }
-.glow-circle { box-shadow: 0 0 40px rgba(215, 38, 61, 0.2); }
-.glow-studio { box-shadow: 0 0 40px rgba(168, 85, 247, 0.2); }
-.glow-academy { box-shadow: 0 0 40px rgba(232, 163, 23, 0.2); }
-
-/* Mesh gradient backgrounds */
-.mesh-gradient-dark {
-  background:
-    radial-gradient(ellipse at 20% 80%, rgba(213, 93, 37, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(10, 37, 64, 1) 0%, rgba(2, 24, 43, 1) 100%);
-}
-
-.mesh-gradient-hero {
-  background:
-    radial-gradient(ellipse at 30% 70%, rgba(213, 93, 37, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 30%, rgba(232, 163, 23, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, var(--color-navy) 0%, var(--color-navy-dark) 100%);
-}
-
 /* Glassmorphism utility */
 .glass {
-  background: rgba(10, 37, 64, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px) saturate(1.8);
   -webkit-backdrop-filter: blur(24px) saturate(1.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-light {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Divider with gradient */
@@ -312,28 +240,39 @@ html.lenis {
 
 /* Focus-visible styling */
 *:focus-visible {
-  outline: 2px solid rgba(213, 93, 37, 0.6);
-  outline-offset: 2px;
+  outline: 2px solid #1d1d1f;
+  outline-offset: 4px;
 }
 
-/* Hide default cursor on non-touch devices */
+/* Hide default cursor on non-touch devices — D4: override on interactive elements */
+/* Scoped to frontend only, not admin */
 @media (pointer: fine) {
-  * {
+  body:not(.admin-body) * {
     cursor: none !important;
   }
-}
-
-/* Perspective utility */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-/* Glass warm variant (orange-tinted) */
-.glass-warm {
-  background: rgba(213, 93, 37, 0.08);
-  backdrop-filter: blur(24px) saturate(1.8);
-  -webkit-backdrop-filter: blur(24px) saturate(1.8);
-  border: 1px solid rgba(213, 93, 37, 0.12);
+  body:not(.admin-body) a,
+  body:not(.admin-body) button,
+  body:not(.admin-body) [role="button"],
+  body:not(.admin-body) input,
+  body:not(.admin-body) select,
+  body:not(.admin-body) textarea,
+  body:not(.admin-body) label[for] {
+    cursor: pointer !important;
+  }
+  /* Restore default cursors on admin */
+  body.admin-body * {
+    cursor: auto !important;
+  }
+  body.admin-body a,
+  body.admin-body button,
+  body.admin-body [role="button"],
+  body.admin-body label[for] {
+    cursor: pointer !important;
+  }
+  body.admin-body input,
+  body.admin-body textarea {
+    cursor: text !important;
+  }
 }
 
 /* Floating navbar pill */
@@ -356,6 +295,21 @@ html.lenis {
     left: 40px;
     right: 40px;
   }
+}
+
+/* Dot grid pattern */
+.dot-grid {
+  position: relative;
+}
+
+.dot-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, #1d1d1f 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.03;
+  pointer-events: none;
 }
 
 /* Reduced motion */

@@ -1,5 +1,4 @@
 import { createClient } from "@/lib/supabase/server";
-import { Users, UserCheck, Mail, MousePointerClick } from "lucide-react";
 import StatCard from "@/components/admin/ui/StatCard";
 import AudienceGrowthChart from "@/components/admin/charts/AudienceGrowthChart";
 import Badge from "@/components/admin/ui/Badge";
@@ -146,25 +145,25 @@ export default async function AdminDashboardPage() {
         <StatCard
           title="Total Contacts"
           value={totalContacts ?? 0}
-          icon={Users}
+          icon="Users"
           accentColor="#02182B"
         />
         <StatCard
           title="Active Subscribers"
           value={activeSubscribers ?? 0}
-          icon={UserCheck}
+          icon="UserCheck"
           accentColor="#10b981"
         />
         <StatCard
           title="Avg. Open Rate"
           value={`${avgOpenRate}%`}
-          icon={Mail}
+          icon="Mail"
           accentColor="#d55d25"
         />
         <StatCard
           title="Avg. Click Rate"
           value={`${avgClickRate}%`}
-          icon={MousePointerClick}
+          icon="MousePointerClick"
           accentColor="#6366f1"
         />
       </div>

@@ -17,7 +17,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${vastagoGrotesk.variable} ${libreCaslon.variable}`}
     >
-      <body className="font-sans antialiased bg-gray-50 text-gray-900">
+      <body className="admin-body font-sans antialiased bg-gray-50 text-gray-900">
         <AdminAuthProvider>{children}</AdminAuthProvider>
       </body>
     </html>

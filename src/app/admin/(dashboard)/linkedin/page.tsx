@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
-import { Plus } from "lucide-react";
 import Badge from "@/components/admin/ui/Badge";
 
 export const metadata = {
@@ -25,8 +24,8 @@ export default async function LinkedInPage() {
 
   const { data: posts } = await supabase
     .from("linkedin_posts")
-    .select("id, author_name, post_text, status, sort_order")
-    .order("sort_order", { ascending: true });
+    .select("id, content, hook, hashtags, topic, status, created_at")
+    .order("created_at", { ascending: false });
 
   return (
     <div>
@@ -35,16 +34,9 @@ export default async function LinkedInPage() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900">LinkedIn</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Manage featured LinkedIn posts displayed on the website.
+            Manage LinkedIn posts generated via Telegram bot.
           </p>
         </div>
-        <Link
-          href="/admin/linkedin/new"
-          className="inline-flex items-center gap-2 rounded-xl bg-[#02182B] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#02182B]/90"
-        >
-          <Plus className="h-4 w-4" />
-          New Post
-        </Link>
       </div>
 
       {/* Table */}
@@ -53,16 +45,19 @@ export default async function LinkedInPage() {
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
               <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                Author
+                Hook
               </th>
               <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                Post Preview
+                Topic
               </th>
               <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
                 Status
               </th>
               <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
-                Actions
+                Aangemaakt
+              </th>
+              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Acties
               </th>
             </tr>
           </thead>
@@ -70,22 +65,31 @@ export default async function LinkedInPage() {
             {posts && posts.length > 0 ? (
               posts.map((p) => (
                 <tr key={p.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-5 py-3.5 font-medium text-gray-900">
-                    {p.author_name || "—"}
-                  </td>
-                  <td className="px-5 py-3.5 text-gray-700 max-w-md">
+                  <td className="px-5 py-3.5 text-gray-900 max-w-xs">
                     <p className="truncate">
-                      {p.post_text
-                        ? p.post_text.length > 120
-                          ? p.post_text.substring(0, 120) + "..."
-                          : p.post_text
+                      {p.hook
+                        ? p.hook.length > 80
+                          ? p.hook.substring(0, 80) + "..."
+                          : p.hook
                         : "—"}
                     </p>
+                  </td>
+                  <td className="px-5 py-3.5 text-gray-700">
+                    {p.topic || "—"}
                   </td>
                   <td className="px-5 py-3.5">
                     <Badge variant={statusVariant(p.status)}>
                       {p.status}
                     </Badge>
+                  </td>
+                  <td className="px-5 py-3.5 text-gray-500">
+                    {p.created_at
+                      ? new Date(p.created_at).toLocaleDateString("nl-BE", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })
+                      : "—"}
                   </td>
                   <td className="px-5 py-3.5">
                     <Link
@@ -100,7 +104,7 @@ export default async function LinkedInPage() {
             ) : (
               <tr>
                 <td
-                  colSpan={4}
+                  colSpan={5}
                   className="px-5 py-10 text-center text-gray-400"
                 >
                   No LinkedIn posts yet.
