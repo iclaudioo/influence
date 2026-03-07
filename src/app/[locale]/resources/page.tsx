@@ -41,26 +41,26 @@ export default async function ResourcesPage({ params }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy min-h-[40vh] flex items-center pt-24 pb-12 relative overflow-hidden">
+      <section className="bg-white min-h-[40vh] flex items-center pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <Image src="/images/generated/heroes/resources-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-navy" />
+          <Image src="/images/generated/heroes/resources-hero.png" alt="" fill className="object-cover opacity-[0.06] mix-blend-multiply" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white" />
         </div>
         <Container>
           <SectionHeading
             eyebrow={t("eyebrow")}
             title={t("title")}
             description={t("description")}
-            light
+            light={false}
           />
         </Container>
       </section>
 
       {/* Resources Grid */}
-      <section className="bg-navy section-padding">
+      <section className="bg-[#FAFAFA] section-padding">
         <Container>
           {!resources || resources.length === 0 ? (
-            <p className="text-white/60 text-center py-12">
+            <p className="text-[#6e6e73] text-center py-12">
               {t("noResources")}
             </p>
           ) : (

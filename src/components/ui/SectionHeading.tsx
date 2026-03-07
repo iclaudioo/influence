@@ -29,18 +29,18 @@ export function SectionHeading({
   title,
   description,
   centered = false,
-  light = true,
+  light = false,
   accentColor,
   gradient = false,
   size = "md",
   serifEyebrow = false,
 }: Props) {
-  const textColor = light ? "text-white" : "text-navy";
+  const textColor = light ? "text-white" : "text-[#1d1d1f]";
   const eyebrowColor = accentColor
     ? undefined
     : light
       ? "text-white/50"
-      : "text-navy/50";
+      : "text-[#6e6e73]";
 
   const titleClasses = `${sizeMap[size]} font-bold tracking-tight leading-[1.1] mb-4 ${
     gradient && light ? "text-gradient-orange" : textColor
@@ -70,7 +70,7 @@ export function SectionHeading({
                   ? `linear-gradient(90deg, ${accentColor}, transparent)`
                   : light
                     ? "linear-gradient(90deg, rgba(255,255,255,0.3), transparent)"
-                    : "linear-gradient(90deg, rgba(2,24,43,0.2), transparent)",
+                    : "linear-gradient(90deg, rgba(29,29,31,0.2), transparent)",
               }}
             />
           )}

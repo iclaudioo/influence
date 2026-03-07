@@ -225,7 +225,7 @@ export function VisibilityWizard() {
       >
         {/* Score */}
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.15em] text-white/60 mb-4">
+          <p className="text-sm uppercase tracking-[0.15em] text-[#6e6e73] mb-4">
             {t("resultTitle")}
           </p>
           <div className="mb-4">
@@ -237,19 +237,19 @@ export function VisibilityWizard() {
           >
             {t(`levels.${level}`)}
           </p>
-          <p className="text-white/60 mt-2 max-w-lg mx-auto">
+          <p className="text-[#6e6e73] mt-2 max-w-lg mx-auto">
             {t("resultDescription")}
           </p>
         </div>
 
         {/* Radar Chart */}
-        <div className="bg-white/5 rounded-2xl p-6 mb-8">
+        <div className="bg-[#FAFAFA] rounded-2xl p-6 mb-8">
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="70%">
-              <PolarGrid stroke="rgba(255,255,255,0.1)" />
+              <PolarGrid stroke="rgba(0,0,0,0.08)" />
               <PolarAngleAxis
                 dataKey="category"
-                tick={{ fill: "rgba(255,255,255,0.7)", fontSize: 12 }}
+                tick={{ fill: "#6e6e73", fontSize: 12 }}
               />
               <Radar
                 name="Score"
@@ -270,14 +270,14 @@ export function VisibilityWizard() {
             return (
               <div key={key}>
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm text-white/70">
+                  <span className="text-sm text-[#6e6e73]">
                     {t(`categories.${CATEGORY_TRANSLATION_MAP[key]}`)}
                   </span>
-                  <span className="text-sm font-semibold text-white">
+                  <span className="text-sm font-semibold text-[#1d1d1f]">
                     {value}/100
                   </span>
                 </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-black/[0.06] rounded-full overflow-hidden">
                   <motion.div
                     className="h-full rounded-full"
                     style={{ backgroundColor: ACCENT }}
@@ -292,13 +292,13 @@ export function VisibilityWizard() {
         </div>
 
         {/* Recommendation */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
-          <h3 className="text-lg font-bold text-white mb-2">Aanbeveling</h3>
-          <p className="text-white/70 mb-4">
+        <div className="bg-[#FAFAFA] border border-black/[0.06] rounded-2xl p-6 mb-8">
+          <h3 className="text-lg font-bold text-[#1d1d1f] mb-2">Aanbeveling</h3>
+          <p className="text-[#6e6e73] mb-4">
             {t("recommendation")}
           </p>
           {lowestCategories.length > 0 && (
-            <p className="text-white/60 text-sm">
+            <p className="text-[#6e6e73] text-sm">
               Focus op:{" "}
               {lowestCategories
                 .map((key) =>
@@ -327,11 +327,11 @@ export function VisibilityWizard() {
         transition={{ duration: 0.5 }}
         className="max-w-md mx-auto"
       >
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-white mb-2">
+        <div className="bg-[#FAFAFA] border border-black/[0.06] rounded-2xl p-8">
+          <h3 className="text-2xl font-bold text-[#1d1d1f] mb-2">
             {t("emailTitle")}
           </h3>
-          <p className="text-white/60 mb-6">{t("emailDescription")}</p>
+          <p className="text-[#6e6e73] mb-6">{t("emailDescription")}</p>
           <LeadCaptureForm
             variant="assessment"
             onSuccess={handleLeadCaptureSuccess}
@@ -347,14 +347,14 @@ export function VisibilityWizard() {
       {/* Progress bar */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-white/60">
+          <span className="text-sm text-[#6e6e73]">
             {t("step")} {currentStep + 1} {t("of")} {totalSteps}
           </span>
-          <span className="text-sm text-white/60">
+          <span className="text-sm text-[#6e6e73]">
             {Math.round(((currentStep + 1) / totalSteps) * 100)}%
           </span>
         </div>
-        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+        <div className="h-2 bg-black/[0.06] rounded-full overflow-hidden">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: ACCENT }}
@@ -374,7 +374,7 @@ export function VisibilityWizard() {
           exit={{ opacity: 0, x: direction * -50 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="text-2xl font-bold text-white mb-8">
+          <h2 className="text-2xl font-bold text-[#1d1d1f] mb-8">
             {currentQuestion.text}
           </h2>
 
@@ -391,10 +391,10 @@ export function VisibilityWizard() {
                   className={`w-full text-left rounded-xl p-4 border transition-all duration-200 ${
                     isSelected
                       ? "border-[#d55d25] bg-[#d55d25]/10"
-                      : "bg-white/5 border-white/10 hover:border-[#d55d25]"
+                      : "bg-[#FAFAFA] border-black/[0.06] hover:border-[#d55d25]"
                   }`}
                 >
-                  <span className="text-white">{option.label}</span>
+                  <span className="text-[#1d1d1f]">{option.label}</span>
                 </button>
               );
             })}
@@ -407,7 +407,7 @@ export function VisibilityWizard() {
         <button
           onClick={handlePrevious}
           disabled={currentStep === 0}
-          className="text-white/60 hover:text-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
         >
           {t("previous")}
         </button>

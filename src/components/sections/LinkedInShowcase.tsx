@@ -31,15 +31,13 @@ export function LinkedInShowcase({ posts }: Props) {
   }
 
   return (
-    <section className="bg-navy section-padding relative overflow-hidden">
-      {/* Top gradient bridge from cream */}
-      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-cream/5 to-transparent pointer-events-none" />
+    <section className="bg-white section-padding relative overflow-hidden">
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
           title={t("title")}
           centered
-          light
+          light={false}
           size="sm"
         />
 
@@ -48,7 +46,7 @@ export function LinkedInShowcase({ posts }: Props) {
             {posts.map((post) => (
               <div
                 key={post.id}
-                className="min-w-[320px] max-w-[380px] flex-shrink-0 snap-start bg-navy-light border border-white/10 rounded-2xl p-6 flex flex-col"
+                className="min-w-[320px] max-w-[380px] flex-shrink-0 snap-start bg-[#FAFAFA] border border-black/[0.06] rounded-2xl p-6 flex flex-col"
               >
                 {/* Author */}
                 <div className="flex items-center gap-3 mb-4">
@@ -59,27 +57,27 @@ export function LinkedInShowcase({ posts }: Props) {
                     height={40}
                     className="rounded-full object-cover"
                   />
-                  <span className="font-semibold text-white text-sm">
+                  <span className="font-semibold text-[#1d1d1f] text-sm">
                     {post.author_name}
                   </span>
                 </div>
 
                 {/* Post text */}
-                <p className="text-white/70 text-sm leading-relaxed line-clamp-4 flex-1">
+                <p className="text-[#6e6e73] text-sm leading-relaxed line-clamp-4 flex-1">
                   {post.post_text}
                 </p>
 
                 {/* Engagement stats */}
-                <div className="flex items-center gap-5 mt-4 pt-4 border-t border-white/10">
-                  <div className="flex items-center gap-1.5 text-white/50 text-xs">
+                <div className="flex items-center gap-5 mt-4 pt-4 border-t border-black/[0.06]">
+                  <div className="flex items-center gap-1.5 text-[#a1a1a6] text-xs">
                     <Heart className="w-4 h-4" />
                     <span>{post.engagement_stats.likes}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-white/50 text-xs">
+                  <div className="flex items-center gap-1.5 text-[#a1a1a6] text-xs">
                     <MessageCircle className="w-4 h-4" />
                     <span>{post.engagement_stats.comments}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-white/50 text-xs">
+                  <div className="flex items-center gap-1.5 text-[#a1a1a6] text-xs">
                     <Repeat2 className="w-4 h-4" />
                     <span>{post.engagement_stats.reposts}</span>
                   </div>
@@ -90,7 +88,7 @@ export function LinkedInShowcase({ posts }: Props) {
                   href={post.linkedin_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-white transition-colors"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
                 >
                   <ExternalLink className="w-4 h-4" />
                   {t("viewOnLinkedIn")}

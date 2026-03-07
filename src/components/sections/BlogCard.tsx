@@ -64,13 +64,13 @@ export function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block overflow-hidden rounded-2xl border border-white/10 bg-[#0a2540] transition-all duration-500 hover:border-white/20 hover:-translate-y-1.5"
+      className="group block overflow-hidden rounded-2xl border border-black/[0.06] bg-white transition-all duration-500 hover:border-black/[0.12] hover:-translate-y-1.5 hover:shadow-lg hover:shadow-black/[0.06]"
       style={{
         "--card-hover-color": hoverColor,
       } as React.CSSProperties}
     >
       {/* Cover image */}
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-white/5">
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-black/[0.03]">
         {coverImage ? (
           <Image
             src={coverImage}
@@ -85,7 +85,7 @@ export function BlogCard({
               ? `linear-gradient(135deg, ${serviceColor}15, transparent 60%)`
               : "linear-gradient(135deg, rgba(213,93,37,0.08), transparent 60%)",
           }}>
-            <span className="text-5xl font-serif italic text-white/10 select-none">IC</span>
+            <span className="text-5xl font-serif italic text-black/10 select-none">IC</span>
           </div>
         )}
         {/* Gradient overlay on hover */}
@@ -118,31 +118,31 @@ export function BlogCard({
             </span>
           )}
           {category && (
-            <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/70">
+            <span className="inline-block rounded-full bg-black/[0.04] px-2.5 py-0.5 text-xs font-medium text-[#6e6e73]">
               {category}
             </span>
           )}
         </div>
 
         {/* Title — hover uses service line color */}
-        <h3 className="text-lg font-bold text-white transition-colors duration-300 line-clamp-2">
+        <h3 className="text-lg font-bold text-[#1d1d1f] transition-colors duration-300 line-clamp-2">
           <span className="group-hover:text-[var(--card-hover-color)] transition-colors duration-300">
             {title}
           </span>
         </h3>
 
         {/* Excerpt */}
-        <p className="mt-2 text-sm text-white/60 line-clamp-2">{excerpt}</p>
+        <p className="mt-2 text-sm text-[#6e6e73] line-clamp-2">{excerpt}</p>
 
         {/* Meta */}
-        <div className="mt-4 flex items-center gap-3 text-xs text-white/40">
+        <div className="mt-4 flex items-center gap-3 text-xs text-[#a1a1a6]">
           {authorName && <span>{authorName}</span>}
           {authorName && formattedDate && (
-            <span className="h-1 w-1 rounded-full bg-white/30" />
+            <span className="h-1 w-1 rounded-full bg-black/20" />
           )}
           {formattedDate && <span>{formattedDate}</span>}
           {(authorName || formattedDate) && readTime && (
-            <span className="h-1 w-1 rounded-full bg-white/30" />
+            <span className="h-1 w-1 rounded-full bg-black/20" />
           )}
           {readTime && (
             <span>

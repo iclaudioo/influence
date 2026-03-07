@@ -17,10 +17,10 @@ export function SocialShare({ url, title, variant = "light" }: Props) {
   const t = useTranslations("share");
 
   const isLight = variant === "light";
-  const textColor = isLight ? "text-white/40" : "text-[#02182B]/40";
+  const textColor = isLight ? "text-[#a1a1a6]" : "text-white/40";
   const btnClass = isLight
-    ? "rounded-lg border border-white/10 p-2 text-white/50 transition-colors hover:border-white/20 hover:text-white"
-    : "rounded-lg border border-[#02182B]/10 p-2 text-[#02182B]/50 transition-colors hover:border-[#02182B]/20 hover:text-[#02182B]";
+    ? "rounded-lg border border-black/[0.06] p-2 text-[#6e6e73] transition-colors hover:border-black/[0.12] hover:text-[#1d1d1f]"
+    : "rounded-lg border border-white/10 p-2 text-white/50 transition-colors hover:border-white/20 hover:text-white";
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(url);

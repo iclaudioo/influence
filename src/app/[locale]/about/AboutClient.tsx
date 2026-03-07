@@ -49,11 +49,11 @@ export function AboutClient({ serverSections }: { serverSections?: React.ReactNo
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center pt-24 bg-navy overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center pt-24 bg-white overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <Image src="/images/generated/heroes/about-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-navy" />
+          <Image src="/images/generated/heroes/about-hero.png" alt="" fill className="object-cover opacity-[0.06] mix-blend-multiply" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white" />
         </div>
 
         {/* Gradient overlay */}
@@ -212,13 +212,13 @@ export function AboutClient({ serverSections }: { serverSections?: React.ReactNo
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#1d1d1f] mb-6"
             >
               {t("hero.title")}
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="text-lg md:text-xl text-white/70 max-w-2xl"
+              className="text-lg md:text-xl text-[#6e6e73] max-w-2xl"
             >
               {t("hero.subtitle")}
             </motion.p>
@@ -379,14 +379,10 @@ export function AboutClient({ serverSections }: { serverSections?: React.ReactNo
         </Container>
       </section>
 
-      <SectionDivider
-        from="var(--color-off-white)"
-        to="var(--color-navy)"
-        accentColor={ACCENT}
-      />
+      <SectionDivider color={ACCENT} />
 
       {/* Values */}
-      <section className="bg-navy section-padding">
+      <section className="bg-off-white section-padding">
         <Container>
           <motion.div
             ref={valuesRef}
@@ -399,7 +395,7 @@ export function AboutClient({ serverSections }: { serverSections?: React.ReactNo
                 eyebrow={t("values.eyebrow")}
                 title={t("values.title")}
                 centered
-                light
+                light={false}
                 accentColor={ACCENT}
               />
             </motion.div>

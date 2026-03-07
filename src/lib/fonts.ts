@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Libre_Caslon_Display } from "next/font/google";
+import { Libre_Caslon_Display, JetBrains_Mono } from "next/font/google";
 
 export const vastagoGrotesk = localFont({
   src: [
@@ -37,5 +37,12 @@ export const libreCaslon = Libre_Caslon_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-serif",
+  display: "swap",
+});
+
+export const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });

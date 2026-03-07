@@ -67,7 +67,7 @@ export function PillarGrid() {
   const t = useTranslations("pillars");
 
   return (
-    <section className="section-padding grain relative overflow-hidden mesh-gradient-dark">
+    <section className="section-padding relative overflow-hidden bg-[#FAFAFA]">
       {/* Ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] pointer-events-none opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(213,93,37,0.1)_0%,transparent_70%)]" />
@@ -78,7 +78,7 @@ export function PillarGrid() {
           eyebrow={t("eyebrow")}
           title={t("title")}
           centered
-          light={true}
+          light={false}
           size="lg"
         />
 
@@ -98,7 +98,7 @@ export function PillarGrid() {
               <Link href={pillar.href} className="block h-full">
                 <TiltCard
                   glowColor={pillar.color}
-                  className="relative overflow-hidden rounded-2xl p-8 h-full group"
+                  className="relative overflow-hidden rounded-2xl p-8 h-full group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/[0.06]"
                   style={{
                     background: `linear-gradient(135deg, ${pillar.color}08 0%, ${pillar.color}03 100%)`,
                     border: `1px solid ${pillar.color}18`,
@@ -146,10 +146,10 @@ export function PillarGrid() {
                       {pillar.icon}
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold text-[#1d1d1f] mb-2">
                       {t(`items.${pillar.key}.name`)}
                     </h3>
-                    <p className="text-white/50 leading-relaxed text-sm">
+                    <p className="text-[#6e6e73] leading-relaxed text-sm">
                       {t(`items.${pillar.key}.description`)}
                     </p>
 

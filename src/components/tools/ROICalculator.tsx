@@ -121,7 +121,7 @@ export function ROICalculator() {
     { name: t("potentialLabel"), value: potential },
   ];
 
-  const barColors = ["rgba(255,255,255,0.3)", ACCENT];
+  const barColors = ["rgba(0,0,0,0.12)", ACCENT];
 
   return (
     <div className="max-w-3xl mx-auto">
@@ -129,11 +129,11 @@ export function ROICalculator() {
       <div className="space-y-8 mb-8">
         {/* Revenue */}
         <div>
-          <label className="block text-sm text-white/60 mb-2">
+          <label className="block text-sm text-[#6e6e73] mb-2">
             {t("revenue")}
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-white/40">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-[#a1a1a6]">
               &euro;
             </span>
             <input
@@ -144,7 +144,7 @@ export function ROICalculator() {
                 setRevenue(raw ? Number(raw).toLocaleString("nl-BE") : "");
               }}
               placeholder={t("revenuePlaceholder")}
-              className="w-full rounded-xl border border-white/20 bg-white/5 pl-12 pr-4 py-4 text-2xl text-white placeholder:text-white/40 focus:border-white/40 focus:outline-none focus:ring-1 focus:ring-white/20 transition-colors"
+              className="w-full rounded-xl border border-black/[0.06] bg-[#FAFAFA] pl-12 pr-4 py-4 text-2xl text-[#1d1d1f] placeholder:text-[#a1a1a6] focus:border-black/[0.12] focus:outline-none focus:ring-1 focus:ring-black/[0.06] transition-colors"
             />
           </div>
         </div>
@@ -152,10 +152,10 @@ export function ROICalculator() {
         {/* Network Percentage Slider */}
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="text-sm text-white/60">
+            <label className="text-sm text-[#6e6e73]">
               {t("networkPercentage")}
             </label>
-            <span className="text-lg font-semibold text-white">
+            <span className="text-lg font-semibold text-[#1d1d1f]">
               {networkPercentage}%
             </span>
           </div>
@@ -165,9 +165,9 @@ export function ROICalculator() {
             max={100}
             value={networkPercentage}
             onChange={(e) => setNetworkPercentage(Number(e.target.value))}
-            className="w-full h-2 rounded-full appearance-none cursor-pointer bg-white/10 accent-[#d55d25]"
+            className="w-full h-2 rounded-full appearance-none cursor-pointer bg-black/[0.06] accent-[#d55d25]"
           />
-          <div className="flex justify-between text-xs text-white/40 mt-1">
+          <div className="flex justify-between text-xs text-[#a1a1a6] mt-1">
             <span>0%</span>
             <span>100%</span>
           </div>
@@ -176,10 +176,10 @@ export function ROICalculator() {
         {/* Desired Growth Slider */}
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="text-sm text-white/60">
+            <label className="text-sm text-[#6e6e73]">
               {t("desiredGrowth")}
             </label>
-            <span className="text-lg font-semibold text-white">
+            <span className="text-lg font-semibold text-[#1d1d1f]">
               {desiredGrowth}%
             </span>
           </div>
@@ -189,9 +189,9 @@ export function ROICalculator() {
             max={50}
             value={desiredGrowth}
             onChange={(e) => setDesiredGrowth(Number(e.target.value))}
-            className="w-full h-2 rounded-full appearance-none cursor-pointer bg-white/10 accent-[#d55d25]"
+            className="w-full h-2 rounded-full appearance-none cursor-pointer bg-black/[0.06] accent-[#d55d25]"
           />
-          <div className="flex justify-between text-xs text-white/40 mt-1">
+          <div className="flex justify-between text-xs text-[#a1a1a6] mt-1">
             <span>0%</span>
             <span>50%</span>
           </div>
@@ -199,21 +199,21 @@ export function ROICalculator() {
 
         {/* Industry Select */}
         <div>
-          <label className="block text-sm text-white/60 mb-2">
+          <label className="block text-sm text-[#6e6e73] mb-2">
             {t("industry")}
           </label>
           <select
             value={industry}
             onChange={(e) => setIndustry(e.target.value as Industry)}
-            className="w-full rounded-xl border border-white/20 bg-white/5 px-4 py-3 text-white focus:border-white/40 focus:outline-none focus:ring-1 focus:ring-white/20 transition-colors appearance-none"
+            className="w-full rounded-xl border border-black/[0.06] bg-[#FAFAFA] px-4 py-3 text-[#1d1d1f] focus:border-black/[0.12] focus:outline-none focus:ring-1 focus:ring-black/[0.06] transition-colors appearance-none"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='rgba(255,255,255,0.4)'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='rgba(0,0,0,0.3)'/%3E%3C/svg%3E")`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "right 16px center",
             }}
           >
             {INDUSTRY_KEYS.map((key) => (
-              <option key={key} value={key} className="bg-[#02182B] text-white">
+              <option key={key} value={key} className="bg-white text-[#1d1d1f]">
                 {t(`industries.${INDUSTRY_TRANSLATION_MAP[key]}`)}
               </option>
             ))}
@@ -242,12 +242,12 @@ export function ROICalculator() {
             className="space-y-8"
           >
             {/* Missed Revenue */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-              <p className="text-sm uppercase tracking-[0.15em] text-white/60 mb-4">
+            <div className="bg-[#FAFAFA] border border-black/[0.06] rounded-2xl p-8 text-center">
+              <p className="text-sm uppercase tracking-[0.15em] text-[#6e6e73] mb-4">
                 {t("missedRevenue")}
               </p>
               <div className="flex items-center justify-center gap-2">
-                <span className="text-4xl md:text-5xl font-bold text-white/40">
+                <span className="text-4xl md:text-5xl font-bold text-[#a1a1a6]">
                   &euro;
                 </span>
                 <AnimatedCounter
@@ -259,7 +259,7 @@ export function ROICalculator() {
             </div>
 
             {/* Bar Chart */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+            <div className="bg-[#FAFAFA] border border-black/[0.06] rounded-2xl p-6">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart
                   data={chartData}
@@ -267,16 +267,16 @@ export function ROICalculator() {
                 >
                   <CartesianGrid
                     strokeDasharray="3 3"
-                    stroke="rgba(255,255,255,0.05)"
+                    stroke="rgba(0,0,0,0.05)"
                   />
                   <XAxis
                     dataKey="name"
-                    tick={{ fill: "rgba(255,255,255,0.7)", fontSize: 14 }}
-                    axisLine={{ stroke: "rgba(255,255,255,0.1)" }}
+                    tick={{ fill: "#6e6e73", fontSize: 14 }}
+                    axisLine={{ stroke: "rgba(0,0,0,0.1)" }}
                   />
                   <YAxis
-                    tick={{ fill: "rgba(255,255,255,0.5)", fontSize: 12 }}
-                    axisLine={{ stroke: "rgba(255,255,255,0.1)" }}
+                    tick={{ fill: "#a1a1a6", fontSize: 12 }}
+                    axisLine={{ stroke: "rgba(0,0,0,0.1)" }}
                     tickFormatter={(value: number) =>
                       formatCurrency(value)
                     }
@@ -291,11 +291,11 @@ export function ROICalculator() {
             </div>
 
             {/* Lead Capture for Report */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-white mb-2">
+            <div className="bg-[#FAFAFA] border border-black/[0.06] rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-[#1d1d1f] mb-2">
                 {t("getReport")}
               </h3>
-              <p className="text-white/60 mb-6">
+              <p className="text-[#6e6e73] mb-6">
                 {t("reportDescription")}
               </p>
               <LeadCaptureForm

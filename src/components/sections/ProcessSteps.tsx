@@ -23,7 +23,7 @@ export function ProcessSteps({ namespace, accentColor }: Props) {
   }>;
 
   return (
-    <section className="bg-navy section-padding relative overflow-hidden">
+    <section className="bg-[#FAFAFA] section-padding relative overflow-hidden">
       {/* Subtle ambient glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none"
@@ -34,7 +34,7 @@ export function ProcessSteps({ namespace, accentColor }: Props) {
         <SectionHeading
           eyebrow={t("process.eyebrow")}
           title={t("process.title")}
-          light={true}
+          light={false}
           accentColor={accentColor}
           serifEyebrow
         />
@@ -57,7 +57,7 @@ export function ProcessSteps({ namespace, accentColor }: Props) {
                     style={{ background: `radial-gradient(circle, ${accentColor}40, transparent)` }}
                   />
                   <div
-                    className="relative w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-white border-2 transition-all duration-300 group-hover:scale-110"
+                    className="relative w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold text-[#1d1d1f] border-2 transition-all duration-300 group-hover:scale-110"
                     style={{
                       borderColor: `${accentColor}40`,
                       backgroundColor: `${accentColor}15`,
@@ -66,10 +66,10 @@ export function ProcessSteps({ namespace, accentColor }: Props) {
                     {String(index + 1).padStart(2, "0")}
                   </div>
                 </div>
-                <h3 className="font-semibold text-white text-base mb-2">
+                <h3 className="font-semibold text-[#1d1d1f] text-base mb-2">
                   {step.title}
                 </h3>
-                <p className="text-white/50 text-sm max-w-[200px] mx-auto leading-relaxed">
+                <p className="text-[#6e6e73] text-sm max-w-[200px] mx-auto leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>
@@ -111,10 +111,10 @@ export function ProcessSteps({ namespace, accentColor }: Props) {
                   </div>
                 </div>
                 <div className="pt-2 pb-8">
-                  <h3 className="font-semibold text-white text-lg mb-1">
+                  <h3 className="font-semibold text-[#1d1d1f] text-lg mb-1">
                     {step.title}
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
+                  <p className="text-[#6e6e73] text-sm leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
 

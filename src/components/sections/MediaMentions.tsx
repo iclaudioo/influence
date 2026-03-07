@@ -26,15 +26,13 @@ export async function MediaMentions() {
   }
 
   return (
-    <section className="bg-navy section-padding relative overflow-hidden">
-      {/* Bottom gradient bridge to cream */}
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-cream/8 to-transparent pointer-events-none" />
+    <section className="bg-white section-padding relative overflow-hidden">
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
           title={t("title")}
           centered
-          light
+          light={false}
           size="sm"
         />
         <MediaMentionsGrid mentions={mentions as MediaMention[]} />

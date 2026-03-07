@@ -33,9 +33,7 @@ export function PainPointSection() {
   const items = [0, 1, 2] as const;
 
   return (
-    <section className="relative section-padding overflow-hidden" style={{
-      background: "linear-gradient(180deg, var(--color-navy) 0%, var(--color-navy-dark) 100%)",
-    }}>
+    <section className="relative section-padding overflow-hidden bg-white">
       {/* Subtle red ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] pointer-events-none" style={{
         background: "radial-gradient(ellipse, rgba(215,38,61,0.06) 0%, transparent 70%)",
@@ -46,7 +44,7 @@ export function PainPointSection() {
           eyebrow={t("eyebrow")}
           title=""
           centered
-          light
+          light={false}
         />
 
         <motion.div
@@ -62,8 +60,8 @@ export function PainPointSection() {
               variants={blurFadeUp}
               className="group relative rounded-2xl p-8 overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, rgba(215,38,61,0.06) 0%, rgba(10,37,64,0.8) 100%)",
-                border: "1px solid rgba(215,38,61,0.10)",
+                background: "linear-gradient(135deg, rgba(215,38,61,0.04) 0%, rgba(215,38,61,0.01) 100%)",
+                border: "1px solid rgba(0,0,0,0.06)",
               }}
             >
               {/* Hover glow */}
@@ -78,15 +76,15 @@ export function PainPointSection() {
                 }}>
                   {painIcons[i]}
                 </div>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-white/25 font-medium font-serif">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#a1a1a6] font-medium font-serif">
                   0{i + 1}
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white relative z-10">
+              <h3 className="text-lg font-bold text-[#1d1d1f] relative z-10">
                 {t(`items.${i}.title`)}
               </h3>
-              <p className="text-white/50 mt-3 text-sm leading-relaxed relative z-10">
+              <p className="text-[#6e6e73] mt-3 text-sm leading-relaxed relative z-10">
                 {t(`items.${i}.description`)}
               </p>
             </motion.div>

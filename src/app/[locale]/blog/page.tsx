@@ -70,10 +70,10 @@ export default async function BlogPage({ params }: PageProps) {
       <StructuredData data={blogStructuredData} />
 
       {/* Hero */}
-      <section className="bg-navy pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-white pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          <Image src="/images/generated/heroes/blog-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 to-navy" />
+          <Image src="/images/generated/heroes/blog-hero.png" alt="" fill className="object-cover opacity-[0.06] mix-blend-multiply" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white" />
         </div>
         <Container>
           <SectionHeading
@@ -81,14 +81,14 @@ export default async function BlogPage({ params }: PageProps) {
             title={t("title")}
             description={t("description")}
             centered
-            light
+            light={false}
             accentColor="#d55d25"
           />
         </Container>
       </section>
 
       {/* Posts grid with filter */}
-      <section className="bg-navy section-padding">
+      <section className="bg-[#FAFAFA] section-padding">
         <Container>
           {posts && posts.length > 0 ? (
             <BlogFilterClient
@@ -120,7 +120,7 @@ export default async function BlogPage({ params }: PageProps) {
             />
           ) : (
             <div className="py-20 text-center">
-              <p className="text-lg text-white/50">{t("noPosts")}</p>
+              <p className="text-lg text-[#a1a1a6]">{t("noPosts")}</p>
             </div>
           )}
         </Container>

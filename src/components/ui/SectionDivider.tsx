@@ -1,31 +1,27 @@
 type Props = {
-  from?: string;
-  to?: string;
-  accentColor?: string;
+  color?: string;
+  variant?: "line" | "dots";
 };
 
-export function SectionDivider({
-  from = "var(--color-navy)",
-  to = "var(--color-off-white)",
-  accentColor,
-}: Props) {
+export function SectionDivider({ color = "#d55d25", variant = "line" }: Props) {
+  if (variant === "dots") {
+    return (
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+        <p className="text-center font-mono text-sm tracking-[0.5em] text-[#a1a1a6] select-none">
+          · · ·
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative h-24 -mt-1 -mb-1" style={{ background: from }}>
+    <div className="max-w-7xl mx-auto px-6 lg:px-8">
       <div
-        className="absolute inset-0"
+        className="h-px w-full"
         style={{
-          background: to,
-          clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 100%)",
+          background: `linear-gradient(90deg, transparent, ${color}20 30%, ${color}40 50%, ${color}20 70%, transparent)`,
         }}
       />
-      {accentColor && (
-        <div
-          className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-32 h-1 rounded-full"
-          style={{
-            background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)`,
-          }}
-        />
-      )}
     </div>
   );
 }

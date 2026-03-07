@@ -21,14 +21,14 @@ export default async function VisibilityScorePage() {
   const t = await getTranslations("visibilityScore");
 
   return (
-    <section className="bg-navy section-padding pt-32 min-h-screen">
+    <section className="bg-white section-padding pt-32 min-h-screen">
       <Container>
         <div className="mb-16">
           <SectionHeading
             eyebrow={t("title")}
             title={t("description")}
             centered
-            light
+            light={false}
             accentColor="#d55d25"
           />
         </div>

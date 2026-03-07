@@ -31,13 +31,10 @@ export function StatsBar() {
     <motion.section
       ref={sectionRef}
       style={{ opacity }}
-      className="grain relative overflow-hidden section-padding"
+      className="relative overflow-hidden section-padding"
     >
       <div
-        className="absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse at 50% 50%, rgba(10,37,64,0.8) 0%, rgba(2,24,43,1) 100%)",
-        }}
+        className="absolute inset-0 bg-[#FAFAFA]"
       />
 
       {/* Ambient color spots */}
@@ -71,7 +68,7 @@ export function StatsBar() {
                 suffix={stat.suffix}
                 accentColor={statColors[i]}
               />
-              <p className="text-xs text-white/40 uppercase tracking-[0.15em] mt-3 font-medium group-hover:text-white/60 transition-colors duration-300">
+              <p className="text-xs text-[#a1a1a6] uppercase tracking-[0.15em] mt-3 font-medium group-hover:text-[#6e6e73] transition-colors duration-300">
                 {stat.label}
               </p>
             </motion.div>

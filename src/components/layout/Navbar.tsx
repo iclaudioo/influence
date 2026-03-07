@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -76,6 +77,7 @@ const toolsItems = [
 
 export function Navbar() {
   const t = useTranslations("nav");
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -121,6 +123,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setIsServicesOpen(false);
+        setIsOverOnsOpen(false);
+        setIsToolsOpen(false);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   const chevronSvg = (isOpen: boolean) => (
     <svg
       width="12"
@@ -152,7 +166,7 @@ export function Navbar() {
       <header
         className={`fixed z-40 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isScrolled
-            ? "navbar-floating glass shadow-2xl shadow-navy-dark/30"
+            ? "navbar-floating glass shadow-lg shadow-black/[0.04]"
             : "top-0 left-0 right-0 bg-transparent"
         }`}
       >
@@ -161,7 +175,7 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 group">
               <Image
-                src="/images/logos/logo-white.svg"
+                src="/images/logos/logo-navy.svg"
                 alt="Influence Circle"
                 width={160}
                 height={32}
@@ -180,7 +194,9 @@ export function Navbar() {
               >
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors text-sm font-medium"
+                  aria-haspopup="menu"
+                  aria-expanded={isServicesOpen}
+                  className="flex items-center gap-1.5 text-[#6e6e73] hover:text-[#1d1d1f] transition-colors text-sm font-medium"
                 >
                   {t("services")}
                   {chevronSvg(isServicesOpen)}
@@ -197,9 +213,9 @@ export function Navbar() {
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                       className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                     >
-                      <div className="glass rounded-2xl p-5 shadow-2xl shadow-navy-dark/40 min-w-[540px]">
+                      <div className="glass rounded-2xl p-5 shadow-xl shadow-black/[0.08] min-w-[540px]" role="menu">
                         {/* Header */}
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-medium mb-3 px-1">
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-[#a1a1a6] font-medium mb-3 px-1">
                           {t("services")}
                         </p>
                         <div className="grid grid-cols-2 gap-2">
@@ -207,7 +223,8 @@ export function Navbar() {
                             <Link
                               key={service.key}
                               href={service.href}
-                              className="group flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.06] transition-all duration-200"
+                              role="menuitem"
+                              className="group flex items-start gap-3 p-3 rounded-xl hover:bg-black/[0.04] transition-all duration-200"
                             >
                               <span
                                 className="mt-0.5 flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-200"
@@ -219,10 +236,10 @@ export function Navbar() {
                                 {service.icon}
                               </span>
                               <div>
-                                <span className="block font-semibold text-white text-sm group-hover:text-white transition-colors">
+                                <span className="block font-semibold text-[#1d1d1f] text-sm group-hover:text-[#1d1d1f] transition-colors">
                                   {t(service.key)}
                                 </span>
-                                <span className="block text-xs text-white/40 mt-0.5 leading-relaxed">
+                                <span className="block text-xs text-[#a1a1a6] mt-0.5 leading-relaxed">
                                   {t(`${service.key}Desc`)}
                                 </span>
                               </div>
@@ -238,17 +255,25 @@ export function Navbar() {
               {/* Cases direct link */}
               <Link
                 href="/cases"
-                className="text-white/70 hover:text-white transition-colors text-sm font-medium"
+                aria-current={pathname.includes("/cases") ? "page" : undefined}
+                className={`relative text-sm font-medium transition-colors ${pathname.includes("/cases") ? "text-[#1d1d1f]" : "text-[#6e6e73] hover:text-[#1d1d1f]"}`}
               >
                 {t("cases")}
+                {pathname.includes("/cases") && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-labs" />
+                )}
               </Link>
 
               {/* Blog direct link */}
               <Link
                 href="/blog"
-                className="text-white/70 hover:text-white transition-colors text-sm font-medium"
+                aria-current={pathname.includes("/blog") ? "page" : undefined}
+                className={`relative text-sm font-medium transition-colors ${pathname.includes("/blog") ? "text-[#1d1d1f]" : "text-[#6e6e73] hover:text-[#1d1d1f]"}`}
               >
                 {t("blog")}
+                {pathname.includes("/blog") && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-labs" />
+                )}
               </Link>
 
               {/* Over ons dropdown */}
@@ -259,7 +284,9 @@ export function Navbar() {
               >
                 <button
                   onClick={() => setIsOverOnsOpen(!isOverOnsOpen)}
-                  className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors text-sm font-medium"
+                  aria-haspopup="menu"
+                  aria-expanded={isOverOnsOpen}
+                  className="flex items-center gap-1.5 text-[#6e6e73] hover:text-[#1d1d1f] transition-colors text-sm font-medium"
                 >
                   {t("overOns")}
                   {chevronSvg(isOverOnsOpen)}
@@ -275,13 +302,14 @@ export function Navbar() {
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                       className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                     >
-                      <div className="glass rounded-2xl p-3 shadow-2xl shadow-navy-dark/40 min-w-[200px]">
+                      <div className="glass rounded-2xl p-3 shadow-xl shadow-black/[0.08] min-w-[200px]" role="menu">
                         <div className="space-y-0.5">
                           {overOnsItems.map((item) => (
                             <Link
                               key={item.key}
                               href={item.href}
-                              className="block px-3 py-2.5 rounded-xl text-white/70 hover:text-white hover:bg-white/[0.06] transition-all text-sm font-medium"
+                              role="menuitem"
+                              className="block px-3 py-2.5 rounded-xl text-white/70 hover:text-white hover:bg-black/[0.04] transition-all text-sm font-medium"
                             >
                               {t(item.key)}
                             </Link>
@@ -301,7 +329,9 @@ export function Navbar() {
               >
                 <button
                   onClick={() => setIsToolsOpen(!isToolsOpen)}
-                  className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors text-sm font-medium"
+                  aria-haspopup="menu"
+                  aria-expanded={isToolsOpen}
+                  className="flex items-center gap-1.5 text-[#6e6e73] hover:text-[#1d1d1f] transition-colors text-sm font-medium"
                 >
                   {t("tools")}
                   {chevronSvg(isToolsOpen)}
@@ -317,13 +347,14 @@ export function Navbar() {
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                       className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                     >
-                      <div className="glass rounded-2xl p-3 shadow-2xl shadow-navy-dark/40 min-w-[220px]">
+                      <div className="glass rounded-2xl p-3 shadow-xl shadow-black/[0.08] min-w-[220px]" role="menu">
                         <div className="space-y-0.5">
                           {toolsItems.map((item) => (
                             <Link
                               key={item.key}
                               href={item.href}
-                              className="block px-3 py-2.5 rounded-xl text-white/70 hover:text-white hover:bg-white/[0.06] transition-all text-sm font-medium"
+                              role="menuitem"
+                              className="block px-3 py-2.5 rounded-xl text-white/70 hover:text-white hover:bg-black/[0.04] transition-all text-sm font-medium"
                             >
                               {t(item.key)}
                             </Link>
@@ -337,9 +368,13 @@ export function Navbar() {
 
               <Link
                 href="/contact"
-                className="text-white/70 hover:text-white transition-colors text-sm font-medium"
+                aria-current={pathname.includes("/contact") ? "page" : undefined}
+                className={`relative text-sm font-medium transition-colors ${pathname.includes("/contact") ? "text-[#1d1d1f]" : "text-[#6e6e73] hover:text-[#1d1d1f]"}`}
               >
                 {t("contact")}
+                {pathname.includes("/contact") && (
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-labs" />
+                )}
               </Link>
 
               <LanguageSwitch />
@@ -351,7 +386,7 @@ export function Navbar() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden text-white p-2"
+              className="md:hidden text-[#1d1d1f] p-2"
               onClick={() => setIsMobileOpen(true)}
               aria-label={t("menu")}
             >
@@ -377,7 +412,7 @@ export function Navbar() {
         <motion.div
           initial={false}
           animate={{ opacity: isScrolled ? 1 : 0 }}
-          className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"
+          className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-black/[0.06] to-transparent"
         />
       </header>
 

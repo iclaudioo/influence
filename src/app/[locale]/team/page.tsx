@@ -86,18 +86,19 @@ export default async function TeamPage({
       <StructuredData data={structuredData} />
 
       {/* Hero */}
-      <section className="bg-navy min-h-[40vh] flex items-center pt-24 pb-12">
+      <section className="bg-white min-h-[40vh] flex items-center pt-24 pb-12">
         <Container>
           <SectionHeading
             eyebrow={t("eyebrow")}
             title={t("title")}
             description={t("description")}
+            light={false}
           />
         </Container>
       </section>
 
       {/* Team grid */}
-      <section className="section-padding bg-navy">
+      <section className="section-padding bg-[#FAFAFA]">
         <Container>
           <TeamGridClient
             members={mappedMembers}

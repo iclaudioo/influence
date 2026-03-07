@@ -37,7 +37,7 @@ function renderMarks(text: string, marks: TipTapMark[] = []): React.ReactNode {
         return <s>{acc}</s>;
       case "code":
         return (
-          <code className="rounded bg-white/10 px-1.5 py-0.5 text-sm font-mono text-[#d55d25]">
+          <code className="rounded bg-black/[0.04] px-1.5 py-0.5 text-sm font-mono text-[#d55d25]">
             {acc}
           </code>
         );
@@ -71,7 +71,7 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
 
     case "paragraph":
       return (
-        <p key={key} className="mb-4 text-white/80 leading-relaxed">
+        <p key={key} className="mb-4 text-[#424245] leading-relaxed">
           {node.content?.map((child, i) => renderNode(child, i))}
         </p>
       );
@@ -81,42 +81,42 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
       const children = node.content?.map((child, i) => renderNode(child, i));
       if (level === 1) {
         return (
-          <h1 key={key} className="text-3xl md:text-4xl font-bold text-white mt-12 mb-4">
+          <h1 key={key} className="text-3xl md:text-4xl font-bold text-[#1d1d1f] mt-12 mb-4">
             {children}
           </h1>
         );
       }
       if (level === 3) {
         return (
-          <h3 key={key} className="text-xl md:text-2xl font-bold text-white mt-8 mb-3">
+          <h3 key={key} className="text-xl md:text-2xl font-bold text-[#1d1d1f] mt-8 mb-3">
             {children}
           </h3>
         );
       }
       if (level === 4) {
         return (
-          <h4 key={key} className="text-lg font-bold text-white mt-6 mb-2">
+          <h4 key={key} className="text-lg font-bold text-[#1d1d1f] mt-6 mb-2">
             {children}
           </h4>
         );
       }
       if (level === 5) {
         return (
-          <h5 key={key} className="text-base font-bold text-white mt-6 mb-2">
+          <h5 key={key} className="text-base font-bold text-[#1d1d1f] mt-6 mb-2">
             {children}
           </h5>
         );
       }
       if (level === 6) {
         return (
-          <h6 key={key} className="text-sm font-bold text-white mt-6 mb-2">
+          <h6 key={key} className="text-sm font-bold text-[#1d1d1f] mt-6 mb-2">
             {children}
           </h6>
         );
       }
       // Default to h2
       return (
-        <h2 key={key} className="text-2xl md:text-3xl font-bold text-white mt-10 mb-4">
+        <h2 key={key} className="text-2xl md:text-3xl font-bold text-[#1d1d1f] mt-10 mb-4">
           {children}
         </h2>
       );
@@ -133,7 +133,7 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
       return (
         <ul
           key={key}
-          className="mb-4 ml-6 list-disc space-y-1 text-white/80 marker:text-[#d55d25]"
+          className="mb-4 ml-6 list-disc space-y-1 text-[#424245] marker:text-[#d55d25]"
         >
           {node.content?.map((child, i) => renderNode(child, i))}
         </ul>
@@ -143,7 +143,7 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
       return (
         <ol
           key={key}
-          className="mb-4 ml-6 list-decimal space-y-1 text-white/80 marker:text-[#d55d25]"
+          className="mb-4 ml-6 list-decimal space-y-1 text-[#424245] marker:text-[#d55d25]"
         >
           {node.content?.map((child, i) => renderNode(child, i))}
         </ol>
@@ -160,7 +160,7 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
       return (
         <blockquote
           key={key}
-          className="my-6 border-l-4 border-[#d55d25] pl-6 italic text-white/70"
+          className="my-6 border-l-4 border-[#d55d25] pl-6 italic text-[#6e6e73]"
         >
           {node.content?.map((child, i) => renderNode(child, i))}
         </blockquote>
@@ -182,7 +182,7 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
             />
           </div>
           {title && (
-            <figcaption className="mt-2 text-center text-sm text-white/50">
+            <figcaption className="mt-2 text-center text-sm text-[#a1a1a6]">
               {title}
             </figcaption>
           )}
@@ -194,9 +194,9 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
       return (
         <pre
           key={key}
-          className="my-6 overflow-x-auto rounded-xl bg-white/5 p-4 text-sm"
+          className="my-6 overflow-x-auto rounded-xl bg-[#FAFAFA] p-4 text-sm"
         >
-          <code className="text-white/80 font-mono">
+          <code className="text-[#424245] font-mono">
             {node.content?.map((child, i) => renderNode(child, i))}
           </code>
         </pre>
@@ -206,7 +206,7 @@ function renderNode(node: TipTapNode, index: number): React.ReactNode {
       return (
         <hr
           key={key}
-          className="my-8 border-t border-white/10"
+          className="my-8 border-t border-black/[0.06]"
         />
       );
 

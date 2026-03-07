@@ -69,7 +69,7 @@ export default function ContactPage() {
   }
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20";
+    "w-full px-4 py-3 rounded-xl border border-navy/10 text-navy focus:outline-none focus:ring-2 focus:ring-navy/20 hover:border-black/[0.12] transition-colors";
 
   return (
     <>
@@ -218,11 +218,16 @@ export default function ContactPage() {
                     </label>
                   </div>
 
-                  {error && (
-                    <p className="text-red-600 text-sm">{error}</p>
-                  )}
+                  <div role="status" aria-live="polite">
+                    {error && (
+                      <p className="text-red-600 text-sm">{error}</p>
+                    )}
+                    {submitted && (
+                      <p className="text-green-600 text-sm">{t("form.success")}</p>
+                    )}
+                  </div>
 
-                  <Button type="submit" variant="primary">
+                  <Button type="submit" variant="primary" disabled={loading}>
                     {loading ? t("form.sending") : t("form.submit")}
                   </Button>
                 </motion.form>

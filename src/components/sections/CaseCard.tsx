@@ -52,7 +52,7 @@ export function CaseCard({
       <TiltCard
         glowColor={badgeColor}
         maxRotation={6}
-        className="relative overflow-hidden rounded-2xl bg-[#0a2540] border border-white/10 p-8 h-full group"
+        className="relative overflow-hidden rounded-2xl bg-white border border-black/[0.06] p-8 h-full group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/[0.06]"
       >
         {/* Hover-reveal background image */}
         {fallbackImage && (
@@ -81,22 +81,22 @@ export function CaseCard({
             />
           ) : (
             <div
-              className="w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-lg"
+              className="w-12 h-12 rounded-lg flex items-center justify-center text-[#1d1d1f] font-bold text-lg"
               style={{ backgroundColor: `${badgeColor}30` }}
             >
               {clientCompany.charAt(0)}
             </div>
           )}
           <div>
-            <p className="font-semibold text-white">{clientName}</p>
-            <p className="text-sm text-white/60">
+            <p className="font-semibold text-[#1d1d1f]">{clientName}</p>
+            <p className="text-sm text-[#6e6e73]">
               {clientRole}, {clientCompany}
             </p>
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-white/90 transition-colors">
+        <h3 className="text-lg font-bold text-[#1d1d1f] mb-3 group-hover:text-[#1d1d1f]/90 transition-colors">
           {title}
         </h3>
 

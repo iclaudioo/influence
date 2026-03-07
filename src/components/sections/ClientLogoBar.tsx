@@ -20,19 +20,17 @@ export function ClientLogoBar() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="relative py-16 overflow-hidden" style={{
-      background: "linear-gradient(180deg, rgba(2,24,43,1) 0%, rgba(10,37,64,0.3) 50%, rgba(2,24,43,1) 100%)",
-    }}>
+    <section className="relative py-16 overflow-hidden bg-[#FAFAFA]">
       {/* Top divider */}
       <div className="absolute top-0 inset-x-0 divider-gradient" />
 
       <Container>
         <div className="flex items-center justify-center gap-3 mb-10">
-          <span className="inline-block w-8 h-px bg-gradient-to-r from-transparent to-white/20" />
-          <p className="text-[10px] uppercase tracking-[0.25em] font-medium text-white/30">
+          <span className="inline-block w-8 h-px bg-gradient-to-r from-transparent to-black/20" />
+          <p className="text-[10px] uppercase tracking-[0.25em] font-medium text-[#a1a1a6]">
             {t("label")}
           </p>
-          <span className="inline-block w-8 h-px bg-gradient-to-l from-transparent to-white/20" />
+          <span className="inline-block w-8 h-px bg-gradient-to-l from-transparent to-black/20" />
         </div>
       </Container>
 
@@ -61,10 +59,10 @@ export function ClientLogoBar() {
               className="flex-shrink-0 mx-10"
             >
               <div
-                className="px-8 py-3 rounded-full border border-white/[0.06] backdrop-blur-sm transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04] hover:scale-105 group"
-                style={{ background: "rgba(255,255,255,0.02)" }}
+                className="px-8 py-3 rounded-full border border-black/[0.06] backdrop-blur-sm transition-all duration-500 hover:border-black/[0.12] hover:bg-black/[0.04] hover:scale-105 group"
+                style={{ background: "rgba(0,0,0,0.02)" }}
               >
-                <span className="flex items-center gap-2.5 text-white/30 grayscale group-hover:text-white/70 group-hover:grayscale-0 transition-all duration-500 text-sm font-medium tracking-[0.15em] whitespace-nowrap select-none">
+                <span className="flex items-center gap-2.5 text-[#a1a1a6] grayscale group-hover:text-[#1d1d1f] group-hover:grayscale-0 transition-all duration-500 text-sm font-medium tracking-[0.15em] whitespace-nowrap select-none">
                   {logo.mark}
                   {logo.name}
                 </span>
@@ -79,10 +77,10 @@ export function ClientLogoBar() {
               className="flex-shrink-0 mx-10"
             >
               <div
-                className="px-8 py-3 rounded-full border border-white/[0.06] backdrop-blur-sm transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04] hover:scale-105 group"
-                style={{ background: "rgba(255,255,255,0.02)" }}
+                className="px-8 py-3 rounded-full border border-black/[0.06] backdrop-blur-sm transition-all duration-500 hover:border-black/[0.12] hover:bg-black/[0.04] hover:scale-105 group"
+                style={{ background: "rgba(0,0,0,0.02)" }}
               >
-                <span className="flex items-center gap-2.5 text-white/30 grayscale group-hover:text-white/70 group-hover:grayscale-0 transition-all duration-500 text-sm font-medium tracking-[0.15em] whitespace-nowrap select-none">
+                <span className="flex items-center gap-2.5 text-[#a1a1a6] grayscale group-hover:text-[#1d1d1f] group-hover:grayscale-0 transition-all duration-500 text-sm font-medium tracking-[0.15em] whitespace-nowrap select-none">
                   {logo.mark}
                   {logo.name}
                 </span>

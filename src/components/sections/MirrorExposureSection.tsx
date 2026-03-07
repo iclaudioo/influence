@@ -40,11 +40,11 @@ export function MirrorExposureSection() {
   ];
 
   return (
-    <section className="bg-navy section-padding grain relative">
+    <section className="bg-[#FAFAFA] section-padding relative">
       {/* Red background glow */}
       <div
         className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(215,38,61,0.15) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(215,38,61,0.06) 0%, transparent 60%)" }}
       />
 
       <Container className="relative z-10">
@@ -145,12 +145,12 @@ export function MirrorExposureSection() {
               <SectionHeading
                 eyebrow={t("eyebrow")}
                 title={t("title")}
-                light
+                light={false}
                 size="md"
               />
             </motion.div>
 
-            <motion.p variants={fadeUp} className="text-white/80 mt-4">
+            <motion.p variants={fadeUp} className="text-[#6e6e73] mt-4">
               {t("description")}
             </motion.p>
 
@@ -158,16 +158,16 @@ export function MirrorExposureSection() {
               {steps.map((i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div
-                    className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white"
+                    className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-[#1d1d1f]"
                     style={{ backgroundColor: ACCENT }}
                   >
                     {i + 1}
                   </div>
                   <div>
-                    <p className="font-semibold text-white">
+                    <p className="font-semibold text-[#1d1d1f]">
                       {t(`steps.${i}.title`)}
                     </p>
-                    <p className="text-sm text-white/60">
+                    <p className="text-sm text-[#6e6e73]">
                       {t(`steps.${i}.description`)}
                     </p>
                   </div>

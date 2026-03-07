@@ -41,15 +41,13 @@ export async function FeaturedCases({
   }
 
   return (
-    <section className="bg-navy section-padding relative overflow-hidden">
-      {/* Bottom gradient bridge to cream */}
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-cream/8 to-transparent pointer-events-none" />
+    <section className="bg-white section-padding relative overflow-hidden">
       <Container>
         <SectionHeading
           eyebrow={t("eyebrow")}
           title={t("title")}
           centered
-          light
+          light={false}
           serifEyebrow
         />
         <FeaturedCasesAnimated>
@@ -71,7 +69,7 @@ export async function FeaturedCases({
         <div className="mt-12 text-center">
           <Link
             href="/cases"
-            className="group inline-flex items-center gap-2 text-white/50 hover:text-white transition-all duration-300 text-sm font-medium"
+            className="group inline-flex items-center gap-2 text-[#6e6e73] hover:text-[#1d1d1f] transition-all duration-300 text-sm font-medium"
           >
             <span className="group-hover:tracking-wide transition-all duration-300">{t("viewAll")}</span>
             <svg

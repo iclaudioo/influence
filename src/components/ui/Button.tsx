@@ -13,10 +13,11 @@ type ButtonProps = {
   accentColor?: string;
   onClick?: () => void;
   type?: "button" | "submit";
+  disabled?: boolean;
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
+  "inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f]/20";
 
 const variantStyles = {
   primary: "rounded-full px-8 py-3 relative overflow-hidden",
@@ -32,6 +33,7 @@ export function Button({
   accentColor = "#d55d25",
   onClick,
   type = "button",
+  disabled = false,
 }: ButtonProps) {
   const classes = `${baseStyles} ${variantStyles[variant]} ${className}`;
 
@@ -65,7 +67,8 @@ export function Button({
         } as React.CSSProperties
       : inlineStyle;
 
-  const finalClasses = `${classes} ${hoverClass}`.trim();
+  const disabledClass = disabled ? "opacity-60 pointer-events-none" : "";
+  const finalClasses = `${classes} ${disabled ? "" : hoverClass} ${disabledClass}`.trim();
 
   const content = (
     <>
@@ -126,6 +129,7 @@ export function Button({
     <button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`${finalClasses} group`}
       style={cssVarStyle}
     >
@@ -133,7 +137,7 @@ export function Button({
     </button>
   );
 
-  if (!isPrimary) return btn;
+  if (!isPrimary || disabled) return btn;
 
   return (
     <motion.div

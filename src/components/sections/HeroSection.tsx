@@ -46,7 +46,7 @@ export function HeroSection() {
   const contentY = useTransform(mouseYSpring, [-1, 1], [-4, 4]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Background image — deepest parallax layer */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ x: bgX, y: bgY }} aria-hidden="true">
         <Image src="/images/generated/heroes/homepage-hero.png" alt="" fill className="object-cover opacity-[0.10] mix-blend-luminosity" sizes="100vw" priority />
@@ -70,7 +70,7 @@ export function HeroSection() {
         className="absolute inset-0 pointer-events-none flex items-center justify-center"
         style={{ x: orbitalX, y: orbitalY }}
       >
-        <div className="w-[700px] h-[700px] rounded-full border border-white/[0.03] animate-orbital" />
+        <div className="w-[700px] h-[700px] rounded-full border border-black/[0.03] animate-orbital" />
         <div className="absolute w-[500px] h-[500px] rounded-full border border-labs/[0.06] animate-orbital-reverse" />
         {/* Accent dots on orbital */}
         <div className="absolute w-[700px] h-[700px] animate-orbital">
@@ -80,7 +80,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* Top gradient fade for navbar blending */}
-      <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-navy-dark/50 to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-white/50 to-transparent pointer-events-none z-10" />
 
       {/* Content — parallax layer 3 (foreground, moves opposite) */}
       <Container>
@@ -113,7 +113,7 @@ export function HeroSection() {
           {/* Subtitle with refined opacity */}
           <motion.p
             variants={blurFadeUp}
-            className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mt-8 leading-relaxed font-light"
+            className="text-lg md:text-xl text-[#6e6e73] max-w-2xl mx-auto mt-8 leading-relaxed font-light"
           >
             {t("subtitle")}
           </motion.p>
@@ -138,18 +138,18 @@ export function HeroSection() {
             transition={{ delay: 1.5, duration: 0.8 }}
             className="mt-20 flex flex-col items-center gap-2"
           >
-            <span className="text-[10px] uppercase tracking-[0.25em] text-white/30 font-medium">Scroll</span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#a1a1a6] font-medium">Scroll</span>
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent"
+              className="w-px h-8 bg-gradient-to-b from-black/20 to-transparent"
             />
           </motion.div>
         </motion.div>
       </Container>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-navy to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
     </section>
   );
 }

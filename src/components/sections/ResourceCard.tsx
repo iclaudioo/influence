@@ -62,10 +62,10 @@ export function ResourceCard({ resource }: Props) {
 
   return (
     <>
-      <div className="bg-navy-light border border-white/10 rounded-2xl overflow-hidden flex flex-col h-full hover:border-white/20 transition-colors">
+      <div className="bg-white border border-black/[0.06] rounded-2xl overflow-hidden flex flex-col h-full hover:border-black/[0.12] transition-colors">
         {/* Cover image */}
         {resource.cover_image_url && (
-          <div className="relative aspect-[16/10] bg-navy">
+          <div className="relative aspect-[16/10] bg-[#FAFAFA]">
             <Image
               src={resource.cover_image_url}
               alt={resource.title}
@@ -90,16 +90,16 @@ export function ResourceCard({ resource }: Props) {
           )}
 
           {/* Title & description */}
-          <h3 className="text-lg font-bold text-white mb-2">
+          <h3 className="text-lg font-bold text-[#1d1d1f] mb-2">
             {resource.title}
           </h3>
-          <p className="text-white/60 text-sm leading-relaxed flex-1">
+          <p className="text-[#6e6e73] text-sm leading-relaxed flex-1">
             {resource.description}
           </p>
 
           {/* Download count & button */}
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
-            <span className="text-xs text-white/40">
+          <div className="flex items-center justify-between mt-4 pt-4 border-t border-black/[0.06]">
+            <span className="text-xs text-[#a1a1a6]">
               {resource.download_count} {t("downloads")}
             </span>
             <Button
@@ -123,19 +123,19 @@ export function ResourceCard({ resource }: Props) {
             if (e.target === e.currentTarget) setShowModal(false);
           }}
         >
-          <div className="relative bg-navy-light border border-white/10 rounded-2xl p-8 max-w-md w-full">
+          <div className="relative bg-white border border-black/[0.06] rounded-2xl p-8 max-w-md w-full">
             {/* Close button */}
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
+              className="absolute top-4 right-4 text-[#a1a1a6] hover:text-[#1d1d1f] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="text-xl font-bold text-white mb-2">
+            <h3 className="text-xl font-bold text-[#1d1d1f] mb-2">
               {t("downloadTitle")}
             </h3>
-            <p className="text-white/60 text-sm mb-6">
+            <p className="text-[#6e6e73] text-sm mb-6">
               {t("downloadDescription")}
             </p>
 

@@ -12,10 +12,7 @@ export function BiasHero() {
 
   return (
     <section
-      className="relative min-h-[70vh] flex items-center pt-24 overflow-hidden"
-      style={{
-        background: `radial-gradient(ellipse at 30% 70%, ${ACCENT}10 0%, transparent 50%), radial-gradient(ellipse at 70% 30%, ${ACCENT}06 0%, transparent 50%), linear-gradient(180deg, var(--color-navy) 0%, var(--color-navy-dark) 100%)`,
-      }}
+      className="relative min-h-[70vh] flex items-center pt-24 overflow-hidden bg-white"
     >
       {/* Brain network SVG decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -79,7 +76,7 @@ export function BiasHero() {
       </div>
 
       {/* Top gradient for navbar blend */}
-      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-navy-dark/30 to-transparent pointer-events-none z-10" />
+      <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white/30 to-transparent pointer-events-none z-10" />
 
       <Container className="relative z-10">
         <motion.div
@@ -103,14 +100,14 @@ export function BiasHero() {
 
           <motion.h1
             variants={blurFadeUp}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] text-white leading-[1.05] mb-6"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.03em] text-[#1d1d1f] leading-[1.05] mb-6"
           >
             {t("hero.title")}
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed font-light"
+            className="text-lg md:text-xl text-[#6e6e73] max-w-2xl leading-relaxed font-light"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -118,7 +115,7 @@ export function BiasHero() {
       </Container>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-navy to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none z-10" />
     </section>
   );
 }

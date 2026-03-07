@@ -34,7 +34,7 @@ export async function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-dark text-white relative overflow-hidden">
+    <footer className="bg-navy text-white relative overflow-hidden">
       {/* Multi-color accent stripe with shimmer */}
       <div className="relative h-[2px] shimmer-line">
         <div
@@ -77,7 +77,7 @@ export async function Footer() {
 
           {/* Column 2: Services */}
           <div>
-            <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
+            <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
               {t("services")}
             </h3>
             <ul className="space-y-3">
@@ -104,7 +104,7 @@ export async function Footer() {
           {/* Column 3: Inzichten + Bedrijf */}
           <div className="space-y-10">
             <div>
-              <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
                 {t("insights")}
               </h3>
               <ul className="space-y-3">
@@ -122,7 +122,7 @@ export async function Footer() {
             </div>
 
             <div>
-              <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
                 {t("company")}
               </h3>
               <ul className="space-y-3">
@@ -145,7 +145,7 @@ export async function Footer() {
             <NewsletterSignup variant="compact" />
 
             <div>
-              <h3 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">
                 {t("connect")}
               </h3>
               <div className="flex gap-3">
@@ -154,7 +154,7 @@ export async function Footer() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+                  className="w-10 h-10 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -167,7 +167,7 @@ export async function Footer() {
                   href="https://x.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+                  className="w-10 h-10 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
                   aria-label="X"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -192,7 +192,7 @@ export async function Footer() {
               <Link
                 key={link.key}
                 href={link.href}
-                className="text-white/30 hover:text-white/60 transition-colors text-xs"
+                className="text-white/30 hover:text-white/60 transition-colors text-xs py-1"
               >
                 {t(link.key)}
               </Link>

@@ -9,6 +9,8 @@ type LeadCaptureFormProps = {
   onSuccess?: (contactId?: string) => void;
   accentColor?: string;
   className?: string;
+  darkMode?: boolean;
+  leadSource?: string;
 };
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -18,6 +20,8 @@ export function LeadCaptureForm({
   onSuccess,
   accentColor = "#d55d25",
   className = "",
+  darkMode = false,
+  leadSource,
 }: LeadCaptureFormProps) {
   const t = useTranslations("leadCapture");
   const [name, setName] = useState("");
@@ -37,7 +41,7 @@ export function LeadCaptureForm({
           name: variant !== "newsletter" ? name : "",
           email,
           gdprConsent,
-          leadSource: variant === "newsletter" ? "newsletter" : variant === "lead_magnet" ? "lead_magnet" : "assessment",
+          leadSource: leadSource ?? (variant === "newsletter" ? "newsletter" : variant === "lead_magnet" ? "lead_magnet" : "assessment"),
         }),
       });
 
@@ -58,17 +62,19 @@ export function LeadCaptureForm({
 
   if (formState === "success") {
     return (
-      <div className={`text-center py-6 ${className}`}>
-        <p className="text-white/80">{t("success")}</p>
+      <div className={`text-center py-6 ${className}`} role="status" aria-live="polite">
+        <p className={darkMode ? "text-white/70" : "text-[#6e6e73]"}>{t("success")}</p>
       </div>
     );
   }
+
+  const isSubmitting = formState === "submitting";
 
   return (
     <form onSubmit={handleSubmit} className={`space-y-4 ${className}`}>
       {variant !== "newsletter" && (
         <div>
-          <label htmlFor="lead-name" className="block text-sm text-white/60 mb-1">
+          <label htmlFor="lead-name" className={`block text-sm mb-1 ${darkMode ? "text-white/60" : "text-[#6e6e73]"}`}>
             {t("name")}
           </label>
           <input
@@ -78,13 +84,13 @@ export function LeadCaptureForm({
             onChange={(e) => setName(e.target.value)}
             placeholder={t("namePlaceholder")}
             required
-            className="w-full rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/40 focus:outline-none focus:ring-1 focus:ring-white/20 transition-colors"
+            className="w-full rounded-lg border border-black/[0.06] bg-[#FAFAFA] px-4 py-3 text-[#1d1d1f] placeholder:text-[#a1a1a6] focus:border-black/[0.12] focus:outline-none focus:ring-1 focus:ring-black/[0.06] hover:border-black/[0.12] transition-colors"
           />
         </div>
       )}
 
       <div>
-        <label htmlFor="lead-email" className="block text-sm text-white/60 mb-1">
+        <label htmlFor="lead-email" className={`block text-sm mb-1 ${darkMode ? "text-white/60" : "text-[#6e6e73]"}`}>
           {t("email")}
         </label>
         <input
@@ -94,7 +100,7 @@ export function LeadCaptureForm({
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t("emailPlaceholder")}
           required
-          className="w-full rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 focus:border-white/40 focus:outline-none focus:ring-1 focus:ring-white/20 transition-colors"
+          className="w-full rounded-lg border border-black/[0.06] bg-[#FAFAFA] px-4 py-3 text-[#1d1d1f] placeholder:text-[#a1a1a6] focus:border-black/[0.12] focus:outline-none focus:ring-1 focus:ring-black/[0.06] hover:border-black/[0.12] transition-colors"
         />
       </div>
 
@@ -105,25 +111,28 @@ export function LeadCaptureForm({
           checked={gdprConsent}
           onChange={(e) => setGdprConsent(e.target.checked)}
           required
-          className="mt-1 h-4 w-4 rounded border-white/20 bg-white/5 accent-current"
+          className="mt-1 h-4 w-4 rounded border-black/[0.06] bg-[#FAFAFA] accent-current"
           style={{ accentColor }}
         />
-        <label htmlFor="lead-gdpr" className="text-sm text-white/60 leading-snug">
+        <label htmlFor="lead-gdpr" className={`text-sm leading-snug ${darkMode ? "text-white/50" : "text-[#6e6e73]"}`}>
           {t("gdpr")}
         </label>
       </div>
 
-      {formState === "error" && (
-        <p className="text-red-400 text-sm">{t("error")}</p>
-      )}
+      <div role="status" aria-live="polite">
+        {formState === "error" && (
+          <p className={`text-sm ${darkMode ? "text-red-400" : "text-red-500"}`}>{t("error")}</p>
+        )}
+      </div>
 
       <Button
         type="submit"
         variant="primary"
         accentColor={accentColor}
-        className="w-full"
+        disabled={isSubmitting}
+        className={`w-full ${isSubmitting ? "animate-pulse" : ""}`}
       >
-        {formState === "submitting" ? t("submitting") : t("submit")}
+        {isSubmitting ? t("submitting") : t("submit")}
       </Button>
     </form>
   );

@@ -176,11 +176,11 @@ export function BiasCard({ item, featured = false }: Props) {
           <BiasIcon biasKey={item.key} color={color} />
         </div>
 
-        <h3 className={`font-bold text-white mb-2 ${featured ? "text-2xl" : "text-lg"}`}>
+        <h3 className={`font-bold text-[#1d1d1f] mb-2 ${featured ? "text-2xl" : "text-lg"}`}>
           {item.title}
         </h3>
 
-        <p className="text-white/50 text-sm leading-relaxed">{item.oneliner}</p>
+        <p className="text-[#6e6e73] text-sm leading-relaxed">{item.oneliner}</p>
 
         {/* Expanded content */}
         <AnimatePresence>
@@ -192,8 +192,8 @@ export function BiasCard({ item, featured = false }: Props) {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="pt-5 border-t border-white/10 mt-5">
-                <p className="text-white/60 text-sm leading-relaxed mb-4">
+              <div className="pt-5 border-t border-black/[0.06] mt-5">
+                <p className="text-[#6e6e73] text-sm leading-relaxed mb-4">
                   {item.description}
                 </p>
 
@@ -204,7 +204,7 @@ export function BiasCard({ item, featured = false }: Props) {
                   <p className="text-xs uppercase tracking-wider font-medium mb-2" style={{ color }}>
                     {t("card.howWeApply")}
                   </p>
-                  <p className="text-white/60 text-sm leading-relaxed">
+                  <p className="text-[#6e6e73] text-sm leading-relaxed">
                     {item.application}
                   </p>
                 </div>
@@ -238,7 +238,7 @@ export function BiasCard({ item, featured = false }: Props) {
         </AnimatePresence>
 
         {/* Expand indicator */}
-        <div className="mt-4 flex items-center gap-1.5 text-xs text-white/30">
+        <div className="mt-4 flex items-center gap-1.5 text-xs text-[#a1a1a6]">
           <motion.svg
             width="12"
             height="12"
