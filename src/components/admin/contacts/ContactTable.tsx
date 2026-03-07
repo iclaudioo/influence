@@ -13,6 +13,7 @@ interface Contact extends Record<string, unknown> {
   company: string | null;
   service: string | null;
   status: string;
+  lead_source: string | null;
   last_activity_at: string | null;
 }
 
@@ -152,6 +153,13 @@ export default function ContactTable({
       label: "Service",
       render: (_value: Contact[keyof Contact], row: Contact) => (
         <span className="text-gray-600 capitalize">{row.service ?? "—"}</span>
+      ),
+    },
+    {
+      key: "lead_source" as const,
+      label: "Source",
+      render: (_value: Contact[keyof Contact], row: Contact) => (
+        <span className="text-gray-600 capitalize">{row.lead_source ?? "\u2014"}</span>
       ),
     },
     {

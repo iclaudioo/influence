@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
       "assessment",
       "lead_magnet",
       "newsletter",
+      "homepage",
     ];
     const source = validLeadSources.includes(leadSource)
       ? leadSource
@@ -68,7 +69,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (contactError) {
-      console.error("Lead insert error:", contactError);
+      console.error("Lead insert error:", JSON.stringify(contactError));
       return NextResponse.json(
         { error: "Failed to save lead." },
         { status: 500 },
@@ -88,6 +89,33 @@ export async function POST(request: NextRequest) {
           { onConflict: "contact_id,category" },
         );
       }
+    }
+
+    // Trigger admin notification (non-blocking)
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (contact && supabaseUrl && serviceKey) {
+      // Admin notification
+      fetch(`${supabaseUrl}/functions/v1/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${serviceKey}` },
+        body: JSON.stringify({
+          type: "lead_notification",
+          contactId: contact.id,
+          data: { name, email, leadSource: source },
+        }),
+      }).catch((e) => console.error("Lead notification error:", e));
+
+      // Trigger automation flow
+      fetch(`${supabaseUrl}/functions/v1/trigger-flow`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${serviceKey}` },
+        body: JSON.stringify({
+          trigger: "contact_created",
+          contactId: contact.id,
+        }),
+      }).catch((e) => console.error("Flow trigger error:", e));
     }
 
     return NextResponse.json({ success: true, contactId: contact?.id ?? null });

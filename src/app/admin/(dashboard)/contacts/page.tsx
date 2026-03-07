@@ -27,7 +27,7 @@ export default async function ContactsPage({ searchParams }: ContactsPageProps) 
   let query = supabase
     .from("contacts")
     .select(
-      "id, name, email, company, status, last_activity_at, contact_service_interests(service)",
+      "id, name, email, company, status, lead_source, last_activity_at, contact_service_interests(service)",
       { count: "exact" }
     );
 
@@ -60,6 +60,7 @@ export default async function ContactsPage({ searchParams }: ContactsPageProps) 
       company: c.company,
       service: interests && interests.length > 0 ? interests[0].service : null,
       status: c.status,
+      lead_source: c.lead_source,
       last_activity_at: c.last_activity_at,
     };
   });

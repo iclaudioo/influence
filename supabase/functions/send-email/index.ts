@@ -155,9 +155,220 @@ function renderWelcome(
   };
 }
 
+function renderWelcomeDrip(
+  template: string,
+  name: string,
+  language: string
+): { subject: string; html: string } {
+  const isNl = language !== "en";
+  const siteUrl = Deno.env.get("SITE_URL") || "https://influencecircle.be";
+
+  switch (template) {
+    case "welcome_drip_1": {
+      const subject = isNl
+        ? "Welkom bij Influence Circle — Dit kun je verwachten"
+        : "Welcome to Influence Circle — Here's what to expect";
+      return {
+        subject,
+        html: baseLayout(
+          `<h2>${isNl ? `Welkom, ${name}!` : `Welcome, ${name}!`}</h2>
+           <p>${isNl
+             ? "Bedankt voor je interesse in Influence Circle. Wij zijn Reputation Architects — wij helpen Europese C-level leiders hun reputatie strategisch op te bouwen."
+             : "Thank you for your interest in Influence Circle. We are Reputation Architects — we help European C-level leaders strategically build their reputation."
+           }</p>
+           <p><strong>${isNl ? "Dit kun je de komende dagen verwachten:" : "Here's what to expect over the coming days:"}</strong></p>
+           <ul>
+             <li>${isNl ? "Ons Reputation Architecture Model — het denkmodel achter alles wat we doen" : "Our Reputation Architecture Model — the thinking framework behind everything we do"}</li>
+             <li>${isNl ? "Onze 4-stappen methode — van diagnose tot borging" : "Our 4-step method — from diagnosis to retention"}</li>
+             <li>${isNl ? "Een persoonlijke uitnodiging voor een vrijblijvend gesprek" : "A personal invitation for a no-obligation conversation"}</li>
+           </ul>
+           <p>${isNl
+             ? "Geen spam, enkel strategie. Elke email die je van ons ontvangt heeft een doel."
+             : "No spam, only strategy. Every email you receive from us has a purpose."
+           }</p>
+           <p>${isNl ? "Tot snel," : "Talk soon,"}<br/><strong>${isNl ? "Het Influence Circle team" : "The Influence Circle team"}</strong></p>`,
+          subject
+        ),
+      };
+    }
+
+    case "welcome_drip_2": {
+      const subject = isNl
+        ? "Het Reputation Architecture Model — Van zichtbaar naar onvermijdelijk"
+        : "The Reputation Architecture Model — From visible to inevitable";
+      return {
+        subject,
+        html: baseLayout(
+          `<h2>${isNl ? `${name}, zo bouwen wij reputaties.` : `${name}, this is how we build reputations.`}</h2>
+           <p>${isNl
+             ? "Elke reputatie doorloopt vier fasen. Wij noemen dit het Reputation Architecture Model:"
+             : "Every reputation goes through four phases. We call this the Reputation Architecture Model:"
+           }</p>
+           <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+             <tr>
+               <td style="padding:12px;background:#f8f9fa;border-left:4px solid #d55d25;">
+                 <strong>${isNl ? "1. ZICHTBAAR" : "1. VISIBLE"}</strong><br/>
+                 <span style="color:#555;">${isNl ? "Ze weten dat je bestaat" : "They know you exist"}</span>
+               </td>
+             </tr>
+             <tr>
+               <td style="padding:12px;background:#ffffff;border-left:4px solid #D7263D;">
+                 <strong>${isNl ? "2. HERKENBAAR" : "2. RECOGNISABLE"}</strong><br/>
+                 <span style="color:#555;">${isNl ? "Ze weten wie je bent" : "They know who you are"}</span>
+               </td>
+             </tr>
+             <tr>
+               <td style="padding:12px;background:#f8f9fa;border-left:4px solid #A855F7;">
+                 <strong>${isNl ? "3. VERTROUWD" : "3. TRUSTED"}</strong><br/>
+                 <span style="color:#555;">${isNl ? "Ze geloven wat je zegt" : "They believe what you say"}</span>
+               </td>
+             </tr>
+             <tr>
+               <td style="padding:12px;background:#ffffff;border-left:4px solid #E8A317;">
+                 <strong>${isNl ? "4. ONVERMIJDELIJK" : "4. INEVITABLE"}</strong><br/>
+                 <span style="color:#555;">${isNl ? "Ze kiezen jou" : "They choose you"}</span>
+               </td>
+             </tr>
+           </table>
+           <p>${isNl
+             ? "De meeste leiders stoppen bij zichtbaarheid. Wij bouwen door tot onvermijdelijkheid."
+             : "Most leaders stop at visibility. We build through to inevitability."
+           }</p>
+           <p>${isNl
+             ? "In onze volgende email laten we zien hoe onze methode dit model tot leven brengt."
+             : "In our next email, we'll show you how our method brings this model to life."
+           }</p>
+           <p>${isNl ? "Strategische groeten," : "Strategic regards,"}<br/><strong>${isNl ? "Het Influence Circle team" : "The Influence Circle team"}</strong></p>`,
+          subject
+        ),
+      };
+    }
+
+    case "welcome_drip_3": {
+      const subject = isNl
+        ? "De reis van diagnose tot borging — Onze 4-stappen methode"
+        : "From diagnosis to retention — Our 4-step method";
+      return {
+        subject,
+        html: baseLayout(
+          `<h2>${isNl ? `${name}, zo brengen wij het model tot leven.` : `${name}, this is how we bring the model to life.`}</h2>
+           <p>${isNl
+             ? "Het model vertelt je waar je naartoe moet. Onze methode brengt je er. Vier service lines, sequentieel opgebouwd:"
+             : "The model tells you where to go. Our method gets you there. Four service lines, built sequentially:"
+           }</p>
+           <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+             <tr>
+               <td style="padding:16px;background:#FFF5F0;border-left:4px solid #d55d25;margin-bottom:8px;">
+                 <strong style="color:#d55d25;">LABS — ${isNl ? "Strategie & Diagnose" : "Strategy & Diagnosis"}</strong><br/>
+                 <span style="color:#555;font-size:14px;">${isNl
+                   ? "Alles begint met een diagnose. Blue Ocean Strategy, Zero Based Thinking, Playing to Win — de strategische lens die uw concurrenten missen."
+                   : "Everything starts with a diagnosis. Blue Ocean Strategy, Zero Based Thinking, Playing to Win — the strategic lens your competitors are missing."
+                 }</span>
+               </td>
+             </tr>
+             <tr><td style="height:8px;"></td></tr>
+             <tr>
+               <td style="padding:16px;background:#FFF0F1;border-left:4px solid #D7263D;">
+                 <strong style="color:#D7263D;">CIRCLE — ${isNl ? "Netwerk & Positionering" : "Network & Positioning"}</strong><br/>
+                 <span style="color:#555;font-size:14px;">${isNl
+                   ? "Strategische positionering in de juiste netwerken. De juiste mensen kennen u, vertrouwen u en bevelen u aan."
+                   : "Strategic positioning in the right networks. The right people know you, trust you, and recommend you."
+                 }</span>
+               </td>
+             </tr>
+             <tr><td style="height:8px;"></td></tr>
+             <tr>
+               <td style="padding:16px;background:#FAF5FF;border-left:4px solid #A855F7;">
+                 <strong style="color:#A855F7;">STUDIO — ${isNl ? "Creatie & Narratief" : "Creation & Narrative"}</strong><br/>
+                 <span style="color:#555;font-size:14px;">${isNl
+                   ? "Premium content die resoneert. Van thought leadership artikelen tot visuele storytelling."
+                   : "Premium content that resonates. From thought leadership articles to visual storytelling."
+                 }</span>
+               </td>
+             </tr>
+             <tr><td style="height:8px;"></td></tr>
+             <tr>
+               <td style="padding:16px;background:#FFFBEB;border-left:4px solid #E8A317;">
+                 <strong style="color:#E8A317;">ACADEMY — ${isNl ? "Borging & Training" : "Retention & Training"}</strong><br/>
+                 <span style="color:#555;font-size:14px;">${isNl
+                   ? "Training en certificering zodat uw team uw reputatie autonoom kan versterken."
+                   : "Training and certification so your team can autonomously strengthen your reputation."
+                 }</span>
+               </td>
+             </tr>
+           </table>
+           <p>${isNl
+             ? "Morgen sturen we je een persoonlijke uitnodiging. Geen verplichtingen, enkel een gesprek."
+             : "Tomorrow we'll send you a personal invitation. No obligations, just a conversation."
+           }</p>
+           <p>${isNl ? "Met ambitie," : "With ambition,"}<br/><strong>${isNl ? "Het Influence Circle team" : "The Influence Circle team"}</strong></p>`,
+          subject
+        ),
+      };
+    }
+
+    case "welcome_drip_4": {
+      const subject = isNl
+        ? "Laten we kennismaken — Plan een vrijblijvend gesprek"
+        : "Let's get acquainted — Schedule a free consultation";
+      return {
+        subject,
+        html: baseLayout(
+          `<h2>${isNl ? `${name}, laten we kennismaken.` : `${name}, let's get acquainted.`}</h2>
+           <p>${isNl
+             ? "De afgelopen dagen heb je gezien hoe wij reputaties bouwen — van het model tot de methode. Nu is het aan jou."
+             : "Over the past few days, you've seen how we build reputations — from the model to the method. Now it's your turn."
+           }</p>
+           <p>${isNl
+             ? "We bieden een vrijblijvend strategiegesprek aan waarin we:"
+             : "We offer a no-obligation strategy session where we:"
+           }</p>
+           <ul>
+             <li>${isNl ? "Uw huidige reputatiepositie analyseren" : "Analyse your current reputation position"}</li>
+             <li>${isNl ? "De grootste kansen identificeren" : "Identify the biggest opportunities"}</li>
+             <li>${isNl ? "Een concreet eerste actieplan schetsen" : "Outline a concrete first action plan"}</li>
+           </ul>
+           <p>${isNl
+             ? "Geen verkooppraatje, geen verplichtingen. Enkel een eerlijk gesprek over waar u staat en waar u naartoe kunt."
+             : "No sales pitch, no obligations. Just an honest conversation about where you stand and where you can go."
+           }</p>
+           <p style="text-align:center"><a class="btn" href="${siteUrl}/contact">${isNl ? "Plan een gesprek" : "Schedule a call"}</a></p>
+           <p>${isNl
+             ? "Ik kijk ernaar uit."
+             : "I look forward to it."
+           }</p>
+           <p>${isNl ? "Hartelijke groeten," : "Warm regards,"}<br/><strong>Claudio Swijsen</strong><br/><span style="color:#888;">Founder, Influence Circle</span></p>`,
+          subject
+        ),
+      };
+    }
+
+    default:
+      return {
+        subject: "A message from Influence Circle",
+        html: baseLayout(`<p>Thank you for being part of Influence Circle.</p>`),
+      };
+  }
+}
+
 function renderDrip(
   data: Record<string, unknown>
 ): { subject: string; html: string } {
+  const template = data.template as string;
+  const language = (data.language as string) || "nl";
+  const name = (data.name as string) || (language === "nl" ? "daar" : "there");
+
+  // Template-based drip emails
+  if (template?.startsWith("welcome_drip_")) {
+    const rendered = renderWelcomeDrip(template, name, language);
+    // Allow flow step to override subject based on language
+    const subject = language === "en"
+      ? (data.subject_en as string) || rendered.subject
+      : (data.subject_nl as string) || rendered.subject;
+    return { subject, html: rendered.html };
+  }
+
+  // Fallback: existing raw subject/body behavior
   const subject = (data.subject as string) || "A message from Influence Circle";
   const body = (data.body as string) || "";
   const ctaText = (data.ctaText as string) || "";

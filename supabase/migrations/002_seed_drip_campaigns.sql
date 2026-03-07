@@ -251,8 +251,8 @@ INSERT INTO automation_flows (id, name, description, trigger_type, trigger_confi
 
 INSERT INTO flow_steps (id, flow_id, position, action, config) VALUES
   -- Step 1: Welcome email
-  ('g0000000-0000-0000-0000-000000000001', 'a0000000-0000-0000-0000-000000000006', 1, 'send_email',
+  ('a1000000-0000-0000-0000-000000000001', 'a0000000-0000-0000-0000-000000000006', 1, 'send_email',
    '{"template": "welcome/WelcomeEmail", "subject_nl": "Welkom bij Influence Circle", "subject_en": "Welcome to Influence Circle"}'),
 
   -- Step 2: Exit
-  ('g0000000-0000-0000-0000-000000000002', 'a0000000-0000-0000-0000-000000000006', 2, 'exit', '{}');
+  ('a1000000-0000-0000-0000-000000000002', 'a0000000-0000-0000-0000-000000000006', 2, 'exit', '{}');

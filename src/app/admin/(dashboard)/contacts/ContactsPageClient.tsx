@@ -11,6 +11,7 @@ interface Contact extends Record<string, unknown> {
   company: string | null;
   service: string | null;
   status: string;
+  lead_source: string | null;
   last_activity_at: string | null;
 }
 
